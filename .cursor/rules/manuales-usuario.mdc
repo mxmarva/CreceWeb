@@ -4,32 +4,31 @@ globs: manual/**,manual_app/**
 alwaysApply: true
 ---
 
-# Manuales en CreceWeb
+# Manuales en CreceWeb (servidor web)
 
-Este repositorio aloja los manuales publicados del club.
+## URLs públicas
 
-## Estructura
+| Manual | Ruta en el sitio | Archivo servido |
+|--------|------------------|-----------------|
+| Panel web | `/manual/` | `manual/index.html` |
+| App móvil | `/manual_app/` | `manual_app/index.html` |
 
-| Manual | Carpeta | Editar | Generado |
-|--------|---------|--------|----------|
-| Panel web (manage.crecesportclub.com, kiosco) | `manual/` | **`body.html`** | `index.html`, `css/manual.css` |
-| App móvil CreceApp | `manual_app/` | **`body.html`** | `index.html`, `css/manual.css` |
+El visitante **no** abre `source/body.html`; el servidor usa `DirectoryIndex index.html` (ver `.htaccess` en cada carpeta).
 
-- El contenido operativo va en **`body.html`** (HTML con secciones `<h2 id="...">`).
-- **`index.html`** incluye menú lateral y estilos; se regenera, no se edita en el día a día.
+## Edición
 
-## Regenerar index.html
+| Carpeta | Fuente | Generado |
+|---------|--------|----------|
+| `manual/` | `source/body.html` | `index.html`, `css/manual.css` |
+| `manual_app/` | `source/body.html` | `index.html`, `css/manual.css` |
 
-Desde el repo **Crece-Backend**:
+Regenerar tras editar la fuente:
 
 ```bash
+# Desde Crece-Backend
 python scripts/generate_user_manuals.py
 ```
 
-Opcional: variable `CRECE_WEB_ROOT=Q:\GitHub\CreceWeb` si la ruta no es la hermana por defecto.
+## Deploy
 
-## Cuándo actualizar
-
-Misma regla que en el backend: cualquier cambio visible para personal o socios (menús, flujos, QR, caja, reservas, permisos, multisucursal, etc.) debe reflejarse aquí en el mismo cambio de producto.
-
-No describir funciones que el código aún no tenga.
+Incluir en el sitio publicado: `index.html`, `css/`, `.htaccess`, y `source/body.html` (fuente, bloqueada en Apache vía rewrite). Tras deploy, probar que `/manual/` y `/manual_app/` cargan el manual completo.
