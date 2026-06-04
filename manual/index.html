@@ -38,6 +38,7 @@
 <li><a href="#comunicacion">Comunicación</a></li>
 <li><a href="#administracion">Administración</a></li>
 <li><a href="#kiosco">Kiosco de accesos</a></li>
+<li><a href="#torniquetes">Torniquetes físicos</a></li>
 <li class="nav-group">Guías</li>
 <li><a href="#flujos">Flujos paso a paso</a></li>
 <li><a href="#faq">Preguntas frecuentes</a></li>
@@ -69,7 +70,7 @@
 </div>
 
 <div class="note">
-  <strong>Importante:</strong> El kiosco de accesos <em>no</em> abre torniquetes ni controla puertas físicas. Solo registra en el sistema la hora de entrada y salida de los socios cuando escanean su código QR. Esa información alimenta la actividad del gym que el socio ve en su app.
+  <strong>Importante:</strong> El kiosco de accesos <em>no</em> abre torniquetes ni controla puertas físicas. Solo registra en el sistema la hora de entrada y salida de los socios cuando escanean su código QR. Para planear torniquetes con relé y mini PC (Orange Pi), ver <a href="#torniquetes">Torniquetes físicos e integración futura</a>.
 </div>
 
 <p>El menú lateral del panel está organizado en grupos: Recepción, Caja y ventas, Membresías y planes, Agenda y clases, Inventario y tienda, Entrenamiento, Legal y documentos, Comunicación, Administración y, colapsado por defecto, Sistema técnico (ajustes avanzados del servidor, fuera del alcance de este manual operativo).</p>
@@ -534,15 +535,15 @@
 <h4>Paso 3: Catálogo (lado izquierdo)</h4>
 <p>Cuatro pestañas superiores:</p>
 <ul>
-  <li><strong>Membresías</strong> — Planes de acceso recurrente con precio vigente.</li>
-  <li><strong>Inscripciones</strong> — Cuota única de alta (no otorga acceso por sí sola).</li>
-  <li><strong>Paquetes de visita</strong> — Paquetes de entradas limitadas.</li>
+  <li><strong>Membresías</strong> — Primero eliges el plan (GYM FITNESS, Infantil, etc.); luego las periodicidades (mes, trimestre, semestre, año…) con su precio. Botón <strong>← Volver a planes</strong> para cambiar de plan.</li>
+  <li><strong>Inscripciones</strong> — Cuota única de alta (pocos conceptos, lista directa).</li>
+  <li><strong>Paquetes de visita</strong> — Igual que membresías: primero el tipo de paquete, luego la variante (visitas y vigencia).</li>
   <li><strong>Tienda</strong> — Productos físicos con inventario.</li>
 </ul>
-<p>Toca una tarjeta de concepto para agregarla al carrito. La tarjeta muestra nombre, subtítulo (ej. periodicidad) y precio. Tras agregar, aparece etiqueta «Agregado» brevemente.</p>
+<p>Toca una tarjeta para agregar al carrito. Tras agregar, aparece la etiqueta «Agregado» brevemente.</p>
 
 <div class="note">
-  Si no hay conceptos en una categoría, revisa <strong>Membresías y planes → Precios de planes</strong> o contacta al coordinador para cargar el catálogo comercial.
+  Si no hay conceptos en una categoría, revisa <strong>Membresías y planes → Planes comerciales</strong> (precios y periodicidades en cada plan) o contacta al coordinador.
 </div>
 
 <h4>Paso 4: Carrito (lado derecho)</h4>
@@ -587,34 +588,28 @@
 
 <h2 id="membresia">Membresías y planes</h2>
 
-<p>El catálogo comercial está repartido en dos grupos de menú relacionados: <strong>Membresía y cobros</strong> y <strong>Membresías y planes</strong>.</p>
+<p>El catálogo comercial se administra en <strong>Membresías y planes → Planes comerciales</strong>. Cada plan (GYM FITNESS, Infantil, Club 2, etc.) agrupa sus precios y periodicidades en una sola pantalla.</p>
 
 <h3>Planes comerciales</h3>
-<p>Ruta: <strong>Membresía y cobros → Planes</strong> (o equivalente «Planes comerciales»)</p>
-<p>Campos al crear/editar:</p>
+<p>Ruta: <strong>Membresías y planes → Planes comerciales</strong></p>
+<p>Listado de planes con columna <strong>Precios</strong> (cuántas variantes tiene). Pulsa <strong>Gestionar precios</strong> en un plan para abrir su ficha.</p>
+<p>Datos del plan (parte superior):</p>
 <ul>
   <li><strong>Código</strong> — Identificador interno corto.</li>
-  <li><strong>Nombre</strong> — Nombre comercial visible en POS y reportes.</li>
+  <li><strong>Nombre</strong> — Visible en POS (paso 1: elegir plan) y reportes.</li>
   <li><strong>Tipo</strong> — Membresía, Paquete de visitas, Inscripción, etc.</li>
   <li><strong>Estado</strong> — Activo o inactivo.</li>
 </ul>
-
-<h3>Precios de planes</h3>
-<p>Ruta: <strong>Membresías y planes → Precios de planes</strong></p>
-<p>Campos comunes:</p>
+<p>Tabla <strong>Precios y periodicidades</strong> (misma pantalla, debajo):</p>
 <ul>
-  <li>Plan (selector)</li>
-  <li>Moneda (MXN por defecto)</li>
-  <li>Precio</li>
-  <li>Vigente desde / Vigente hasta (hasta es opcional)</li>
-</ul>
-<p>Secciones según tipo de plan:</p>
-<ul>
-  <li><strong>Membresía</strong> — Periodicidad (mensual, anual, etc.); el sistema calcula la duración de la vigencia.</li>
-  <li><strong>Paquete de visitas</strong> — Visitas incluidas (1, 5, 10 o personalizado), Vigencia del paquete (30, 60 o 90 días).</li>
+  <li><strong>Agregar periodicidad</strong> — Crea otra fila para el mismo plan (mes, trimestre, 6 visitas, etc.) sin repetir el plan en menús sueltos.</li>
+  <li>Campos: moneda, precio, vigente desde / hasta (hasta opcional).</li>
+  <li><strong>Membresía</strong> — Periodicidad (mes, trimestre, año…) o <strong>Duración personalizada</strong> en meses (helper en pantalla: paso 0.5, máx. 120; ej. 5 o 3.5).</li>
+  <li><strong>Paquete de visitas</strong> — Visitas incluidas y vigencia del paquete (30, 60 o 90 días).</li>
   <li><strong>Inscripción</strong> — Cuota única; no otorga acceso al gym por sí sola.</li>
+  <li><strong>Editar</strong> / <strong>Eliminar</strong> por fila. No se borran precios ya usados en ventas o contratos; en ese caso pon <strong>Vigente hasta</strong> en el pasado para ocultarlos en caja.</li>
 </ul>
-<p>Acciones por fila: <strong>Editar</strong> y <strong>Eliminar</strong> (requiere permiso de escritura de planes). Puedes eliminar precios creados por error que <strong>nunca</strong> se cobraron; si ya hubo ventas, contratos o paquetes con ese precio, el sistema no lo borra — en ese caso edita y pon <strong>Vigente hasta</strong> en el pasado para que deje de salir en el punto de venta. También puedes seleccionar varias filas y usar eliminación masiva.</p>
+<p>Al crear un plan nuevo, el sistema te lleva directo a esta pantalla para cargar sus precios.</p>
 
 <h3>Contratos y vigencias</h3>
 <p>Ruta: <strong>Membresía y cobros → Contratos y vigencias</strong></p>
@@ -882,6 +877,78 @@
 </ul>
 <p>No es necesario que el socio muestre primero el pase general y después el de reserva: con reserva activa, <strong>uno solo</strong> al llegar.</p>
 
+<h2 id="torniquetes">Torniquetes físicos e integración futura</h2>
+
+<p>Esta sección es para coordinación, administración y quien evalúe instalar control de acceso con torniquete en la entrada. Resume cómo funciona Crece hoy y qué se necesita para conectar hardware en el futuro.</p>
+
+<h3>Qué hace Crece hoy (sin torniquete)</h3>
+<ul>
+  <li>El sistema <strong>valida</strong> al socio (membresía vigente, reserva, etc.) cuando se escanea su QR en recepción o en el kiosco <strong>/acceso</strong>.</li>
+  <li>Queda <strong>registrada</strong> la hora de entrada y salida en el historial de check-ins.</li>
+  <li>Crece <strong>no envía señal</strong> hoy a torniquetes, chapas magnéticas, barreras ni cerraduras. Si hay torniquete en la entrada, hoy se opera <strong>aparte</strong> del software (personal, botón, otro controlador).</li>
+</ul>
+
+<h3>Integración futura (concepto)</h3>
+<p>Para que el paso se abra solo cuando el acceso es válido, hace falta un <strong>puente local</strong> en la sucursal:</p>
+<ol class="steps">
+  <li>El socio escanea QR (kiosco, lector USB o recepción).</li>
+  <li>Crece responde «acceso permitido» o «rechazado» (API en la nube).</li>
+  <li>Un equipo en la entrada (mini PC) recibe esa respuesta y activa un <strong>relé</strong> conectado al torniquete.</li>
+  <li>El torniquete libera un paso (o marca entrada/salida según su lógica).</li>
+</ol>
+<p>La integración depende del <strong>modelo exacto</strong> del torniquete y de si expone entradas/salidas (relé, contacto seco, RS485, Wiegand, etc.). No hay un conector universal: cada marca se cotiza y prueba.</p>
+
+<h3>Equipo recomendado en la entrada (referencia)</h3>
+<ul>
+  <li><strong>Mini computadora tipo Orange Pi</strong> (u otra placa similar de bajo costo), con Linux, alimentación estable y red cableada o Wi‑Fi confiable junto al torniquete.</li>
+  <li>Funciona como <strong>puente</strong>: escucha a Crece (o al kiosco local) y dispara el relé; no requiere un servidor de escritorio completo en recepción.</li>
+  <li><strong>Lector de QR USB</strong> (modo teclado) y/o tablet con kiosco web, como ya se usa sin torniquete.</li>
+  <li><strong>Módulo de relés</strong> (1 o 2 canales) compatible con la señal que pida el torniquete; cableado por electricista o integrador.</li>
+  <li><strong>UPS o regulador</strong> si hay cortes de luz frecuentes (evita que quede el torniquete trabado o el puente offline).</li>
+</ul>
+<div class="note">
+  Se busca costo razonable en hardware de puente (p. ej. placas tipo Orange Pi). No es obligatorio un PC de escritorio ni equipos de gama alta en cada entrada.
+</div>
+
+<h3>Información que el club debe reunir antes de cotizar</h3>
+<p>Entregar al proveedor del software y al integrador de acceso físico la mayor cantidad posible de estos datos:</p>
+<table>
+  <thead>
+    <tr><th>Tema</th><th>Qué documentar</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Marca y modelo</td><td>Fabricante, modelo exacto y año de cada torniquete (foto de placa y manual si existe).</td></tr>
+    <tr><td>Tipo de control</td><td>¿Se abre con <strong>relé</strong>, contacto seco, tarjeta, huella, o controlador propietario? ¿Entrada y salida en el mismo torniquete o torniquetes separados?</td></tr>
+    <tr><td>Señales eléctricas</td><td>Voltaje del relé (12 V / 24 V), si comparte tierra con el controlador, diagrama de cableado del instalador original.</td></tr>
+    <tr><td>Comportamiento</td><td>¿Un pulso abre un paso? ¿Cuántos segundos permanece abierto? ¿Anti‑rebote o doble paso?</td></tr>
+    <tr><td>Sentido de flujo</td><td>¿Cómo se distingue entrada vs salida en hardware (dos torniquetes, lector en cada lado, botón de salida)?</td></tr>
+    <tr><td>Sucursales</td><td>Cuántas entradas (Padierna, Huipulco, etc.) y si cada una lleva su propio puente y relé.</td></tr>
+    <tr><td>Red</td><td>IP fija o DHCP, firewall del club, si el puente puede llamar a internet (HTTPS hacia manage.crecesportclub.com).</td></tr>
+    <tr><td>Operación actual</td><td>¿Hoy el personal abre manualmente? ¿Hay botón de emergencia o modo libre en horario pico?</td></tr>
+    <tr><td>Objetivo</td><td>Solo socios con QR válido, ¿también visitas/paquetes?, ¿registrar salida obligatoria al salir?</td></tr>
+  </tbody>
+</table>
+
+<h3>Escenarios habituales con relé</h3>
+<ul>
+  <li><strong>Torniquete con entrada «dry contact» o relé</strong> — Es el caso más sencillo de integrar: el puente cierra el contacto unos segundos cuando Crece autoriza el acceso.</li>
+  <li><strong>Controlador cerrado (solo software del fabricante)</strong> — Puede requerir licencia, SDK o no ser integrable; conviene confirmarlo antes de comprar.</li>
+  <li><strong>Doble torniquete (entrada / salida)</strong> — Suele necesitarse dos relés o lógica en el puente según si el último evento del socio fue entrada o salida.</li>
+</ul>
+
+<h3>Qué no cubre solo el software Crece</h3>
+<ul>
+  <li>Compra e instalación física del torniquete, obra civil, electricidad y permisos.</li>
+  <li>Mantenimiento mecánico del brazo, sensores ópticos internos del fabricante.</li>
+  <li>Modo «incendio» o liberación de emergencia (debe seguir existiendo en el hardware según normativa local).</li>
+</ul>
+
+<div class="warning">
+  Hasta que exista un proyecto de integración aprobado, operen el kiosco y recepción como registro oficial de tiempo en club, y el torniquete (si lo hay) con su procedimiento actual. No asuman que el panel «abre la puerta» por sí solo.
+</div>
+
+<p>Para iniciar un proyecto de integración, coordinación debe contactar al soporte del proveedor del software con la tabla anterior completa y fotos del equipo instalado.</p>
+
 <h2 id="flujos">Flujos paso a paso</h2>
 
 <h3>Alta de un socio nuevo</h3>
@@ -967,7 +1034,7 @@
 <p><strong>No.</strong> En la app hay pantallas distintas (acceso general, reserva de clase, reserva de equipo), pero al llegar con reserva basta <strong>un escaneo</strong> del QR correspondiente. Recepción o kiosco registran la reserva y la entrada al club en el mismo paso cuando aplica. El pase general se usa sobre todo sin reserva o para la <strong>salida</strong> del club.</p>
 
 <h3>¿El kiosco abre la puerta?</h3>
-<p>No. Solo registra entrada y salida en el sistema. Los torniquetes o accesos físicos, si existen, son independientes.</p>
+<p>No. Solo registra entrada y salida en el sistema. Los torniquetes, si existen, hoy son independientes. Para requisitos de integración futura (Orange Pi, relé, datos del fabricante), ver la sección <a href="#torniquetes">Torniquetes físicos e integración futura</a>.</p>
 
 <h3>No veo el menú de Facturación o Push</h3>
 <p>Tu rol no incluye esas funciones. Recepción no timbra facturas ni envía campañas. Pide a un coordinador.</p>
@@ -1031,7 +1098,8 @@
     <tr><td>Membresía y cobros</td><td>Planes</td><td>Catálogo de productos comerciales (membresía, visitas, inscripción).</td></tr>
     <tr><td>Membresía y cobros</td><td>Contratos y vigencias</td><td>Membresías activas; registrar pago fuera de POS.</td></tr>
     <tr><td>Membresías y planes</td><td>Paquetes de visitas</td><td>Monederos de visitas por socio.</td></tr>
-    <tr><td>Membresías y planes</td><td>Precios de planes</td><td>Precios vigentes, periodicidad y vigencia de paquetes.</td></tr>
+    <tr><td>Membresías y planes</td><td>Planes comerciales</td><td>Plan + tabla de precios/periodicidades en una pantalla.</td></tr>
+    <tr><td>Manual (web)</td><td><a href="#torniquetes">Torniquetes físicos</a></td><td>Qué hace Crece hoy, puente con relé, Orange Pi y datos que el club debe dar al integrador.</td></tr>
     <tr><td>Agenda y clases</td><td>Horarios de clase</td><td>Calendario de sesiones con cupo.</td></tr>
     <tr><td>Agenda y clases</td><td>Clases</td><td>Tipos de clase (Spinning, Funcional, etc.).</td></tr>
     <tr><td>Agenda y clases</td><td>Reservas de clases</td><td>Reservas confirmadas; reservar o cancelar.</td></tr>
