@@ -1,0 +1,35 @@
+---
+description: Manuales de usuario — edición y publicación en este repo
+globs: manual/**,manual_app/**
+alwaysApply: true
+---
+
+# Manuales en CreceWeb
+
+Este repositorio aloja los manuales publicados del club.
+
+## Estructura
+
+| Manual | Carpeta | Editar | Generado |
+|--------|---------|--------|----------|
+| Panel web (manage.crecesportclub.com, kiosco) | `manual/` | **`body.html`** | `index.html`, `css/manual.css` |
+| App móvil CreceApp | `manual_app/` | **`body.html`** | `index.html`, `css/manual.css` |
+
+- El contenido operativo va en **`body.html`** (HTML con secciones `<h2 id="...">`).
+- **`index.html`** incluye menú lateral y estilos; se regenera, no se edita en el día a día.
+
+## Regenerar index.html
+
+Desde el repo **Crece-Backend**:
+
+```bash
+python scripts/generate_user_manuals.py
+```
+
+Opcional: variable `CRECE_WEB_ROOT=Q:\GitHub\CreceWeb` si la ruta no es la hermana por defecto.
+
+## Cuándo actualizar
+
+Misma regla que en el backend: cualquier cambio visible para personal o socios (menús, flujos, QR, caja, reservas, permisos, multisucursal, etc.) debe reflejarse aquí en el mismo cambio de producto.
+
+No describir funciones que el código aún no tenga.

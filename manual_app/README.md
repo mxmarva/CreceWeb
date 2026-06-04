@@ -1,16 +1,22 @@
 # Manual de usuario — App móvil (CreceApp)
 
-Documentación para socios, entrenadores y personal con app instalada.
+Documentación para socios, recepción, entrenadores y personal que usa **CreceApp**.
 
-## Cómo leerlo
+## Editar contenido
 
-1. Abre **`index.html`** en tu navegador (junto con la carpeta `css/`).
-2. Menú lateral fijo, buscador de secciones y botón **↑** para volver arriba.
-3. En móvil: **☰ Menú** para abrir la navegación.
-3. La copia de desarrollo de la app está en `Q:\GitHub\CreceApp`; este manual vive en el repo del backend para distribuirlo junto con la operación del club.
-
-## Regenerar (opcional)
+1. Modifica **`body.html`** en esta carpeta.
+2. Regenera desde **Crece-Backend**:
 
 ```bash
 python scripts/generate_user_manuals.py
 ```
+
+Eso actualiza **`index.html`** en esta carpeta.
+
+## Cómo leerlo
+
+Abre **`index.html`** en el navegador. Misma navegación que el manual del panel (menú lateral y buscador).
+
+## Publicación
+
+Incluye los cambios en el commit del repo **CreceWeb** junto con el manual del panel si aplica.

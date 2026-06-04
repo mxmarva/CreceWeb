@@ -2,18 +2,24 @@
 
 Documentación para el personal del club (panel **manage.crecesportclub.com** y kiosco **/acceso**).
 
-## Cómo leerlo
+## Editar contenido
 
-1. Abre **`index.html`** en tu navegador (doble clic o arrastrar al Chrome/Edge). Debe estar en la misma carpeta que `css/manual.css`.
-2. Usa el **menú lateral azul** (fijo a la izquierda) para saltar a cada sección; la sección activa se resalta en naranja al hacer scroll.
-3. Usa el **buscador** del menú para filtrar temas por nombre.
-4. En celular, pulsa **☰ Menú** para abrir la navegación.
-5. No requiere internet salvo enlaces externos (myimageen, etc.).
-
-## Regenerar (opcional)
-
-Si se actualiza el sistema y se editan las plantillas en `scripts/`:
+1. Modifica **`body.html`** en esta carpeta (secciones con anclas `#intro`, `#caja`, etc.).
+2. Regenera el manual completo desde **Crece-Backend**:
 
 ```bash
 python scripts/generate_user_manuals.py
 ```
+
+Eso actualiza **`index.html`** y copia estilos a `manual_app` si aplica.
+
+## Cómo leerlo
+
+1. Abre **`index.html`** en el navegador (misma carpeta que `css/manual.css`).
+2. Usa el menú lateral para saltar de sección.
+3. Usa el buscador del menú para filtrar temas.
+4. En celular, **☰ Menú** abre la navegación.
+
+## Publicación
+
+Este repo (CreceWeb) suele publicarse en GitHub Pages u hosting del sitio del club. Haz commit de `body.html` e `index.html` tras regenerar.
