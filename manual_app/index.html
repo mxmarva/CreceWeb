@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual de usuario — App móvil</title>
+  <link rel="stylesheet" href="css/manual.css">
+</head>
+<body>
+<button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰ Menú</button>
+<div class="layout">
+<nav class="sidebar">
+  <div class="sidebar-brand">
+    <h1>Manual de usuario — App móvil</h1>
+    <p class="subtitle">Crece Sport Club · CreceApp</p>
+  </div>
+  <div class="nav-search-wrap">
+    <input type="search" class="nav-search" id="nav-search" placeholder="Buscar en el manual…" autocomplete="off">
+  </div>
+  <div class="nav-scroll">
+  
+<ul>
+<li class="nav-group">General</li>
+<li><a href="#intro">Introducción</a></li>
+<li><a href="#instalacion">Instalación y acceso</a></li>
+<li><a href="#perfiles">Perfiles en la app</a></li>
+<li><a href="#navegacion">Navegación</a></li>
+<li><a href="#permisos-app">Qué puede cada perfil</a></li>
+<li class="nav-group">Funciones</li>
+<li><a href="#auth">Cuenta y sesión</a></li>
+<li><a href="#socio-home">Socio: inicio y día a día</a></li>
+<li><a href="#reservas">Clases y reservas</a></li>
+<li><a href="#equipos">Equipos del gym</a></li>
+<li><a href="#qr-tipos">Códigos QR (uno basta)</a></li>
+<li><a href="#acceso-app">Acceso y actividad</a></li>
+<li><a href="#rutinas">Rutinas y entrenadores</a></li>
+<li><a href="#videos">Biblioteca de videos</a></li>
+<li><a href="#legal-app">Documentos legales</a></li>
+<li><a href="#notificaciones">Notificaciones</a></li>
+<li><a href="#perfil">Perfil y ajustes</a></li>
+<li><a href="#admin-app">Personal: consulta administrativa</a></li>
+<li><a href="#entrenador-app">Entrenador</a></li>
+<li class="nav-group">Conexión</li>
+<li><a href="#web-app">Cómo se alimenta desde la web</a></li>
+<li><a href="#faq-app">Preguntas frecuentes</a></li>
+</ul>
+
+  </div>
+</nav>
+<main class="content">
+  <header class="content-header">
+    <p class="eyebrow">Manual de usuario</p>
+    <h2 class="page-title">Manual de usuario — App móvil</h2>
+  </header>
+  <div class="content-inner">
+<h2 id="intro">Introducción a CreceApp</h2>
+
+<p class="lead">CreceApp es la aplicación móvil oficial de Crece Sport Club. Te permite reservar clases y equipos, mostrar tu acceso al club, consultar rutinas de entrenamiento, ver videos del club y recibir avisos importantes, todo desde tu teléfono conectado al sistema del club en <strong>manage.crecesportclub.com</strong>.</p>
+
+<p>Crece Sport Club opera como un solo club con acceso a las sedes de Padierna y Huipulco (Sport Club y Sport Fight). Tu número de socio siempre tiene el formato <strong>CRC-######</strong> (seis dígitos) y no cambia según la sede a la que vayas.</p>
+
+<p>La app está pensada para tres experiencias principales según tu rol en el club:</p>
+<ul>
+  <li><strong>Socio:</strong> reservas, acceso con código QR, rutinas, videos y tu perfil de membresía.</li>
+  <li><strong>Personal administrativo</strong> (administrador, coordinador, recepción): consulta de operación del club en modo solo lectura, con la excepción del escaneo de accesos en recepción.</li>
+  <li><strong>Entrenador:</strong> panel de rutinas, asignaciones a socios, seguimiento de avances y consulta de clases.</li>
+</ul>
+
+<div class="note">
+  <strong>Importante:</strong> La app complementa al panel web de gestión. Muchas tareas de administración (abrir caja, registrar ventas, crear usuarios, publicar documentos legales, configurar horarios) se realizan en el navegador en <strong>manage.crecesportclub.com</strong>. En la app encontrarás lo que necesitas para operar en el día a día desde el teléfono o desde el mostrador de recepción.
+</div>
+
+<p>Al abrir CreceApp por primera vez verás la pantalla de inicio de sesión. Una vez dentro, la barra inferior te guía entre las cinco secciones principales de tu perfil. El contenido de la pantalla de inicio y las pestañas cambia automáticamente según el tipo de cuenta que tengas asignada.</p>
+
+<h2 id="instalacion">Instalación, acceso y primera vez</h2>
+
+<h3>Dónde descargar la app</h3>
+
+<p>CreceApp está disponible para teléfonos <strong>Android</strong> e <strong>iPhone (iOS)</strong>. Descárgala desde la tienda oficial de tu dispositivo buscando <strong>Crece Sport Club</strong> o <strong>CreceApp</strong>. Si el club te comparte un enlace directo de instalación, úsalo para asegurarte de obtener la versión correcta.</p>
+
+<div class="tip">
+  <strong>Consejo:</strong> Mantén la app actualizada. Las versiones nuevas incluyen mejoras de seguridad, correcciones y compatibilidad con cambios del club.
+</div>
+
+<h3>Requisitos básicos</h3>
+
+<ul>
+  <li>Conexión a internet (Wi‑Fi o datos móviles) para iniciar sesión, reservar y sincronizar datos.</li>
+  <li>Correo electrónico o teléfono celular de 10 dígitos registrado en el club.</li>
+  <li>Para socios: completar el registro de salud y firmar los documentos legales antes de reservar clases (ver sección de onboarding).</li>
+  <li>Para escaneo de accesos (personal de recepción): permiso de cámara en el teléfono.</li>
+</ul>
+
+<h3>Instalación paso a paso en tu teléfono</h3>
+
+<ol class="steps">
+  <li>Abre la tienda de aplicaciones de tu dispositivo (Google Play en Android o App Store en iPhone).</li>
+  <li>Busca <strong>Crece Sport Club</strong> o usa el enlace que te compartió recepción.</li>
+  <li>Toca <strong>Instalar</strong> o <strong>Obtener</strong> y espera a que termine la descarga.</li>
+  <li>La primera vez, el sistema puede pedirte permiso para <strong>notificaciones</strong> (recomendado: aceptar para recibir avisos del club) y, si eres personal de recepción que escaneará códigos, permiso de <strong>cámara</strong>.</li>
+  <li>Abre CreceApp desde el icono en tu pantalla de inicio.</li>
+  <li>Si ya tienes cuenta, inicia sesión. Si eres nuevo socio, elige <strong>Crear cuenta</strong> y sigue el flujo de verificación.</li>
+</ol>
+
+<p>En iPhone, si no ves la app, confirma que tu región de la tienda permite descargarla o consulta con recepción. En Android, activa la instalación desde fuentes confiables solo si el club te entrega un archivo oficial; lo habitual es instalar siempre desde la tienda.</p>
+
+<h3>Primera apertura: pantalla de inicio de sesión</h3>
+
+<p>Al abrir la app verás el logo de Crece Sport Club y el subtítulo <em>«Ingresa con tu correo o teléfono para continuar.»</em> Los elementos disponibles son:</p>
+
+<table>
+  <thead>
+    <tr><th>Elemento</th><th>Qué hace</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Campo <strong>Correo o teléfono</strong></td><td>Escribe el mismo correo o número de 10 dígitos con el que te registraste o que el club te asignó.</td></tr>
+    <tr><td>Campo <strong>Contraseña</strong></td><td>Tu contraseña personal. Toca el icono del ojo para mostrar u ocultar los caracteres.</td></tr>
+    <tr><td>Enlace <strong>¿Olvidaste tu contraseña?</strong></td><td>Abre el flujo para recuperar acceso con un código por correo.</td></tr>
+    <tr><td>Botón principal <strong>Entrar</strong></td><td>Valida tus datos e inicia sesión. Mientras procesa, muestra un indicador de carga.</td></tr>
+    <tr><td>Enlace <strong>Tengo un código de verificación</strong></td><td>Te lleva a verificar tu cuenta si aún no confirmaste el registro. Si ya escribiste correo o teléfono arriba, lo reutiliza.</td></tr>
+    <tr><td>Enlace <strong>Crear cuenta</strong></td><td>Abre el formulario de registro para nuevos socios.</td></tr>
+  </tbody>
+</table>
+
+<p>Si tu cuenta aún no está verificada, al intentar entrar verás un aviso y serás enviado automáticamente a la pantalla de verificación.</p>
+
+<h3>Crear cuenta (registro)</h3>
+
+<p>Pantalla titulada <strong>Crear cuenta</strong>, subtítulo <em>«Regístrate para acceder como socio.»</em> Botón atrás arriba a la izquierda para volver al inicio de sesión.</p>
+
+<ol class="steps">
+  <li><strong>Nombre completo</strong> — Tu nombre como quieres que aparezca en la app.</li>
+  <li><strong>Correo electrónico</strong> — Debe ser válido; ahí llegará el código de verificación.</li>
+  <li><strong>Teléfono (10 dígitos)</strong> — Sin código de país; ejemplo: 5512345678.</li>
+  <li><strong>Contraseña</strong> — Mínimo 8 caracteres. Puedes mostrar u ocultar con el icono del ojo.</li>
+  <li><strong>Confirmar contraseña</strong> — Debe coincidir exactamente con la anterior.</li>
+  <li>Toca <strong>Registrarme</strong>. Si todo es correcto, verás un mensaje indicando que te enviamos un código por correo y pasarás a verificación.</li>
+</ol>
+
+<p>Al pie aparece el texto legal sobre términos y aviso de privacidad, y el enlace <strong>Ya tengo cuenta</strong> para volver al inicio de sesión.</p>
+
+<h3>Verificar tu cuenta</h3>
+
+<p>Pantalla <strong>Verifica tu cuenta</strong>. Si llegaste desde el registro, el correo o teléfono ya aparece en el subtítulo (<em>«Enviamos un código a…»</em>).</p>
+
+<ul>
+  <li><strong>Campo de código de verificación</strong> — Ingresa el código que recibiste por correo (también puedes pegarlo).</li>
+  <li><strong>Verificar cuenta</strong> — Confirma el código. Si es correcto, verás «Cuenta verificada. ¡Bienvenido!» y entrarás al inicio, o un mensaje para iniciar sesión manualmente.</li>
+  <li><strong>Reenviar código</strong> — Solicita un nuevo código. Tras usarlo queda bloqueado unos 60 segundos (verás la cuenta regresiva).</li>
+  <li><strong>Volver al inicio de sesión</strong> — Enlace al pie.</li>
+</ul>
+
+<div class="warning">
+  <strong>Si no recibes el código:</strong> Revisa la carpeta de spam, confirma que el correo esté bien escrito y espera el tiempo del contador antes de reenviar. Si el problema continúa, contacta a recepción del club.
+</div>
+
+<h3>Recuperar contraseña</h3>
+
+<p><strong>Paso 1 — Recuperar contraseña:</strong> Ingresa tu correo o teléfono y toca <strong>Enviar código</strong>. Verás un mensaje genérico de seguridad («Si la cuenta existe, te enviamos un código…») y pasarás al paso 2.</p>
+
+<p><strong>Paso 2 — Nueva contraseña:</strong> Completa correo o teléfono, el <strong>código recibido</strong>, la <strong>nueva contraseña</strong> (mínimo 8 caracteres) y <strong>confirmar contraseña</strong>. Toca <strong>Actualizar contraseña</strong>. Al terminar, regresarás al inicio de sesión con un mensaje de éxito.</p>
+
+<h3>Después de iniciar sesión</h3>
+
+<p>La app registra tu dispositivo para recibir notificaciones push (avisos del club). Si eres socio y aún no completaste el registro de salud y documentos legales, serás guiado automáticamente a <strong>Completar registro</strong> antes de usar reservas. Si ya estás al día, llegarás a tu pantalla de inicio según tu perfil.</p>
+
+<h2 id="perfiles">Perfiles en la app</h2>
+
+<p>El club asigna roles que determinan qué ves al entrar. La app recibe esta información al iniciar sesión y muestra la experiencia correspondiente.</p>
+
+<table>
+  <thead>
+    <tr><th>Perfil</th><th>Pantalla de inicio en la app</th><th>Quién lo usa</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="badge badge-app">Socio</span></td>
+      <td>Experiencia de miembro: reservas, QR, rutinas, videos</td>
+      <td>Personas con membresía o registro como socio del club</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">Administración</span></td>
+      <td>Resumen operativo del club y consultas administrativas</td>
+      <td>Administrador, coordinador y recepción</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">Entrenamiento</span></td>
+      <td>Panel del entrenador con rutinas y seguimiento</td>
+      <td>Entrenadores del club</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <strong>Coordinador y recepción:</strong> Aunque en el panel web tienen menús distintos, en CreceApp ambos ven la misma pantalla de inicio que el administrador (<em>Administración</em>), con métricas del club y acceso a consultas en modo solo lectura.
+</div>
+
+<p>En tu perfil (pestaña <strong>Perfil</strong>) verás una etiqueta con tu rol principal: <em>Socio</em>, <em>Administración</em> o <em>Entrenador</em>, además del estado de tu cuenta (Activa, Pendiente de verificación, etc.).</p>
+
+<p>Una misma persona puede tener perfil de socio y además rol de entrenador o personal; en ese caso la app prioriza la pantalla de administración o entrenador según lo configurado en el club, no la de socio.</p>
+
+<h2 id="navegacion">Navegación: barra inferior con cinco pestañas</h2>
+
+<p>Toda la app gira alrededor de una barra inferior fija con <strong>cinco pestañas</strong>. El icono resaltado indica dónde estás. Tocar otra pestaña cambia de sección sin cerrar sesión.</p>
+
+<h3>Pestañas para socios</h3>
+
+<table>
+  <thead>
+    <tr><th>Pestaña</th><th>Contenido principal</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Mi día</strong></td>
+      <td>Pantalla de inicio del socio: saludo, campana de notificaciones, tarjeta de membresía, accesos rápidos a QR, actividad, reservas de clases y equipos, rutinas, videos y lista de próximas reservas.</td>
+    </tr>
+    <tr>
+      <td><strong>Clases</strong></td>
+      <td>Listado de horarios disponibles para reservar. Icono de calendario arriba a la derecha abre <em>Mis reservas</em>.</td>
+    </tr>
+    <tr>
+      <td><strong>Rutinas</strong></td>
+      <td>Dos subpestañas: <em>Mis rutinas</em> (asignadas por tu entrenador) y <em>Biblioteca</em> (rutinas generales). Icono de entrenadores arriba a la derecha.</td>
+    </tr>
+    <tr>
+      <td><strong>Videos</strong></td>
+      <td>Biblioteca multimedia: videos, PDFs e imágenes publicados para socios.</td>
+    </tr>
+    <tr>
+      <td><strong>Perfil</strong></td>
+      <td>Tu foto inicial, nombre, correo, membresía, accesos a ajustes, QR, reservas, cerrar sesión.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Pestañas para administrador, coordinador y recepción</h3>
+
+<table>
+  <thead>
+    <tr><th>Pestaña</th><th>Etiqueta visible</th><th>Contenido principal</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>Administración</strong> (o la etiqueta que envíe el servidor)</td>
+      <td>Resumen del club con métricas: usuarios, socios con vigencia, reservas, ventas, check-ins del día, rutinas, contenidos multimedia. Aviso de modo consulta. Accesos rápidos a consulta operativa y resumen del periodo.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Consulta</strong></td>
+      <td>Menú de consulta administrativa: resumen operativo, sesiones de caja, ventas, check-ins, escanear acceso, membresías, inventario, catálogo de clases.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Reporte</strong></td>
+      <td>Resumen operativo con filtro de periodo (hoy, semana, mes, rango personalizado). Métricas de ventas, pagos, caja y accesos según permisos.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>Ventas</strong></td>
+      <td>Listado de ventas registradas (solo consulta). Toca una venta para ver detalle.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>Perfil</strong></td>
+      <td>Datos de cuenta, panel de trabajo, ajustes, cerrar sesión.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Pestañas para entrenadores</h3>
+
+<table>
+  <thead>
+    <tr><th>Pestaña</th><th>Contenido principal</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Entrenamiento</strong></td>
+      <td>Resumen de tu actividad: rutinas creadas, asignaciones vigentes, socios con rutina tuya, avances de la semana.</td>
+    </tr>
+    <tr>
+      <td><strong>Panel</strong></td>
+      <td>Accesos a mis rutinas, asignar rutina, progreso de socios, clases y horarios.</td>
+    </tr>
+    <tr>
+      <td><strong>Rutinas</strong></td>
+      <td>Gestión de rutinas: listado, botón flotante <strong>+</strong> para crear, editar o eliminar.</td>
+    </tr>
+    <tr>
+      <td><strong>Clases</strong></td>
+      <td>Catálogo de clases del club (consulta de disciplinas).</td>
+    </tr>
+    <tr>
+      <td><strong>Perfil</strong></td>
+      <td>Cuenta, ajustes, panel de entrenador, cerrar sesión.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="tip">
+  <strong>Navegación adicional:</strong> Muchas pantallas (QR, detalle de reserva, firma legal, escaneo) se abren encima de las pestañas y tienen flecha atrás arriba a la izquierda para regresar. En Android también puedes usar el gesto o botón «atrás» del sistema; en iPhone, desliza desde el borde izquierdo cuando la app lo permita.
+</div>
+
+<p>La pestaña activa se conserva al volver atrás: si estabas en Clases y abriste una reserva, al cerrarla regresas al listado de horarios sin perder tu lugar en la lista.</p>
+
+<h2 id="permisos-app">Qué puede y qué no puede cada perfil en la app</h2>
+
+<p>La app respeta los permisos que el club configuró para tu cuenta. El personal administrativo trabaja en <strong>modo solo lectura</strong> dentro de la app móvil: puedes consultar información pero no crear ventas, abrir caja ni modificar datos desde el teléfono. La única excepción operativa es <strong>escanear accesos</strong> (códigos QR de socios), disponible para quien tenga permiso de check-in.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Función en la app</th>
+      <th>Socio</th>
+      <th>Entrenador</th>
+      <th>Administrador</th>
+      <th>Coordinador</th>
+      <th>Recepción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Reservar clases y equipos</td>
+      <td>Sí</td>
+      <td>No (salvo que también sea socio)</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Ver QR de acceso al club</td>
+      <td>Sí</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Consultar reportes y métricas</td>
+      <td>No</td>
+      <td>Resumen propio de entrenador</td>
+      <td>Sí (lectura)</td>
+      <td>Sí (lectura)</td>
+      <td>Sí (lectura)</td>
+    </tr>
+    <tr>
+      <td>Consultar ventas y caja</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Sí (lectura)</td>
+      <td>Sí (lectura)</td>
+      <td>Sí (lectura)</td>
+    </tr>
+    <tr>
+      <td>Registrar ventas o abrir caja</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No — usar panel web</td>
+      <td>No — usar panel web</td>
+      <td>No — usar panel web</td>
+    </tr>
+    <tr>
+      <td>Escanear QR de acceso (recepción)</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Sí, si tiene permiso</td>
+      <td>Sí, si tiene permiso</td>
+      <td>Sí, si tiene permiso</td>
+    </tr>
+    <tr>
+      <td>Consultar check-ins e inventario</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Sí (lectura)</td>
+      <td>Sí (lectura)</td>
+      <td>Sí (lectura)</td>
+    </tr>
+    <tr>
+      <td>Consultar membresías</td>
+      <td>Propia</td>
+      <td>No</td>
+      <td>Sí (lectura)</td>
+      <td>Sí (lectura)</td>
+      <td>Sí (lectura)</td>
+    </tr>
+    <tr>
+      <td>Crear, editar y eliminar rutinas</td>
+      <td>No</td>
+      <td>Sí</td>
+      <td>No en app</td>
+      <td>No en app</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Asignar rutinas a socios</td>
+      <td>No</td>
+      <td>Sí</td>
+      <td>No en app</td>
+      <td>No en app</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Ver progreso de socios en rutinas</td>
+      <td>Propio</td>
+      <td>Sí</td>
+      <td>No</td>
+      <td>Lectura en web</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Ver documentos firmados de socios</td>
+      <td>Propios</td>
+      <td>No</td>
+      <td>Sí (lectura)</td>
+      <td>Sí (lectura)</td>
+      <td>Sí (lectura)</td>
+    </tr>
+    <tr>
+      <td>Publicar videos o campañas push</td>
+      <td>No</td>
+      <td>No en app</td>
+      <td>No — usar panel web</td>
+      <td>No — usar panel web</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Recibir notificaciones push</td>
+      <td>Sí</td>
+      <td>Sí</td>
+      <td>Sí</td>
+      <td>Sí</td>
+      <td>Sí</td>
+    </tr>
+    <tr>
+      <td>Eliminar cuenta desde ajustes</td>
+      <td>Sí</td>
+      <td>Sí</td>
+      <td>Sí</td>
+      <td>Sí</td>
+      <td>Sí</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="warning">
+  <strong>Modo consulta:</strong> Si ves el mensaje «Modo solo lectura» o «Para operar caja, usuarios o legales usa el panel web», es el comportamiento esperado. Abre <strong>manage.crecesportclub.com</strong> en el navegador de una computadora para tareas de gestión.
+</div>
+
+<h2 id="auth">Cuenta y sesión: pantallas de autenticación</h2>
+
+<p>Esta sección repasa cada pantalla antes de entrar al club, con todos los botones y enlaces.</p>
+
+<h3>Inicio de sesión</h3>
+<ul>
+  <li><strong>Correo o teléfono</strong> — Obligatorio.</li>
+  <li><strong>Contraseña</strong> — Obligatorio; icono ojo para visibilidad.</li>
+  <li><strong>¿Olvidaste tu contraseña?</strong> — Flujo de recuperación.</li>
+  <li><strong>Entrar</strong> — Inicia sesión; deshabilitado mientras carga.</li>
+  <li><strong>Tengo un código de verificación</strong> — Verificación de cuenta nueva.</li>
+  <li><strong>Crear cuenta</strong> — Registro.</li>
+</ul>
+<p>Si la sesión expiró por inactividad, al volver al login verás un aviso en la parte inferior explicando que debes entrar de nuevo.</p>
+
+<h3>Registro</h3>
+<ul>
+  <li>Botón <strong>atrás</strong> (flecha) — Vuelve al login.</li>
+  <li>Campos: nombre, correo, teléfono, contraseña, confirmar contraseña.</li>
+  <li><strong>Registrarme</strong> — Crea la cuenta en estado pendiente de verificación.</li>
+  <li><strong>Ya tengo cuenta</strong> — Vuelve al login.</li>
+</ul>
+
+<h3>Verificación</h3>
+<ul>
+  <li>Campo <strong>Correo o teléfono</strong> — Solo si llegaste sin dato precargado.</li>
+  <li><strong>Código de verificación</strong> — Casillas o campo único según diseño.</li>
+  <li><strong>Verificar cuenta</strong> — Confirma y entra o redirige al login.</li>
+  <li><strong>Reenviar código</strong> — Con temporizador de espera.</li>
+  <li><strong>Volver al inicio de sesión</strong>.</li>
+</ul>
+
+<h3>Recuperar y restablecer contraseña</h3>
+<ul>
+  <li>Pantalla 1: campo identificador + <strong>Enviar código</strong> + volver al login.</li>
+  <li>Pantalla 2: identificador, código, nueva contraseña, confirmación + <strong>Actualizar contraseña</strong>.</li>
+</ul>
+
+<h3>Cierre de sesión</h3>
+<p>Puedes cerrar sesión desde:</p>
+<ul>
+  <li>Icono de <strong>cerrar sesión</strong> (puerta) en la esquina superior derecha del perfil — muestra diálogo «¿Deseas salir de tu cuenta?» con botones <strong>Cancelar</strong> y <strong>Salir</strong>.</li>
+  <li>Sección <strong>Sesión</strong> en Ajustes — opción <strong>Cerrar sesión</strong> sin confirmación adicional.</li>
+</ul>
+<p>Al cerrar sesión se elimina el token de notificaciones push de este dispositivo.</p>
+
+<h2 id="socio-home">Socio: pantalla de inicio (Mi día)</h2>
+
+<p>La pestaña <strong>Mi día</strong> es el centro de operaciones del socio. Arriba aparece un saludo con tu nombre y, a la derecha, la <strong>campana de notificaciones</strong>.</p>
+
+<h3>Campana de notificaciones</h3>
+<p>El icono de campana muestra un contador rojo si tienes avisos sin leer. Al tocarlo abres la lista completa de <strong>Notificaciones</strong>. Desde ahí puedes leer cada aviso o marcar todos como leídos.</p>
+
+<h3>Tarjeta «Completa tu registro»</h3>
+<p>Si aún no terminas el onboarding, verás una fila destacada:</p>
+<ul>
+  <li><strong>Completa tu registro</strong> — Subtítulo indica si faltan datos de salud o documentos legales.</li>
+  <li>Al tocarla entras al flujo de <strong>Completar registro</strong> (ver sección legal y onboarding).</li>
+</ul>
+
+<h3>Tarjeta de membresía</h3>
+<p>Muestra el estado de tu acceso al club:</p>
+<ul>
+  <li>Título principal (por ejemplo, tipo de membresía o paquete de visitas).</li>
+  <li>Subtítulo con vigencia, visitas restantes o mensaje si no tienes acceso activo.</li>
+  <li>Color verde si está activa; atenuado si no.</li>
+</ul>
+
+<h3>Sección «Clases y reservas»</h3>
+
+<table>
+  <thead>
+    <tr><th>Tarjeta</th><th>Acción al tocar</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Mi acceso al club</strong><br><em>Muestra tu QR dinámico en recepción</em></td>
+      <td>Abre pantalla con código QR de entrada/salida.</td>
+    </tr>
+    <tr>
+      <td><strong>Mi actividad</strong><br><em>Tiempo en el gym y asistencia a clases</em></td>
+      <td>Estadísticas de visitas y asistencia.</td>
+    </tr>
+    <tr>
+      <td><strong>Mis clases reservadas</strong></td>
+      <td>Lista de reservas; muestra la próxima confirmada si existe.</td>
+    </tr>
+    <tr>
+      <td><strong>Reservar clases</strong></td>
+      <td>Te lleva a la pestaña Clases (horarios).</td>
+    </tr>
+    <tr>
+      <td><strong>Catálogo de clases</strong></td>
+      <td>Disciplinas disponibles con descripción.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Sección «Equipos del gym»</h3>
+
+<table>
+  <thead>
+    <tr><th>Tarjeta</th><th>Acción al tocar</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Mis equipos reservados</strong></td>
+      <td>Tus reservas de pesas, caminadoras, etc.</td>
+    </tr>
+    <tr>
+      <td><strong>Reservar equipo</strong></td>
+      <td>Catálogo de equipos reservables.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Sección «Entrenamiento»</h3>
+<ul>
+  <li><strong>Mis rutinas</strong> — Pestaña Rutinas.</li>
+  <li><strong>Biblioteca multimedia</strong> — Pestaña Videos.</li>
+</ul>
+
+<h3>Sección «Próximas reservas»</h3>
+<p>Listado de hasta tres clases confirmadas próximas. Cada fila muestra nombre de clase y fecha/hora. Si no hay ninguna, aparece mensaje «No hay reservas próximas» con botón <strong>Ver horarios</strong>.</p>
+
+<h3>Completar registro (onboarding)</h3>
+
+<p>Pantalla <strong>Completar registro</strong> con indicador de pasos: <strong>Salud</strong> → <strong>Legales</strong>.</p>
+
+<p><strong>Paso Salud</strong> — Formulario extenso que incluye, entre otros:</p>
+<ul>
+  <li><strong>Fecha de nacimiento</strong> — Toca el campo y elige día en el calendario.</li>
+  <li><strong>Género</strong> — Opciones incluyen masculino, femenino, otro y prefiero no decir.</li>
+  <li><strong>Estatura (cm)</strong> y <strong>peso (kg)</strong> — Datos actuales para tu expediente deportivo.</li>
+  <li><strong>Edad</strong> — Puede calcularse o completarse según el formulario.</li>
+  <li><strong>¿Qué te motiva a entrenar?</strong> — Puedes marcar varias opciones: mantener salud, bajar peso, prescripción médica, rehabilitación, defensa personal, masa muscular, definición, fuerza, complemento de otro deporte u otro (con campo de texto).</li>
+  <li><strong>Dato relevante de salud</strong> — Texto libre para cualquier información que el personal del club deba conocer.</li>
+  <li><strong>¿Padeces enfermedad o lesión actual?</strong> — Si marcas sí, describe en el campo siguiente.</li>
+  <li><strong>¿Padeciste enfermedad previa?</strong> — Con descripción opcional.</li>
+  <li><strong>¿Tienes condición médica diagnosticada?</strong> — Detalla en el campo de condiciones médicas.</li>
+  <li><strong>Contacto de emergencia</strong> — Nombre completo, parentesco, teléfono fijo y celular.</li>
+  <li><strong>Hospital de preferencia</strong> — Opcional.</li>
+  <li><strong>Seguro médico</strong> — Interruptor; si activas, indica compañía y póliza.</li>
+  <li><strong>Autorizo traslado al hospital</strong> — Casilla obligatoria en emergencias.</li>
+  <li><strong>Nivel de actividad física</strong> — Sedentario, moderado, activo, etc.</li>
+  <li><strong>Objetivo principal</strong> — Meta deportiva en texto.</li>
+  <li><strong>Declaraciones finales</strong> — Casillas: la información es veraz; acepto evaluación de riesgo; autorizo atención médica de emergencia.</li>
+  <li>Botón <strong>Guardar datos de salud</strong> — Valida campos, crea tu perfil de socio con número <strong>CRC-######</strong> asignado automáticamente por el club (no lo eliges tú).</li>
+</ul>
+
+<p>Si falta alguna casilla obligatoria o declaración sin marcar, verás el aviso «Debes aceptar todas las declaraciones y autorizaciones» o mensajes junto a cada campo.</p>
+
+<p><strong>Paso Legales</strong> — Lista de documentos requeridos (reglamento interno, liberación de responsabilidades, aviso de privacidad). Cada fila muestra <em>Firmado</em> o <em>Pendiente de firma</em>. Toca un documento pendiente para firmarlo.</p>
+
+<p>Cuando todo está completo aparece el botón <strong>Registro completo — Continuar</strong>, que te lleva a Mi día.</p>
+
+<div class="warning">
+  <strong>Hasta completar el registro</strong> no podrás reservar clases. El club puede configurar excepciones, pero lo normal es exigir salud y firmas legales.
+</div>
+
+<h2 id="reservas">Clases, horarios y reservas</h2>
+
+<h3>Horarios de clases (pestaña Clases)</h3>
+
+<p>Título de pantalla: <strong>Clases</strong>. Si el club opera varias sucursales, arriba del listado verás un selector <strong>Sucursal</strong> (Padierna, Huipulco, etc.); solo se muestran horarios de la sede elegida.</p>
+<p>Lista paginada de horarios próximos. Cada tarjeta muestra:</p>
+<ul>
+  <li>Hora de inicio destacada.</li>
+  <li>Nombre de la clase.</li>
+  <li>Fecha.</li>
+  <li>Etiqueta de sucursal y sede cuando aplique.</li>
+</ul>
+
+<p>Botones en la barra superior:</p>
+<ul>
+  <li>Icono <strong>Mis reservas</strong> (calendario con check) — Abre tus reservas confirmadas y lista de espera.</li>
+</ul>
+
+<p>Toca cualquier horario para ver el <strong>Detalle de clase</strong>.</p>
+
+<h3>Detalle de clase y reservar</h3>
+
+<p>Al entrar al detalle, la app carga en paralelo la información del horario y la disponibilidad en tiempo real. Mientras carga verás «Detalle de clase» con indicador de progreso; si hay error de red, aparece mensaje con opción de reintentar desde la pantalla anterior.</p>
+
+<p>Muestra nombre de la clase, sede, fecha, hora de inicio y fin, lugares disponibles, personas en lista de espera y descripción de la disciplina.</p>
+
+<p>Filas informativas con iconos:</p>
+<ul>
+  <li>Icono calendario — Fecha completa del horario.</li>
+  <li>Icono reloj — Hora de inicio y hora de fin.</li>
+  <li>Icono personas — Texto del tipo «X lugares disponibles · Y en espera».</li>
+</ul>
+
+<p>La verificación de identidad al reservar usa tu número de socio en segundo plano (debe coincidir con el registrado en tu perfil). No debes escribir un NIP aparte en la versión actual de la app.</p>
+
+<p>Botón principal (según disponibilidad):</p>
+<ul>
+  <li><strong>Reservar lugar</strong> — Si hay cupo. Confirma con tu número de socio en segundo plano.</li>
+  <li><strong>Unirme a lista de espera</strong> — Si está lleno pero permite espera.</li>
+  <li>Deshabilitado con texto «Este horario no está disponible para reservar» si no aplica.</li>
+</ul>
+
+<p>Mensajes posibles tras reservar:</p>
+<ul>
+  <li>«¡Reserva confirmada!» — Tienes lugar.</li>
+  <li>«Sin cupo. Fuiste agregado a la lista de espera.» — Quedaste en espera; si alguien cancela, el sistema puede promoverte automáticamente.</li>
+</ul>
+
+<div class="note">
+  El club define cuántos días adelante puedes reservar y con cuántas horas de anticipación puedes cancelar. Si intentas fuera de esas reglas, verás un mensaje explicativo.
+</div>
+
+<h3>Mis reservas de clases</h3>
+
+<p>Pantalla con dos pestañas:</p>
+
+<p><strong>Pestaña Confirmadas</strong></p>
+<ul>
+  <li>Cada tarjeta: nombre de clase, estado, fecha/hora, sede, estado de asistencia (pendiente, en curso, completada).</li>
+  <li><strong>QR de reserva</strong> — Visible en reservas confirmadas dentro de la ventana del horario. Con <strong>un solo escaneo</strong> en recepción registras llegada a la clase y, si el socio aún no había entrado al club, también su <strong>entrada al gym</strong>. No hace falta mostrar además el QR de «Mi acceso al club» al llegar.</li>
+  <li>Botón <strong>Cancelar reserva</strong> — Pide confirmación («¿Estás seguro…?») con <strong>No</strong> y <strong>Sí, cancelar</strong>. Solo disponible dentro del plazo permitido.</li>
+</ul>
+
+<p><strong>Pestaña Lista de espera</strong></p>
+<ul>
+  <li>Horarios donde estás en espera de cupo.</li>
+  <li>Etiqueta <strong>Posición N</strong> — Tu lugar en la fila.</li>
+  <li>Botón <strong>Salir de lista</strong> — Diálogo «¿Deseas salir de la lista de espera…?» con <strong>No</strong> y <strong>Sí, salir</strong>.</li>
+  <li>Enlace <strong>Ver horario</strong> — Abre detalle del horario por si quieres revisar fecha y sede.</li>
+  <li>Si te promueven, la reserva aparecerá en Confirmadas y podrías recibir notificación push.</li>
+</ul>
+
+<p>En reservas confirmadas, debajo del QR aparece el texto «Recepción escanea al llegar y al salir de la clase.» El QR de reserva solo es válido dentro de la ventana de tiempo configurada por el club (normalmente desde unos minutos antes del inicio hasta un margen después).</p>
+
+<h3>Catálogo de clases</h3>
+
+<p>Accesible desde Mi día o Perfil. Con varias sucursales activas, elige <strong>Sucursal</strong> arriba del listado; cada sede puede tener su propio catálogo de disciplinas. Lista nombre y descripción por clase. Es informativo: para reservar debes ir a la pestaña Clases (horarios) y elegir fecha concreta.</p>
+
+<h2 id="equipos">Equipos del gym</h2>
+
+<p>Los socios con <strong>membresía activa</strong> (no paquete de visitas suelto) pueden reservar equipos como pesas, caminadoras o aparatos específicos.</p>
+
+<h3>Catálogo de equipos</h3>
+
+<p>Pantalla <strong>Reservar equipos</strong>. Cada tarjeta muestra nombre, descripción, cantidad de equipos físicos del mismo tipo, duración del turno y horario de operación. Toca una tarjeta para reservar.</p>
+
+<h3>Reservar un equipo</h3>
+
+<p>La pantalla de reserva muestra el nombre del equipo en la barra superior. Controles visibles:</p>
+
+<ul>
+  <li><strong>Selector de fecha</strong> — Muestra la fecha elegida; al tocarla abre calendario con días permitidos (normalmente desde hoy hasta una semana adelante).</li>
+  <li><strong>Turnos contiguos</strong> — Botones o selector para 1 o 2 turnos seguidos si el equipo lo permite; al cambiar, se recalculan horarios libres.</li>
+  <li><strong>Grilla de horarios</strong> — Cada celda es un turno; los ocupados aparecen deshabilitados; el seleccionado se resalta en color del club.</li>
+  <li><strong>Confirmar reserva</strong> (botón principal abajo) — Solo activo cuando elegiste horario. Durante el proceso muestra indicador de carga.</li>
+</ul>
+
+<ol class="steps">
+  <li><strong>Elegir fecha</strong> — Selector de calendario (hasta unos días adelante según configuración del club).</li>
+  <li><strong>Cantidad de turnos contiguos</strong> — Si el equipo permite más de un slot seguido, elige 1 o 2 (según máximo configurado).</li>
+  <li><strong>Horario disponible</strong> — Grilla de turnos libres; toca el que prefieras (se resalta). Si no hay ninguno, verás mensaje para probar otra fecha.</li>
+  <li><strong>Confirmar reserva</strong> — El sistema asigna automáticamente la primera unidad libre del tipo de equipo (por ejemplo la caminadora #2 de cinco disponibles).</li>
+</ol>
+
+<p>Si intentas reservar sin elegir horario, aparece «Elige un horario disponible.» Errores frecuentes: membresía vencida, turno ya tomado por otro socio mientras confirmabas, o perfil de socio incompleto.</p>
+
+<p>Tras confirmar verás mensaje con la unidad asignada (por ejemplo «Pesa #3») y puedes ir a <strong>Mis reservas de equipos</strong>.</p>
+
+<div class="warning">
+  <strong>Membresía requerida:</strong> Si no tienes membresía activa, verás «Necesitas una membresía activa para reservar equipos».
+</div>
+
+<h3>Mis reservas de equipos</h3>
+
+<p>Listado de reservas confirmadas o en uso. Cada una incluye:</p>
+<ul>
+  <li>Nombre del equipo y unidad asignada.</li>
+  <li>Fecha y hora del turno.</li>
+  <li><strong>QR de reserva de equipo</strong> — Es otro código en pantalla (no el de «Mi acceso al club»), pero <strong>no necesitas pasar los dos</strong>: al llegar, muestra solo este QR. Recepción escanea una vez y el sistema registra <strong>entrada al club + inicio del turno del equipo</strong>. Al terminar el turno, escanea otra vez el mismo QR de equipo; al salir del club, si sigues dentro, usa el QR de acceso general para registrar salida.</li>
+  <li>Botón <strong>Cancelar</strong> — Con confirmación, sujeto a reglas de anticipación del club.</li>
+</ul>
+
+<div class="tip">
+  Si no llegas a tiempo al turno, el club puede liberar automáticamente el equipo para otro socio. Respeta tu horario reservado.
+</div>
+
+<h2 id="qr-tipos">Códigos QR: uno basta según el caso</h2>
+
+<p>En la app hay <strong>tres pantallas</strong> con QR distintos (códigos técnicos diferentes), pero el socio <strong>no debe sacar dos códigos a la vez</strong> para entrar con una reserva:</p>
+
+<table class="table">
+  <thead>
+    <tr><th>Situación</th><th>Qué QR mostrar</th><th>Qué hace un escaneo en recepción</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solo va al gym (sin clase ni equipo reservado)</td>
+      <td><strong>Mi acceso al club</strong></td>
+      <td>Entrada o salida del club</td>
+    </tr>
+    <tr>
+      <td>Tiene reserva de <strong>clase</strong> confirmada</td>
+      <td>QR en <strong>Mis reservas</strong> (clase)</td>
+      <td>Llegada/salida de clase + entrada al club si aún no había entrado</td>
+    </tr>
+    <tr>
+      <td>Tiene reserva de <strong>equipo</strong> confirmada</td>
+      <td>QR en <strong>Mis reservas de equipos</strong></td>
+      <td>Inicio del turno del equipo + entrada al club si aún no había entrado</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <strong>Importante:</strong> «Son códigos distintos» significa que cada pantalla genera su propio QR firmado, <em>no</em> que debas enseñar el de acceso y el de reserva en la misma visita. Si tienes reserva de clase o de equipo, al llegar basta con el QR de esa reserva.
+</div>
+
+<h3>Seguridad de los QR</h3>
+<ul>
+  <li><strong>Acceso al club</strong> — Se renueva automáticamente cada ~45 segundos (código dinámico).</li>
+  <li><strong>Reserva de clase o equipo</strong> — Código firmado válido solo en la ventana de tu turno (desde unos minutos antes hasta el margen de gracia del club). No rota cada 45 s, pero no se puede falsificar fuera de esa reserva y horario.</li>
+</ul>
+
+<h2 id="acceso-app">Acceso al club y actividad en el gym</h2>
+
+<h3>Mi acceso al club (QR dinámico)</h3>
+
+<p>Pantalla <strong>Mi acceso al club</strong>:</p>
+<ul>
+  <li>Texto explicativo: «Muestra este código en recepción para entrar o salir del club.»</li>
+  <li><strong>Código QR grande</strong> — Se renueva automáticamente cada ~45 segundos por seguridad.</li>
+  <li>Nota: «Se actualiza automáticamente por seguridad.»</li>
+  <li>Botón <strong>Actualizar ahora</strong> — Regenera el QR manualmente si recepción tuvo problema al escanear.</li>
+  <li>Icono <strong>Mi actividad</strong> arriba a la derecha — Acceso directo a estadísticas.</li>
+</ul>
+
+<p>El mismo QR sirve para <strong>entrada y salida</strong> del club cuando <strong>no</strong> estás usando el QR de una reserva de clase o equipo en ese momento. Recepción escanea al entrar y otra vez al salir del gym. Necesitas membresía o visitas vigentes; si no, verás un error al generar el pase.</p>
+
+<p>Si ese día tienes clase o equipo reservado, al llegar usa primero el QR de la reserva; el de acceso general lo necesitas sobre todo para <strong>salir del club</strong> al terminar tu visita (si aún tienes sesión abierta).</p>
+
+<h3>Mi actividad</h3>
+
+<p>Métricas de los últimos 30 días:</p>
+<ul>
+  <li><strong>Visitas</strong> — Total y días distintos con visita.</li>
+  <li><strong>Tiempo total en el gym</strong> — Suma de todas las sesiones.</li>
+  <li><strong>Promedio por visita</strong>.</li>
+  <li><strong>Visita más larga</strong>.</li>
+  <li><strong>Asistencia a clases</strong> — Clases completadas vs reservadas y porcentaje, si aplica.</li>
+</ul>
+
+<h3>Escanear acceso (personal de recepción)</h3>
+
+<div class="note">
+  <strong>No es el kiosco de entrada:</strong> El kiosco dedicado de accesos (<strong>manage.crecesportclub.com/acceso</strong>) solo está disponible en el navegador web, con el rol <em>escaneo_accesos</em>. La función <strong>Escanear acceso</strong> de esta app es para recepción en mostrador (teléfono), no sustituye al kiosco fijo.
+</div>
+
+<p>Disponible en Consulta → <strong>Escanear acceso</strong>. Pantalla <strong>Escanear acceso</strong>:</p>
+
+<ol class="steps">
+  <li><strong>Selector de sucursal</strong> — Elige Padierna, Huipulco u otra sede activa.</li>
+  <li><strong>Cámara</strong> — Apunta al QR del socio (acceso club, reserva de clase o reserva de equipo).</li>
+  <li>Tras escaneo exitoso: vibración, mensaje en pantalla y aviso verde con acción realizada (entrada al club, salida, llegada a clase, salida de clase, check-in de equipo, etc.).</li>
+</ol>
+
+<p>Si hay error (QR expirado, membresía vencida, sesión ya abierta), verás el mensaje en un aviso rojo o en la franja inferior.</p>
+
+<div class="note">
+  Esta es la <strong>única función operativa de escritura</strong> del personal administrativo en la app móvil (permiso de escaneo de accesos). Todo lo demás es consulta.
+</div>
+
+<h2 id="rutinas">Rutinas y entrenadores</h2>
+
+<h3>Pestaña Rutinas (socio)</h3>
+
+<p>Dos subpestañas:</p>
+
+<p><strong>Mis rutinas</strong> — Rutinas que un entrenador te asignó. Cada tarjeta muestra título y estado (activa, completada, etc.). Toca una para abrir el <strong>Detalle de rutina</strong>:</p>
+<ul>
+  <li>Descripción general de la rutina.</li>
+  <li>Sección <strong>Contenido</strong> — Lista de ejercicios o bloques con título y notas del entrenador.</li>
+  <li>Botón <strong>Ver videos de esta rutina</strong> — Filtra la biblioteca multimedia solo con material vinculado a esa rutina.</li>
+  <li>Botón <strong>Marcar rutina completada</strong> — Solo visible en rutinas asignadas a ti; registra tu avance y muestra «Progreso registrado.»</li>
+</ul>
+
+<p><strong>Biblioteca</strong> — Rutinas generales del club sin asignación personal. Toca cualquiera para consultar el plan completo (misma pantalla de detalle, sin botón de completar si no está asignada).</p>
+
+<p>Icono <strong>Entrenadores</strong> (grupo de personas) — Lista de entrenadores con nombre y datos de contacto. Toca uno para ver su perfil.</p>
+
+<h3>Avance de rutinas</h3>
+
+<p>En Ajustes → Historial → <strong>Avance de rutinas</strong> (socios). Muestra tu registro de progreso en las rutinas asignadas.</p>
+
+<h3>Panel del entrenador</h3>
+
+<p>Desde pestaña <strong>Panel</strong> o Perfil → Trabajo:</p>
+
+<table>
+  <thead>
+    <tr><th>Opción</th><th>Descripción y botones</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Mis rutinas</strong></td>
+      <td>Listado paginado. Botón flotante <strong>+</strong> crea rutina nueva. Toca una fila para editar.</td>
+    </tr>
+    <tr>
+      <td><strong>Asignar rutina</strong></td>
+      <td>Elige rutina (lista emergente), busca socio (<strong>Buscar socio</strong> con campo nombre/correo/número), notas opcionales, botón <strong>Asignar</strong>.</td>
+    </tr>
+    <tr>
+      <td><strong>Progreso de socios</strong></td>
+      <td>Historial de avances registrados por tus asignaciones.</td>
+    </tr>
+    <tr>
+      <td><strong>Clases y horarios</strong></td>
+      <td>Catálogo de clases (consulta).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Crear o editar rutina (entrenador)</h3>
+
+<p>Formulario <strong>Nueva rutina</strong> o <strong>Editar rutina</strong>:</p>
+<ul>
+  <li><strong>Nombre</strong> — Obligatorio.</li>
+  <li><strong>Descripción</strong> — Texto libre.</li>
+  <li><strong>Tipo</strong> — General o Personalizada.</li>
+  <li>Interruptor <strong>Rutina activa</strong> — Desactiva sin borrar.</li>
+  <li><strong>Crear rutina</strong> / <strong>Guardar cambios</strong>.</li>
+  <li>En edición: icono <strong>Eliminar</strong> (papelera) arriba — Diálogo «¿Eliminar esta rutina?» con Cancelar/Eliminar.</li>
+</ul>
+
+<h3>Entrenadores (lista y perfil)</h3>
+
+<p>Desde Rutinas → icono de entrenadores o Perfil → Entrenadores. Pantalla <strong>Entrenadores</strong> con listado paginado: inicial del nombre en círculo, nombre completo y teléfono si está publicado. Toca un entrenador para ver su <strong>perfil</strong> con datos de contacto y rutinas o información que el club haya habilitado.</p>
+
+<h3>Hub de trabajo (staff)</h3>
+
+<p>Desde Perfil → Panel entrenador / administración se abre un menú central (<strong>Trabajo</strong>) que redirige a las mismas pantallas que las pestañas inferiores, útil si entraste por un enlace profundo y quieres volver al panel sin recordar qué pestaña corresponde.</p>
+
+<h3>Buscar socio (entrenador)</h3>
+
+<p>Pantalla <strong>Buscar socio</strong> al asignar rutinas:</p>
+<ul>
+  <li>Campo <strong>Nombre, correo o número</strong> — Escribe al menos parte del dato y pulsa la lupa o la tecla buscar en el teclado.</li>
+  <li>Lista de resultados con nombre visible y correo secundario si existe.</li>
+  <li>Toca un socio para seleccionarlo; la app regresa a Asignar rutina con el nombre ya elegido.</li>
+  <li>Si no hay coincidencias: «Sin resultados» — prueba con número CRC completo o correo exacto.</li>
+</ul>
+
+<h2 id="videos">Biblioteca de videos y multimedia</h2>
+
+<p>Pestaña <strong>Videos</strong> o tarjeta <strong>Biblioteca multimedia</strong>.</p>
+
+<p>Listado de contenidos publicados para tu perfil: videos internos, enlaces externos, PDFs e imágenes. Cada tarjeta muestra miniatura, título, duración (videos) e icono según tipo.</p>
+
+<p>Al tocar un contenido abres el <strong>Reproductor</strong> o visor según el tipo:</p>
+<ul>
+  <li><strong>Videos del club</strong> — Reproducción dentro de la app con controles de play, pausa, avance y pantalla completa cuando el formato lo permite.</li>
+  <li><strong>Enlaces externos</strong> — YouTube u otras plataformas; pueden abrir reproductor embebido o navegador externo.</li>
+  <li><strong>PDF e imágenes</strong> — Visor integrado con zoom por pellizco.</li>
+  <li><strong>Archivos de Office u otros</strong> — Se abren en el navegador del teléfono para descarga o vista previa.</li>
+</ul>
+
+<p>En la lista, las tarjetas muestran miniatura (si existe), icono según tipo (play, PDF, imagen, enlace), título, duración en esquina inferior derecha para videos, y descripción breve si el club la publicó. Si no hay contenido para tu perfil, verás «Sin contenido disponible» con mensaje «Pronto tendremos material para ti.»</p>
+
+<div class="note">
+  Solo ves contenido al que tu rol tiene acceso (público, solo socios o restringido). El entrenador o administración publica material desde el panel web.
+</div>
+
+<h2 id="legal-app">Documentos legales y firmas</h2>
+
+<p>Documentos obligatorios típicos:</p>
+<ul>
+  <li>Reglamento interno</li>
+  <li>Liberación de responsabilidades</li>
+  <li>Aviso de privacidad</li>
+</ul>
+
+<h3>Firmar un documento</h3>
+
+<p>Pantalla <strong>Firmar documento</strong>:</p>
+<ol class="steps">
+  <li>Lee el texto completo en la parte superior (desplázate).</li>
+  <li>En <strong>Tu firma</strong>, dibuja con el dedo en el recuadro blanco.</li>
+  <li><strong>Limpiar firma</strong> — Borra y vuelve a intentar.</li>
+  <li><strong>Aceptar y firmar</strong> — Envía la firma al club. Mensaje: «Documento firmado correctamente.»</li>
+</ol>
+
+<p>Si el documento ya estaba firmado, la pantalla cambia a <strong>Consultar documento</strong> con banda verde «Documento firmado. Solo consulta.» sin opción de volver a firmar.</p>
+
+<h3>Historial de firmas (socio)</h3>
+
+<p>Ajustes → Historial → <strong>Documentos firmados</strong>. Lista tus aceptaciones con fecha.</p>
+
+<h3>Documentos firmados por socios (personal)</h3>
+
+<p>Coordinadores, recepción y administradores con permiso: Ajustes → Socios → <strong>Documentos firmados por socios</strong>. Consulta listado; puede incluir descarga en PDF según configuración del panel web.</p>
+
+<div class="warning">
+  Si eliminas tu cuenta desde la app, se borran tus datos operativos pero <strong>se conservan</strong> los registros legales de firmas, conforme a normativa y requisitos de las tiendas de apps.
+</div>
+
+<h2 id="notificaciones">Notificaciones</h2>
+
+<h3>Lista de notificaciones</h3>
+
+<p>Acceso: campana en Mi día, Ajustes → Notificaciones o push al tocar un aviso.</p>
+
+<ul>
+  <li>Cada fila: icono (lleno si no leída), título, resumen, fecha y hora.</li>
+  <li>Toca una fila → <strong>Detalle</strong>.</li>
+  <li>Botón <strong>Leer todas</strong> arriba a la derecha — Marca todo como leído.</li>
+  <li>Desliza hacia abajo para <strong>actualizar</strong> la lista.</li>
+</ul>
+
+<p>Si no hay avisos: «Sin notificaciones. Cuando el club te envíe avisos, aparecerán aquí.»</p>
+
+<h3>Detalle de notificación</h3>
+
+<p>Muestra título, fecha completa, <strong>imagen</strong> (si la campaña incluyó una), y cuerpo del mensaje con formato (texto, listas, encabezados). Al abrir el detalle, el aviso se marca como leído automáticamente.</p>
+
+<h3>Notificaciones push</h3>
+
+<p>Al llegar un aviso al teléfono, tócalo para abrir directamente el detalle en la app. Asegúrate de tener activadas las notificaciones para CreceApp en la configuración del sistema (Android o iPhone).</p>
+
+<h2 id="perfil">Perfil y ajustes</h2>
+
+<h3>Pantalla Perfil</h3>
+
+<p>Encabezado con inicial de tu nombre en círculo, nombre completo, correo, badges de estado y rol.</p>
+
+<p>Secciones posibles según tu perfil:</p>
+
+<p><strong>Trabajo</strong> (staff)</p>
+<ul>
+  <li><strong>Consulta administrativa</strong> o <strong>Panel de entrenador</strong> — Acceso al hub de trabajo.</li>
+</ul>
+
+<p><strong>Membresía</strong> (socio)</p>
+<ul>
+  <li>Tarjeta de vigencia.</li>
+  <li><strong>Número de socio</strong> (CRC-######).</li>
+  <li><strong>Estado</strong> del perfil de socio.</li>
+  <li><strong>Perfil de socio pendiente</strong> — Si aún no completas registro.</li>
+</ul>
+
+<p><strong>Registro</strong></p>
+<ul>
+  <li><strong>Completar registro</strong> — Si faltan pasos.</li>
+</ul>
+
+<p><strong>Cuenta</strong></p>
+<ul>
+  <li><strong>Ajustes</strong> — Perfil, historial y sesión.</li>
+</ul>
+
+<p><strong>Accesos</strong> (socio) — Atajos a catálogo de clases, QR, actividad, reservas, equipos, horarios, entrenadores, rutinas y videos.</p>
+
+<p>Pie de página: logo Crece Sport Club y versión de la app (1.0.0).</p>
+
+<h3>Ajustes</h3>
+
+<p><strong>Cuenta</strong></p>
+<ul>
+  <li><strong>Editar datos de salud</strong> (socio) — Abre formulario similar al onboarding de salud para actualizar contacto de emergencia, peso, objetivos y declaraciones. Guarda con el botón de confirmación al final del formulario.</li>
+  <li><strong>Restablecer contraseña</strong> — Inicia flujo de código por correo (mismas pantallas que «Olvidé mi contraseña»).</li>
+</ul>
+
+<p><strong>Comunicación</strong></p>
+<ul>
+  <li><strong>Notificaciones</strong> — Historial de avisos.</li>
+</ul>
+
+<p><strong>Historial</strong> (socio)</p>
+<ul>
+  <li><strong>Documentos firmados</strong>.</li>
+  <li><strong>Avance de rutinas</strong>.</li>
+</ul>
+
+<p><strong>Socios</strong> (personal con permiso)</p>
+<ul>
+  <li><strong>Documentos firmados por socios</strong>.</li>
+</ul>
+
+<p><strong>Sesión</strong></p>
+<ul>
+  <li>Fila informativa con tu correo y nombre.</li>
+  <li><strong>Cerrar sesión</strong>.</li>
+  <li><strong>Eliminar mi cuenta</strong> — Abre diálogo explicando qué se borra y qué se conserva. Debes escribir tu <strong>contraseña actual</strong>. Botones <strong>Cancelar</strong> y <strong>Eliminar</strong> (rojo). Tras éxito, vuelves al login.</li>
+</ul>
+
+<h2 id="admin-app">Personal: consulta administrativa</h2>
+
+<p>Para administrador, coordinador y recepción. Recuerda: <strong>no puedes modificar datos desde la app</strong> salvo escanear accesos.</p>
+
+<h3>Inicio Administración</h3>
+
+<p>Métricas en tarjetas agrupadas, por ejemplo:</p>
+<ul>
+  <li>Usuarios registrados, administradores, socios con/sin vigencia, entrenadores, socios totales, sedes.</li>
+  <li>Reservas, ventas, check-ins de hoy, rutinas asignadas, videos, importaciones.</li>
+  <li>Secciones operativas del periodo: ventas del mes, pagos, caja, accesos (según datos del club).</li>
+</ul>
+
+<p>Tarjetas de acceso rápido:</p>
+<ul>
+  <li><strong>Consulta operativa</strong> — Pestaña Consulta.</li>
+  <li><strong>Resumen del periodo</strong> — Pestaña Reporte.</li>
+</ul>
+
+<h3>Menú Consulta</h3>
+
+<table>
+  <thead>
+    <tr><th>Opción</th><th>Qué muestra</th><th>Editable en app</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Resumen operativo</td><td>Métricas con filtro de fechas</td><td>No — solo lectura</td></tr>
+    <tr><td>Sesiones de caja</td><td>Listado de aperturas/cierres, montos</td><td>No — operar caja en web</td></tr>
+    <tr><td>Ventas</td><td>Tickets registrados</td><td>No — registrar ventas en web</td></tr>
+    <tr><td>Check-ins</td><td>Historial de entradas</td><td>No</td></tr>
+    <tr><td>Escanear acceso</td><td>Cámara QR en recepción</td><td><strong>Sí — escaneo activo</strong></td></tr>
+    <tr><td>Membresías</td><td>Consulta de planes y vigencias</td><td>No — gestionar en web</td></tr>
+    <tr><td>Inventario (productos)</td><td>Existencias de tienda</td><td>No — ajustar en web</td></tr>
+    <tr><td>Clases y horarios</td><td>Catálogo público</td><td>No — editar horarios en web</td></tr>
+  </tbody>
+</table>
+
+<h3>Reporte (pestaña 3)</h3>
+
+<p>Barra de periodo con presets: <strong>Hoy</strong>, <strong>Esta semana</strong>, <strong>Este mes</strong>, <strong>Personalizado</strong> (elige rango en calendario). Debajo, secciones con métricas de ventas, cobros, caja y accesos del intervalo seleccionado.</p>
+
+<h3>Ventas (pestaña 4)</h3>
+
+<p>Lista paginada de ventas registradas en el club. Cada fila resume número de venta, monto y estado. Desliza hacia abajo al final para cargar más páginas si existen.</p>
+
+<p>Toca una venta para abrir <strong>Detalle de venta</strong>:</p>
+<ul>
+  <li>Identificador de la venta y fecha/hora.</li>
+  <li>Lista de productos o conceptos cobrados con cantidades y precios.</li>
+  <li>Subtotal, descuentos si aplicaron e importe total.</li>
+  <li>Método de pago (efectivo, tarjeta, transferencia, etc.).</li>
+  <li>Estado del ticket (pagado, cancelado, pendiente según corresponda).</li>
+</ul>
+<p>No hay botones de reembolso, anulación ni edición en esta pantalla — solo consulta.</p>
+
+<h3>Sesiones de caja y check-ins (desde Consulta)</h3>
+
+<p><strong>Sesiones de caja</strong> — Lista sesiones con número, estado (abierta/cerrada), monto de apertura y monto esperado al cierre. Sirve para conciliar turnos de recepción sin abrir la computadora.</p>
+
+<p><strong>Check-ins</strong> — Historial de entradas al club: socio, sucursal, hora de entrada, hora de salida si ya registró salida, duración de la visita. Útil para responder preguntas de socios sobre su última visita.</p>
+
+<p><strong>Membresías</strong> — Consulta contratos y vigencias; no puedes renovar ni modificar plan desde aquí.</p>
+
+<p><strong>Inventario (productos)</strong> — Existencias de artículos de tienda; para surtir o vender usa el punto de venta web.</p>
+
+<div class="warning">
+  Para abrir caja, registrar un pago, devolver un producto o crear una membresía, usa el panel web en <strong>manage.crecesportclub.com</strong>. La app móvil no incluye punto de venta ni formularios de alta de socios para personal administrativo.
+</div>
+
+<h2 id="entrenador-app">Entrenador: trabajo diario en la app</h2>
+
+<h3>Inicio Entrenamiento</h3>
+
+<p>Resumen personalizado:</p>
+<ul>
+  <li>Rutinas creadas y activas.</li>
+  <li>Asignaciones vigentes y socios con rutina tuya.</li>
+  <li>Avances registrados esta semana.</li>
+  <li>Asignaciones completadas.</li>
+</ul>
+
+<p>Tarjeta <strong>Panel de entrenador</strong> — Acceso rápido al menú de trabajo.</p>
+
+<h3>Flujo típico del entrenador</h3>
+
+<ol class="steps">
+  <li>Crea rutinas en pestaña <strong>Rutinas</strong> con el botón <strong>+</strong>.</li>
+  <li>Desde <strong>Panel → Asignar rutina</strong>, vincula rutina a un socio buscado por nombre o número.</li>
+  <li>El socio ve la rutina en <em>Mis rutinas</em> y puede registrar avance.</li>
+  <li>Consulta <strong>Progreso de socios</strong> para dar seguimiento.</li>
+  <li>Revisa <strong>Clases</strong> en pestaña 4 para conocer el calendario del club (consulta).</li>
+</ol>
+
+<p>El entrenador <strong>sí puede crear, editar y eliminar rutinas</strong> y <strong>asignarlas</strong> desde la app. No puede desde la app publicar videos masivos ni enviar campañas push; eso lo hace coordinación en el panel web.</p>
+
+<h2 id="web-app">Cómo se alimenta cada función desde el panel web</h2>
+
+<p>La app consume la información que el personal configura en <strong>manage.crecesportclub.com</strong>. Esta tabla ayuda a saber dónde se administra cada cosa que ves en el teléfono.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lo que ves en CreceApp</th>
+      <th>Dónde lo configura el personal</th>
+      <th>Sección del panel web</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="badge badge-app">App</span> Inicio de sesión y cuentas</td>
+      <td><span class="badge badge-web">Web</span> Usuarios y roles</td>
+      <td>Administración → Usuarios; verificación de correo</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Número de socio CRC-######</td>
+      <td><span class="badge badge-web">Web</span> Alta de socio o registro en app</td>
+      <td>Recepción → Socios; importación masiva</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Membresía y vigencia</td>
+      <td><span class="badge badge-web">Web</span> Planes y contratos</td>
+      <td>Membresías y planes; cobros en caja</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Horarios y reservas de clases</td>
+      <td><span class="badge badge-web">Web</span> Clases y calendario</td>
+      <td>Agenda y clases → Clases, Horarios (sede Padierna/Huipulco)</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Reglas de reserva (días adelante, cancelación)</td>
+      <td><span class="badge badge-web">Web</span> Ajustes del sistema</td>
+      <td>Administración → Configuración de reservas</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Equipos reservables</td>
+      <td><span class="badge badge-web">Web</span> Catálogo de equipos</td>
+      <td>Recepción → Equipos reservables</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> QR de acceso al club</td>
+      <td><span class="badge badge-web">Web</span> Vigencia de membresía</td>
+      <td>Membresías activas; escaneo en recepción</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Escaneo en recepción</td>
+      <td><span class="badge badge-web">Web</span> Permisos de usuario</td>
+      <td>Rol recepción/coordinador con acceso a check-ins</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Rutinas y asignaciones</td>
+      <td><span class="badge badge-web">Web</span> Módulo entrenamiento</td>
+      <td>Entrenamiento → Rutinas; app móvil para asignar al instante</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Biblioteca de videos</td>
+      <td><span class="badge badge-web">Web</span> Multimedia</td>
+      <td>Entrenamiento → Biblioteca multimedia (subir, publicar)</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Documentos legales a firmar</td>
+      <td><span class="badge badge-web">Web</span> Legal</td>
+      <td>Legal y documentos → Publicar versiones</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Notificaciones push</td>
+      <td><span class="badge badge-web">Web</span> Comunicación</td>
+      <td>Comunicación → Campañas push (audiencia global, socios, personal)</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Imágenes en notificaciones</td>
+      <td><span class="badge badge-web">Web</span> Comunicación</td>
+      <td>Imágenes de notificaciones (servicio externo configurado en web)</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Ventas, caja, inventario (consulta staff)</td>
+      <td><span class="badge badge-web">Web</span> Operación diaria</td>
+      <td>Caja y ventas; Inventario y tienda</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Reportes del inicio administrativo</td>
+      <td><span class="badge badge-web">Web</span> Mismos datos operativos</td>
+      <td>Dashboard y reportes del panel</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Lista de entrenadores</td>
+      <td><span class="badge badge-web">Web</span> Usuarios con rol entrenador</td>
+      <td>Administración → Usuarios</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Formulario de salud (onboarding)</td>
+      <td><span class="badge badge-web">Web</span> Revisión staff</td>
+      <td>Recepción → Socios → pestaña salud (consulta/edición web)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="tip">
+  <strong>Sincronización:</strong> Los cambios hechos en el panel web (nuevo horario, membresía renovada, rutina publicada) aparecen en la app al refrescar o al reabrir la sección correspondiente. No necesitas cerrar sesión.
+</div>
+
+<h2 id="faq-app">Preguntas frecuentes</h2>
+
+<h3>¿Puedo usar el mismo correo en varios teléfonos?</h3>
+<p>Sí. Puedes iniciar sesión en más de un dispositivo. Cierra sesión en aparatos que ya no uses.</p>
+
+<h3>¿Por qué no me deja reservar una clase?</h3>
+<p>Causas comunes: registro incompleto (salud o legales), membresía vencida, horario lleno, fuera del plazo de reserva anticipada, o ya tienes otra reserva que se traslapa. Lee el mensaje que muestra la app.</p>
+
+<h3>¿Qué es la lista de espera?</h3>
+<p>Si la clase está llena, puedes unirte a la fila. Si alguien cancela, el sistema puede confirmarte automáticamente según reglas del club.</p>
+
+<h3>¿Mi QR de acceso caduca?</h3>
+<p>Sí, se renueva cada minuto aproximadamente por seguridad. Si recepción no lo lee, toca <strong>Actualizar ahora</strong> en la pantalla del QR.</p>
+
+<h3>¿Debo mostrar el QR de acceso y otro de reserva?</h3>
+<p><strong>No a la vez.</strong> Son pantallas distintas en la app, pero al llegar con reserva de <strong>clase</strong> o <strong>equipo</strong> basta <strong>un solo escaneo</strong> del QR de esa reserva: recepción registra la reserva y, si hace falta, también tu entrada al club. El QR de <strong>Mi acceso al club</strong> es para visitas sin reserva o para registrar <strong>salida</strong> del gym al irte.</p>
+
+<h3>¿Puedo reservar equipos con paquete de visitas?</h3>
+<p>No. La reserva de equipos requiere membresía activa continua, no paquetes de visitas sueltos.</p>
+
+<h3>Soy recepcionista, ¿puedo cobrar desde la app?</h3>
+<p>No. Consulta ventas y caja en la app, pero registra pagos y abre caja en el panel web.</p>
+
+<h3>¿Cómo escaneo el QR de un socio?</h3>
+<p>Consulta → <strong>Escanear acceso</strong>. Elige sucursal y apunta la cámara. Funciona con acceso al club, reservas de clase y reservas de equipo.</p>
+
+<h3>¿El entrenador puede ver datos médicos del socio?</h3>
+<p>En el panel web el entrenador puede consultar información de salud autorizada. En la app ve rutinas, asignaciones y progreso, no el formulario médico completo del onboarding.</p>
+
+<h3>No me llegan notificaciones push</h3>
+<p>Revisa que CreceApp tenga permiso de notificaciones en ajustes del teléfono, que tengas internet y que hayas iniciado sesión al menos una vez. Cierra y abre la app si acabas de instalar.</p>
+
+<h3>¿Qué pasa si elimino mi cuenta?</h3>
+<p>Se borran reservas, notificaciones, tokens y perfil de socio de la app. Tus firmas legales se conservan. No podrás volver a entrar con esa cuenta; contacta recepción si necesitas reactivarte.</p>
+
+<h3>¿Padierna y Huipulco son membresías distintas?</h3>
+<p>No. Es un solo club: tu CRC-###### sirve en ambas sedes. Al reservar clases, fíjate en la etiqueta de sede del horario.</p>
+
+<h3>¿Olvidé mi contraseña y no tengo acceso al correo?</h3>
+<p>Acude a recepción con identificación para que personal autorizado actualice tu correo o teléfono en el panel web.</p>
+
+<h3>La app dice «Modo solo lectura»</h3>
+<p>Es normal para personal administrativo. Usa el navegador en <strong>manage.crecesportclub.com</strong> para tareas de gestión; la app es para consulta rápida y escaneo en mostrador.</p>
+
+<h3>¿Hay modo oscuro?</h3>
+<p>La versión actual usa tema claro institucional del club. Consulta actualizaciones futuras de la app.</p>
+
+<h3>¿Qué hago si la app se queda cargando?</h3>
+<p>Verifica conexión a internet, cierra la app completamente y ábrela de nuevo. Si persiste, cierra sesión y vuelve a entrar. Reporta a recepción si el problema continúa en horario de operación.</p>
+
+<h3>¿Puedo cambiar mi correo o teléfono desde la app?</h3>
+<p>La app actual no incluye pantalla para editar correo o teléfono de login. Solicita el cambio en recepción; el personal lo actualiza en el panel web y luego podrás entrar con los datos nuevos.</p>
+
+<h3>¿Por qué coordinador ve lo mismo que administrador en la app?</h3>
+<p>En el teléfono, coordinador y recepción comparten la experiencia de «Administración» con métricas y consultas. Las diferencias de permisos se aplican sobre todo en el panel web (por ejemplo, coordinación puede tener más módulos de edición allí).</p>
+
+<h3>¿Puedo ver el detalle de una rutina asignada con videos incluidos?</h3>
+<p>Sí. Al abrir una rutina en Mis rutinas, el detalle puede listar ejercicios y enlaces a videos de la biblioteca. Si el entrenador vinculó contenido multimedia, ábrelo desde ahí; también puedes ir a la pestaña Videos.</p>
+
+<h3>Al reservar me pidió verificación de número de socio, ¿dónde lo veo?</h3>
+<p>En Perfil → sección Membresía → <strong>Número de socio</strong> (formato CRC-######). La app lo envía automáticamente al confirmar reservas; solo necesitas tener perfil completo.</p>
+
+<h3>¿Las notificaciones pueden traer imagen?</h3>
+<p>Sí. En el detalle del aviso puede aparecer una imagen promocional arriba del texto (eventos, promociones, avisos del club). Si la imagen no carga, el texto del aviso sigue disponible.</p>
+
+<h3>¿Debo mantener la app abierta para que funcione el QR?</h3>
+<p>Necesitas abrir la pantalla <strong>Mi acceso al club</strong> con conexión a internet para generar o renovar el código. No hace falta dejar la app abierta todo el tiempo en el gym; basta mostrar el QR cuando llegues a recepción. Si llevas un rato en la pantalla del QR, este se refresca solo.</p>
+
+<h3>¿Puedo usar CreceApp sin ser socio?</h3>
+<p>Personal del club (administración, recepción, coordinación, entrenadores) usa la app con credenciales laborales que les asigna el club; su experiencia no incluye reservas de socio salvo que también tengan perfil de membresía. Los registros públicos con <strong>Crear cuenta</strong> están orientados a personas que quieren ser socios.</p>
+
+<h3>¿Qué significa el estado de asistencia en mi reserva?</h3>
+<p><strong>Pendiente</strong> — Aún no escaneaste llegada a clase. <strong>En curso</strong> — Registraste entrada a la clase. <strong>Completada</strong> — Registraste salida. Recepción escanea tu QR de reserva para cambiar estos estados.</p>
+
+<div class="note">
+  <strong>Soporte:</strong> Para dudas sobre membresía, pagos o situaciones especiales, acude a recepción de Crece Sport Club con tu número de socio a la mano. Para problemas técnicos recurrentes de la app, el personal puede escalar al área de sistemas del club desde el panel web en manage.crecesportclub.com.
+</div>
+
+<p>Este manual describe la versión <strong>1.0.0</strong> de CreceApp. Algunos textos o botones pueden variar ligeramente en actualizaciones futuras manteniendo la misma función.</p>
+
+  </div>
+  <footer class="content-footer">
+    <p>Crece Sport Club · Documento para uso interno del personal. Si algo no coincide con tu pantalla, consulta con coordinación o administración.</p>
+  </footer>
+</main>
+</div>
+
+<button type="button" class="btn-top" id="btn-top" title="Volver arriba" aria-label="Volver arriba">↑</button>
+<script>
+(function () {
+  const sidebar = document.querySelector('nav.sidebar');
+  const links = sidebar ? sidebar.querySelectorAll('a[href^="#"]') : [];
+  const sections = [];
+  links.forEach(function (a) {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) sections.push({ link: a, el: el });
+  });
+
+  const search = document.getElementById('nav-search');
+  if (search && sidebar) {
+    search.addEventListener('input', function () {
+      const q = search.value.trim().toLowerCase();
+      sidebar.querySelectorAll('li').forEach(function (li) {
+        if (li.classList.contains('nav-group')) return;
+        const a = li.querySelector('a');
+        if (!a) return;
+        const text = a.textContent.toLowerCase();
+        li.classList.toggle('nav-hidden', q.length > 0 && !text.includes(q));
+      });
+    });
+  }
+
+  function onScroll() {
+    let current = sections[0];
+    const y = window.scrollY + 120;
+    sections.forEach(function (s) {
+      if (s.el.offsetTop <= y) current = s;
+    });
+    links.forEach(function (a) { a.classList.remove('is-active'); });
+    if (current) current.link.classList.add('is-active');
+
+    const btn = document.getElementById('btn-top');
+    if (btn) btn.classList.toggle('visible', window.scrollY > 400);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const btnTop = document.getElementById('btn-top');
+  if (btnTop) btnTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  const toggle = document.getElementById('menu-toggle');
+  if (toggle && sidebar) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+    links.forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.innerWidth <= 960) sidebar.classList.remove('open');
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

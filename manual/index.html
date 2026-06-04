@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual de usuario — Panel web</title>
+  <link rel="stylesheet" href="css/manual.css">
+</head>
+<body>
+<button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰ Menú</button>
+<div class="layout">
+<nav class="sidebar">
+  <div class="sidebar-brand">
+    <h1>Manual de usuario — Panel web</h1>
+    <p class="subtitle">Crece Sport Club · Gestión</p>
+  </div>
+  <div class="nav-search-wrap">
+    <input type="search" class="nav-search" id="nav-search" placeholder="Buscar en el manual…" autocomplete="off">
+  </div>
+  <div class="nav-scroll">
+  
+<ul>
+<li class="nav-group">General</li>
+<li><a href="#intro">Introducción</a></li>
+<li><a href="#acceso">Acceso al panel</a></li>
+<li><a href="#perfiles">Perfiles de usuario</a></li>
+<li><a href="#permisos">Permisos</a></li>
+<li><a href="#app">Relación con la app</a></li>
+<li><a href="#inicio">Pantalla de inicio</a></li>
+<li class="nav-group">Operación</li>
+<li><a href="#recepcion">Recepción</a></li>
+<li><a href="#caja">Caja y ventas</a></li>
+<li><a href="#membresia">Membresías y cobros</a></li>
+<li><a href="#agenda">Agenda y clases</a></li>
+<li><a href="#inventario">Inventario y tienda</a></li>
+<li><a href="#entrenamiento">Entrenamiento</a></li>
+<li><a href="#legal">Legal y documentos</a></li>
+<li><a href="#comunicacion">Comunicación</a></li>
+<li><a href="#administracion">Administración</a></li>
+<li><a href="#kiosco">Kiosco de accesos</a></li>
+<li class="nav-group">Guías</li>
+<li><a href="#flujos">Flujos paso a paso</a></li>
+<li><a href="#faq">Preguntas frecuentes</a></li>
+</ul>
+
+  </div>
+</nav>
+<main class="content">
+  <header class="content-header">
+    <p class="eyebrow">Manual de usuario</p>
+    <h2 class="page-title">Manual de usuario — Panel web</h2>
+  </header>
+  <div class="content-inner">
+<h2 id="intro">Introducción</h2>
+
+<p class="lead">Este manual describe el panel web de administración de Crece Sport Club, disponible en <strong>manage.crecesportclub.com/admin</strong>, y el kiosco de registro de accesos en <strong>manage.crecesportclub.com/acceso</strong>. Está pensado para el personal del club: recepción, coordinación, administración, entrenadores y operadores de escaneo.</p>
+
+<p>El panel web concentra la operación diaria del gimnasio: dar de alta socios, cobrar membresías y productos, registrar entradas y salidas, administrar clases y reservas, comunicarse con los socios mediante notificaciones, y consultar reportes. La app móvil Crece Sport Club es el canal principal para los socios; el panel web es donde el personal configura y mantiene la información que la app muestra.</p>
+
+<p>Quién usa cada herramienta:</p>
+<ul>
+  <li><span class="badge badge-web">Panel web</span> — Recepcionistas, coordinadores, administradores y entrenadores (según su perfil).</li>
+  <li><span class="badge badge-kiosk">Kiosco /acceso</span> — Personal con perfil de escaneo de accesos, en una tablet o computadora en la entrada (<strong>solo navegador web</strong>; no está en CreceApp).</li>
+  <li><span class="badge badge-app">App móvil</span> — Socios (miembros del club). No ingresan al panel web de administración.</li>
+</ul>
+
+<div class="note">
+  <strong>Kiosco solo vía web:</strong> El kiosco de accesos en <strong>/acceso</strong> está disponible únicamente en el navegador (tablet o computadora con Chrome, Edge, Safari, etc.). La app móvil CreceApp <em>no</em> incluye modo kiosco. En la app, recepción puede escanear QR como apoyo en mostrador; eso es distinto del kiosco fijo de entrada.
+</div>
+
+<div class="note">
+  <strong>Importante:</strong> El kiosco de accesos <em>no</em> abre torniquetes ni controla puertas físicas. Solo registra en el sistema la hora de entrada y salida de los socios cuando escanean su código QR. Esa información alimenta la actividad del gym que el socio ve en su app.
+</div>
+
+<p>El menú lateral del panel está organizado en grupos: Recepción, Caja y ventas, Membresías y planes, Agenda y clases, Inventario y tienda, Entrenamiento, Legal y documentos, Comunicación, Administración y, colapsado por defecto, Sistema técnico (ajustes avanzados del servidor, fuera del alcance de este manual operativo).</p>
+
+<h3>Convenciones de este manual</h3>
+<ul>
+  <li>Las rutas se escriben como <strong>Grupo → Pantalla</strong> según el menú lateral.</li>
+  <li>Los botones y campos aparecen en <strong>negritas</strong> con el texto exacto de la interfaz.</li>
+  <li>Las etiquetas <span class="badge badge-web">Panel web</span>, <span class="badge badge-kiosk">Kiosco</span> y <span class="badge badge-app">App</span> indican dónde aplica cada acción.</li>
+</ul>
+
+<h3>Requisitos del equipo de trabajo</h3>
+<p>Para recepción y caja se recomienda computadora o tablet con pantalla táctil, conexión estable a internet y navegador actualizado. El kiosco de accesos funciona mejor en tablet fija con lector USB de códigos QR (modo teclado) y buena iluminación para la cámara frontal o trasera. No instales extensiones agresivas de bloqueo de anuncios que puedan interferir con la verificación de seguridad en el login.</p>
+
+<h2 id="acceso">Acceso al panel</h2>
+
+<h3>Ingreso al panel de administración</h3>
+
+<p>Abre un navegador moderno (Chrome, Edge, Firefox o Safari) y visita:</p>
+<p><strong>https://manage.crecesportclub.com/admin/login</strong></p>
+
+<p>La pantalla muestra el logotipo de Crece Sport Club y el formulario de acceso. Si ya tenías sesión activa en ese navegador, puede redirigirte directo al tablero; usa cierre de sesión explícito al terminar en equipos compartidos.</p>
+
+<p>En la pantalla de inicio de sesión verás:</p>
+<ul>
+  <li><strong>Correo electrónico</strong> — La dirección con la que te crearon la cuenta de personal.</li>
+  <li><strong>Contraseña</strong> — Tu clave personal. Si la olvidaste, contacta a un coordinador o administrador para restablecerla.</li>
+  <li><strong>Recordarme</strong> — Casilla opcional que mantiene la sesión activa en ese equipo por más tiempo. Úsala solo en computadoras de confianza del club.</li>
+  <li><strong>Iniciar sesión</strong> — Botón principal. Permanece deshabilitado unos segundos si hay verificación de seguridad activa (ver abajo).</li>
+</ul>
+
+<h3>Verificación de seguridad (Turnstile)</h3>
+
+<p>Si el club tiene activada la verificación antirrobots, debajo de los campos de correo y contraseña aparecerá un recuadro de verificación automática (Cloudflare Turnstile). Debes esperar a que se complete antes de pulsar <strong>Iniciar sesión</strong>. Si intentas entrar antes, verás el mensaje «Espera a que termine la verificación de seguridad».</p>
+
+<div class="tip">
+  Si el botón de inicio de sesión muestra «Espera la verificación de seguridad» al pasar el cursor, espera unos segundos más o recarga la página. Esto protege las cuentas del personal contra intentos masivos de acceso.
+</div>
+
+<h3>Errores comunes al iniciar sesión</h3>
+<ul>
+  <li><strong>Credenciales incorrectas</strong> — Revisa mayúsculas en la contraseña y que el correo esté bien escrito.</li>
+  <li><strong>Sin permiso para el panel</strong> — Los socios (miembros) no pueden entrar al panel de administración; usan la app. El personal de escaneo solo accede al kiosco <strong>/acceso</strong>, no al panel completo, salvo que también tenga otro rol.</li>
+  <li><strong>Demasiados intentos</strong> — Tras varios intentos fallidos, el sistema bloquea temporalmente nuevos intentos. Espera unos minutos.</li>
+</ul>
+
+<h3>Cierre de sesión</h3>
+<p>En la esquina superior derecha del panel, abre el menú de tu usuario y elige cerrar sesión, especialmente al terminar tu turno en recepción o caja compartida.</p>
+
+<h2 id="perfiles">Perfiles de usuario</h2>
+
+<p>Cada cuenta del personal tiene uno o más <strong>roles</strong> (perfiles) que determinan qué menús ve y qué acciones puede hacer. Un mismo usuario puede combinar roles si el administrador lo configura así.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Perfil</th>
+      <th>Panel web<br><span class="badge badge-web">/admin</span></th>
+      <th>Kiosco<br><span class="badge badge-kiosk">/acceso</span></th>
+      <th>App móvil<br><span class="badge badge-app">CreceApp</span></th>
+      <th>Descripción breve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>socio</strong></td>
+      <td>No</td>
+      <td>No</td>
+      <td>Sí</td>
+      <td>Miembro del club. Reserva clases, consulta rutinas, muestra su QR de acceso, recibe notificaciones. No usa el panel web.</td>
+    </tr>
+    <tr>
+      <td><strong>entrenador</strong></td>
+      <td>Sí (vista de entrenamiento)</td>
+      <td>No</td>
+      <td>Sí (como entrenador)</td>
+      <td>Crea y edita rutinas, las asigna a socios, consulta avance. Ve datos de salud limitados de los socios (emergencia y objetivos). No accede a caja ni facturación.</td>
+    </tr>
+    <tr>
+      <td><strong>escaneo_accesos</strong></td>
+      <td>No</td>
+      <td>Sí</td>
+      <td>No (como operador)</td>
+      <td>Opera el kiosco de registro en la entrada. Escanea QR con lector USB o cámara. No administra socios ni ventas.</td>
+    </tr>
+    <tr>
+      <td><strong>recepcion</strong></td>
+      <td>Sí (operación diaria)</td>
+      <td>No*</td>
+      <td>No</td>
+      <td>Atención en mostrador: socios, check-ins, POS, reservas, consulta de membresías. Sin facturación electrónica, campañas push ni ejecutar importaciones masivas.</td>
+    </tr>
+    <tr>
+      <td><strong>coordinador</strong></td>
+      <td>Sí (casi todo el negocio)</td>
+      <td>No*</td>
+      <td>No</td>
+      <td>Supervisa operación completa: usuarios de niveles inferiores, ventas, caja con retiros, membresías, inventario, push, facturación, importaciones. No opera el kiosco ni ajustes técnicos del servidor.</td>
+    </tr>
+    <tr>
+      <td><strong>administrador</strong></td>
+      <td>Sí (todo el negocio)</td>
+      <td>No*</td>
+      <td>No</td>
+      <td>Máximo nivel operativo del club: incluye gestión de roles, verificación de cuentas, edición de número de socio. Tampoco usa el kiosco ni ajustes técnicos internos.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="note">* Un usuario puede tener <em>escaneo_accesos</em> además de recepción u otro rol; en ese caso sí entra al kiosco con la misma cuenta.</p>
+
+<h3>Detalle por perfil</h3>
+
+<h4>Socio</h4>
+<p>Es el cliente del club. Su experiencia es 100 % la app móvil: reservar clases, ver equipos reservables, mostrar el pase QR, leer rutinas asignadas, aceptar documentos legales y recibir notificaciones. El personal le da soporte desde el panel, pero el socio no inicia sesión en manage.crecesportclub.com/admin.</p>
+
+<h4>Entrenador</h4>
+<p>Accede al panel con menú centrado en <strong>Entrenamiento</strong> y lectura de <strong>Socios</strong>. En la ficha del socio ve la pestaña «Salud y objetivos» (solo lectura): contacto de emergencia y metas, sin editar el formulario completo de nuevo ingreso. Puede crear rutinas, asignarlas y registrar avances que el socio marca en la app.</p>
+
+<h4>Escaneo de accesos</h4>
+<p>Solo ve el kiosco en <strong>/acceso/login</strong>. Tras iniciar sesión llega directo a «Registro de accesos». No hay menú lateral: la pantalla completa está dedicada al escaneo.</p>
+
+<h4>Recepción</h4>
+<p>Perfil de mostrador. Atiende socios, registra entradas manuales o por QR en recepción, opera el punto de venta, consulta contratos y paquetes de visita (sin emitirlos directamente en algunos flujos), cancela reservas de equipos y clases, y ve reportes básicos. No envía campañas push, no timbra facturas ni ejecuta importaciones masivas de socios.</p>
+
+<h4>Coordinador</h4>
+<p>Responsable operativo del club. Puede crear usuarios de niveles inferiores (recepción, entrenador, escaneo, socios), pero no editar cuentas de otros coordinadores ni administradores. Gestiona precios, membresías, inventario, facturación, push e importaciones. Autoriza retiros de efectivo en caja.</p>
+
+<h4>Administrador</h4>
+<p>Mismo alcance de negocio que el coordinador, más gestión de roles elevados, configuración de verificación de cuentas (correo y SMS) y edición del número oficial de socio (formato CRC-######). No accede al kiosco de escaneo ni a la sección colapsada «Sistema técnico» del panel (reservada al soporte del proveedor del software).</p>
+
+<h2 id="permisos">Permisos por área</h2>
+
+<p>Los permisos son las «llaves» internas que el sistema asigna a cada rol. No los verás en pantalla con esos nombres, pero explican por qué un recepcionista ve un botón y un entrenador no. Las tablas siguientes resumen qué puede hacer cada rol en lenguaje claro.</p>
+
+<h3>Acceso a sistemas</h3>
+<table class="table">
+  <thead>
+    <tr><th>Capacidad</th><th>Recepción</th><th>Coordinador</th><th>Administrador</th><th>Entrenador</th><th>Escaneo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Entrar al panel web /admin</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí (vista limitada)</td><td>No</td></tr>
+    <tr><td>Entrar al kiosco /acceso</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Sí</td></tr>
+    <tr><td>Gestionar usuarios y roles</td><td>No</td><td>Sí (niveles inferiores)</td><td>Sí (todos excepto soporte técnico)</td><td>No</td><td>No</td></tr>
+    <tr><td>Configuración técnica del servidor</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+  </tbody>
+</table>
+
+<h3>Recepción y socios</h3>
+<table class="table">
+  <thead>
+    <tr><th>Capacidad</th><th>Recepción</th><th>Coordinador</th><th>Administrador</th><th>Entrenador</th><th>Escaneo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Ver listado de socios</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td></tr>
+    <tr><td>Crear y editar socios</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Formulario de nuevo ingreso (salud)</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Solo lectura parcial</td><td>No</td></tr>
+    <tr><td>Editar número de socio CRC</td><td>No</td><td>No</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Check-ins: listar</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Check-ins: escanear QR o registro manual</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>Sí (solo kiosco)</td></tr>
+    <tr><td>Equipos reservables: crear/editar</td><td>Solo ver</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Reservas de equipos: cancelar</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Lista de espera: promover o cancelar</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+  </tbody>
+</table>
+
+<h3>Caja, ventas y facturación</h3>
+<table class="table">
+  <thead>
+    <tr><th>Capacidad</th><th>Recepción</th><th>Coordinador</th><th>Administrador</th><th>Entrenador</th><th>Escaneo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Punto de venta (POS)</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Abrir y cerrar caja</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Retiro de efectivo (requiere autorización)</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Ver ventas y registrar pagos</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Reembolsar pagos</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Solicitar y emitir facturas (CFDI)</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+  </tbody>
+</table>
+
+<h3>Membresías y planes</h3>
+<table class="table">
+  <thead>
+    <tr><th>Capacidad</th><th>Recepción</th><th>Coordinador</th><th>Administrador</th><th>Entrenador</th><th>Escaneo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Ver planes y precios</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Editar planes y precios</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Registrar pago / activar vigencia de membresía</td><td>Solo ver contratos</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Emitir paquete de visitas</td><td>Solo ver</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+  </tbody>
+</table>
+
+<p>En la práctica, recepción puede vender membresías y paquetes desde el POS (que activa vigencia automáticamente), pero no usa el botón «Registrar pago / activar vigencia» ni «Emitir paquete de visitas» salvo consulta. Coordinador y administrador cubren cobros especiales (transferencia ya confirmada sin POS, cortesías documentadas) desde esas pantallas dedicadas.</p>
+
+<h3>Agenda, inventario, entrenamiento</h3>
+<table class="table">
+  <thead>
+    <tr><th>Capacidad</th><th>Recepción</th><th>Coordinador</th><th>Administrador</th><th>Entrenador</th><th>Escaneo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Horarios de clase: ver / editar</td><td>Solo ver</td><td>Solo ver</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Reservar o cancelar clases</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Inventario: productos y ajustes</td><td>Solo ver</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Rutinas: crear</td><td>No</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td></tr>
+    <tr><td>Rutinas: asignar a socio</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td></tr>
+    <tr><td>Avance de rutina</td><td>Solo ver</td><td>Solo ver</td><td>Solo ver</td><td>Ver y registrar</td><td>No</td></tr>
+  </tbody>
+</table>
+
+<h3>Legal, comunicación e importaciones</h3>
+<table class="table">
+  <thead>
+    <tr><th>Capacidad</th><th>Recepción</th><th>Coordinador</th><th>Administrador</th><th>Entrenador</th><th>Escaneo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Documentos legales: ver</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Documentos legales: crear, editar, publicar</td><td>No</td><td>No</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Aceptaciones legales y descarga PDF</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Campañas push y notificaciones en app</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Importar socios masivamente</td><td>Solo ver lotes</td><td>Subir, analizar y ejecutar</td><td>Subir, analizar y ejecutar</td><td>No</td><td>No</td></tr>
+    <tr><td>Verificación de cuentas (email / SMS)</td><td>No</td><td>No</td><td>Sí</td><td>No</td><td>No</td></tr>
+  </tbody>
+</table>
+
+<div class="warning">
+  Si un botón no aparece o está deshabilitado, casi siempre es porque tu rol no incluye esa función. Pide apoyo a un coordinador o administrador en lugar de intentar entrar con otra cuenta.
+</div>
+
+<h2 id="app">Relación con la app móvil</h2>
+
+<p>Todo lo que configuras en el panel web alimenta lo que los socios ven y hacen en la app Crece Sport Club. No hace falta duplicar trabajo: publica una vez en el panel y el socio lo recibe en el teléfono tras sincronizar (normalmente al abrir la app o refrescar la sección correspondiente).</p>
+
+<h3>Ciclo de vida de un socio digital</h3>
+<p>Desde la perspectiva del club, un socio «digitalmente listo» recorre estos hitos que conectan panel y app:</p>
+<ol class="steps">
+  <li>Cuenta creada (Usuarios o importación) con rol socio.</li>
+  <li>Ficha de socio vinculada con número CRC asignado.</li>
+  <li>Formulario de nuevo ingreso completo en recepción (o datos equivalentes).</li>
+  <li>Documentos legales publicados y aceptados en la app.</li>
+  <li>Membresía o paquete de visitas activo.</li>
+  <li>App instalada, sesión iniciada y permisos de notificación concedidos (opcional pero recomendado).</li>
+</ol>
+<p>Hasta completar los pasos anteriores, algunas funciones de la app (reservar clases, mostrar QR válido) pueden estar limitadas aunque el socio ya haya pagado.</p>
+
+<h3>Qué configura el panel y consume la app</h3>
+<ul>
+  <li><strong>Socios y cuentas</strong> — Alta, estado activo/inactivo, onboarding completado, datos de salud del nuevo ingreso.</li>
+  <li><strong>Reservas</strong> — Horarios de clases publicados, cupos, reservas confirmadas o en lista de espera; reservas de equipos con sus turnos y códigos QR.</li>
+  <li><strong>Documentos legales</strong> — Reglamento, aviso de privacidad, liberación de responsabilidades. La app obliga al socio a leer y aceptar la versión publicada antes de usar ciertas funciones.</li>
+  <li><strong>Notificaciones push</strong> — Campañas con título, resumen, mensaje completo e imagen opcional. Llegan a la bandeja del teléfono y quedan en la bandeja interna de la app.</li>
+  <li><strong>Rutinas de entrenamiento</strong> — Estructura de días, ejercicios, videos de apoyo. Las asignaciones vinculan una rutina a un socio concreto.</li>
+  <li><strong>Contenido multimedia</strong> — Biblioteca interna de videos o material que la app puede mostrar (según permisos de publicación).</li>
+  <li><strong>Pase QR de acceso</strong> — Cada socio activo obtiene un código en la app (<strong>Mi acceso al club</strong>). Al escanearlo en recepción o en el kiosco, el sistema registra entrada o salida del club.</li>
+  <li><strong>QR de reserva de clase o equipo</strong> — Otro código en la app, pero <strong>no obliga a escanear dos QR</strong>: el primer escaneo del QR de reserva registra la clase o el equipo y, si el socio aún no había entrado, también abre su sesión de acceso al club.</li>
+  <li><strong>Actividad en el gym</strong> — Los check-ins (entradas y salidas) calculan tiempo en club, asistencia a clases y uso de equipos. El socio consulta su historial de actividad en la app.</li>
+  <li><strong>Membresía y visitas</strong> — Vigencia activa, paquetes de visitas disponibles y estado de pago determinan si el acceso es válido al escanear.</li>
+</ul>
+
+<div class="tip">
+  Cuando cambies precios, horarios o documentos legales, avisa al socio si el cambio es urgente; además puedes enviar una campaña push desde el panel para que lo vea al instante.
+</div>
+
+<h2 id="inicio">Pantalla de inicio (tablero)</h2>
+
+<p>Al iniciar sesión en <strong>/admin</strong>, la primera pantalla es el <strong>Tablero</strong> (Dashboard). Muestra tarjetas resumen según tu rol.</p>
+
+<h3>Widget «Resumen administrativo» (AdminOverview)</h3>
+<p>Visible para quienes administran usuarios o tienen acceso general al panel. Muestra tres tarjetas:</p>
+<ul>
+  <li><strong>Usuarios</strong> — Total de cuentas, desglosadas en: administradores, socios con membresía vigente, socios sin vigencia activa y entrenadores.</li>
+  <li><strong>Socios</strong> — Cantidad total de fichas de socio en el sistema (independiente de si tienen app instalada).</li>
+  <li><strong>Sucursales</strong> — Sedes registradas (activas e inactivas). En Crece Sport Club la operación es monosucursal con prefijo CRC, pero el contador incluye todas las sedes configuradas.</li>
+</ul>
+
+<h3>Widget «Resumen operativo» (OperationsOverview)</h3>
+<p>Visible para personal con acceso a reservas o importaciones. Incluye:</p>
+<ul>
+  <li><strong>Reservas</strong> — Histórico total de reservas de clases.</li>
+  <li><strong>Ventas</strong> — Órdenes de venta registradas.</li>
+  <li><strong>Pagos</strong> — Suma de cobros registrados en pesos.</li>
+  <li><strong>Check-ins hoy</strong> — Accesos registrados en la fecha actual (recepción, kiosco o manual).</li>
+  <li><strong>Asignaciones de rutina</strong> — Rutinas actualmente asignadas a socios.</li>
+  <li><strong>Contenido multimedia</strong> — Elementos en la biblioteca interna.</li>
+  <li><strong>Lotes de importación</strong> — Archivos de socios cargados para importación masiva.</li>
+</ul>
+
+<p>También aparece el widget de cuenta con tu nombre y opción de cerrar sesión.</p>
+
+<h2 id="recepcion">Recepción</h2>
+
+<p>El grupo de menú <strong>Recepción</strong> concentra la atención al socio en mostrador y el control de accesos desde recepción (distinto del kiosco dedicado).</p>
+
+<h3>Socios</h3>
+<p>Ruta: <strong>Recepción → Socios</strong></p>
+
+<h4>Listado</h4>
+<p>La tabla muestra: ID, Nº socio, Usuario (nombre), Estado (activo/inactivo/etc.), columna Onboarding (ícono de check si completó el proceso en app o recepción), Fecha de alta y Última actualización. Puedes buscar por número de socio o nombre. Cada fila tiene botón <strong>Editar</strong>.</p>
+
+<h4>Crear socio</h4>
+<p>Pulsa <strong>Crear</strong> en la esquina superior. Campos obligatorios en la pestaña General:</p>
+<ul>
+  <li><strong>Usuario (cuenta)</strong> — Selector de cuentas existentes que aún no tienen ficha de socio. Debes crear antes la cuenta en Administración → Usuarios con rol socio, o importar socios masivamente. Solo aparece al crear; no se puede cambiar después.</li>
+  <li><strong>Estado</strong> — Por defecto Activo.</li>
+  <li><strong>Fecha de alta</strong> — Opcional; fecha y hora de ingreso al club.</li>
+</ul>
+
+<h4>Editar socio — pestaña General</h4>
+<ul>
+  <li><strong>Número de socio</strong> — Visible solo al editar. Formato oficial CRC-######. Solo administradores pueden modificarlo.</li>
+  <li><strong>Estado</strong> — Activa o suspende al socio en operaciones del club.</li>
+  <li><strong>Fecha de alta</strong> — Editable.</li>
+  <li><strong>Onboarding completado</strong> — Texto informativo (fecha o «Pendiente»). Se actualiza automáticamente cuando el socio cumple requisitos (documentos legales, datos de salud, etc.).</li>
+  <li><strong>Versión formulario salud</strong> — Normalmente V2; indica qué formato de nuevo ingreso aplica.</li>
+</ul>
+
+<h4>Pestaña «Nuevo ingreso»</h4>
+<p>Disponible al editar un socio existente si tienes permiso de escritura. Formulario extenso en cuatro bloques:</p>
+
+<p><strong>1. Datos personales</strong></p>
+<ul>
+  <li>Fecha de nacimiento (obligatoria, no futura)</li>
+  <li>Género (obligatorio): Masculino, Femenino, Otro, Prefiero no decir</li>
+  <li>Teléfono de contacto</li>
+  <li>Domicilio</li>
+  <li>Ocupación</li>
+</ul>
+
+<p><strong>2. Contacto de emergencia</strong></p>
+<ul>
+  <li>Nombre completo (obligatorio)</li>
+  <li>Parentesco (obligatorio)</li>
+  <li>Teléfono (obligatorio)</li>
+</ul>
+
+<p><strong>3. Salud</strong></p>
+<ul>
+  <li>Casilla «¿Tiene alguna condición médica relevante?» — Si la marcas, aparece el campo obligatorio Condiciones médicas.</li>
+  <li>Alergias (etiquetas, agregar una por una)</li>
+  <li>Medicamentos actuales</li>
+  <li>Lesiones recientes</li>
+  <li>Cirugías previas</li>
+  <li>«Autoriza atención médica de emergencia» (obligatoria, marcada por defecto)</li>
+</ul>
+
+<p><strong>4. Actividad física y objetivos</strong></p>
+<ul>
+  <li>Nivel de actividad habitual (obligatorio): Sedentario, Ligero, Moderado, Intenso</li>
+  <li>Objetivo principal (obligatorio)</li>
+  <li>Experiencia previa</li>
+  <li>Restricciones físicas</li>
+  <li>Frecuencia semanal deseada (días, número 1–14)</li>
+</ul>
+
+<p><strong>Declaración</strong></p>
+<ul>
+  <li>«Declaro que la información proporcionada es verídica» (obligatoria)</li>
+  <li>«Acepto la evaluación de riesgo para la práctica deportiva» (obligatoria)</li>
+</ul>
+
+<p>Guarda con el botón inferior del formulario. Los entrenadores ven otra pestaña «Salud y objetivos» en solo lectura con datos reducidos.</p>
+
+<h3>Check-ins</h3>
+<p>Ruta: <strong>Recepción → Check-ins</strong></p>
+
+<p>Listado de solo lectura con columnas: ID, Socio, Sucursal, Estado, Resultado del acceso, Tipo QR (manual si no hubo escaneo), Entrada, Salida, Duración. Puedes ordenar por fecha de entrada y buscar por número de socio. Este listado es la fuente de verdad cuando un socio pregunta «¿a qué hora entré?» o para conciliar incidentes en mostrador.</p>
+
+<p class="tip">Usa el filtro mental por fecha del día actual comparando con la tarjeta «Check-ins hoy» del tablero; los totales deben ser coherentes entre ambas vistas.</p>
+
+<h4>Botón «Escanear QR»</h4>
+<p>Abre ventana modal con:</p>
+<ul>
+  <li><strong>Sucursal</strong> — Selector obligatorio.</li>
+  <li><strong>Cámara</strong> — Vista en vivo; apunta al QR del socio o de una reserva.</li>
+  <li><strong>Código QR</strong> — Campo de texto que se llena al detectar la cámara; también puedes pegar el código manualmente.</li>
+  <li><strong>Registrar escaneo</strong> — Confirma. Muestra notificación con el resultado (entrada, salida, reserva de clase, equipo, o error).</li>
+</ul>
+
+<div class="note">
+  <strong>No pidas dos QR al socio con reserva:</strong> Si trae QR de clase o de equipo, un escaneo basta para entrada al club (si aplica) y para la reserva. Solo pide el QR de acceso general si viene sin reserva o para registrar <strong>salida</strong> del club al terminar la visita.
+</div>
+
+<h4>Botón «Registrar check-in»</h4>
+<p>Para registrar entrada sin QR (excepción en mostrador):</p>
+<ul>
+  <li><strong>Socio</strong> — Selector por número de socio.</li>
+  <li><strong>Sucursal</strong> — Obligatoria.</li>
+  <li><strong>Reserva (opcional)</strong> — Vincula la entrada a una reserva de clase existente.</li>
+  <li><strong>Notas</strong> — Texto libre para el historial.</li>
+</ul>
+
+<h3>Equipos reservables</h3>
+<p>Ruta: <strong>Recepción → Equipos reservables</strong></p>
+
+<p>Define equipos que el socio reserva desde la app (pesas, caminadoras, sauna, etc.).</p>
+
+<h4>Crear o editar equipo</h4>
+<p><strong>Información general</strong></p>
+<ul>
+  <li>Sucursal</li>
+  <li>Nombre del equipo (ej. Pesas, Caminadoras)</li>
+  <li>Descripción breve (visible en la app)</li>
+  <li>Estado (activo/inactivo)</li>
+  <li>Orden en la lista (número menor = aparece primero en la app)</li>
+</ul>
+
+<p><strong>Equipos y turnos</strong></p>
+<ul>
+  <li>Cantidad de equipos — Unidades independientes (ej. 6 caminadoras = 6 reservas paralelas)</li>
+  <li>Duración de cada turno (minutos) — Ej. 15</li>
+  <li>Turnos máximos por reserva — Cuántos turnos seguidos puede reservar una persona</li>
+  <li>Tiempo de gracia (minutos) — Si no escanea a tiempo, se libera la reserva</li>
+  <li>Entrada anticipada (minutos) — Minutos antes del turno en que ya funciona el QR</li>
+</ul>
+
+<p><strong>Horario de operación</strong></p>
+<ul>
+  <li>Días disponibles — Casillas Lunes a Domingo</li>
+  <li>Abre a las / Cierra a las — Horario diario de reservas</li>
+</ul>
+
+<h3>Reservas de equipos</h3>
+<p>Ruta: <strong>Recepción → Reservas de equipos</strong></p>
+<p>Solo consulta y cancelación. Columnas: tipo de equipo, equipo asignado, socio, fechas, turnos, estado, hora de entrada registrada. Acción <strong>Cancelar</strong> en reservas confirmadas; pide motivo opcional.</p>
+
+<h3>Lista de espera</h3>
+<p>Ruta: <strong>Recepción → Lista de espera</strong></p>
+<p>Socios en espera de cupo en clases llenas. Columnas: ID, Socio, Clase, Posición, Estado, Fecha de promoción.</p>
+<ul>
+  <li><strong>Promover siguiente</strong> — Pasa al primer elegible de la lista a reserva confirmada cuando hay cupo.</li>
+  <li><strong>Cancelar</strong> — Saca al socio de la lista de espera.</li>
+</ul>
+
+<h2 id="caja">Caja y ventas</h2>
+
+<p>Grupo <strong>Caja y ventas</strong>: punto de venta táctil, historial de ventas, pagos, sesiones de caja y documentos fiscales. La disciplina de caja es fundamental: toda venta en mostrador debe pasar por el POS con sesión abierta para que arqueos, reembolsos y facturación cuadren al centavo.</p>
+
+<div class="warning">
+  No registres cobros «por fuera» del POS si tu procedimiento interno exige trazabilidad. Un pago manual en Ventas sin pasar por caja abierta puede desajustar el efectivo esperado al cierre.
+</div>
+
+<h3>Punto de venta (POS)</h3>
+<p>Ruta: <strong>Caja y ventas → Punto de venta</strong></p>
+
+<h4>Paso 1: Abrir caja</h4>
+<p>Si no hay caja abierta, la pantalla muestra un candado y el mensaje «Abre la caja para usar el POS». Opciones:</p>
+<ul>
+  <li>Si ya hay caja abierta en la sucursal por otro usuario: verás número de sesión, quién la abrió, fecha y efectivo esperado. Botones <strong>Continuar con esta caja</strong> o <strong>Cerrar caja</strong> (si tienes permiso).</li>
+  <li>Si no hay caja abierta y tienes permiso: formulario con <strong>Fondo inicial (efectivo)</strong> (obligatorio), <strong>Notas (opcional)</strong> y botón <strong>Abrir caja y continuar</strong>.</li>
+  <li>Sin permiso de caja: mensaje indicando pedir a un coordinador que abra en Sesiones de caja.</li>
+</ul>
+
+<h4>Paso 2: Barra de caja activa</h4>
+<p>Con caja abierta, arriba aparece el número de sesión y efectivo esperado. Botones (con permiso):</p>
+<ul>
+  <li><strong>Corte</strong> — Resumen de apertura, cobros, retiros, reembolsos y efectivo esperado (solo consulta).</li>
+  <li><strong>Retiro</strong> — Registra salida de efectivo; pide monto, motivo y autorización de coordinador/administrador (correo y contraseña).</li>
+  <li><strong>Cerrar caja</strong> — Pide efectivo contado y notas de cierre.</li>
+</ul>
+
+<h4>Paso 3: Catálogo (lado izquierdo)</h4>
+<p>Cuatro pestañas superiores:</p>
+<ul>
+  <li><strong>Membresías</strong> — Planes de acceso recurrente con precio vigente.</li>
+  <li><strong>Inscripciones</strong> — Cuota única de alta (no otorga acceso por sí sola).</li>
+  <li><strong>Paquetes de visita</strong> — Paquetes de entradas limitadas.</li>
+  <li><strong>Tienda</strong> — Productos físicos con inventario.</li>
+</ul>
+<p>Toca una tarjeta de concepto para agregarla al carrito. La tarjeta muestra nombre, subtítulo (ej. periodicidad) y precio. Tras agregar, aparece etiqueta «Agregado» brevemente.</p>
+
+<div class="note">
+  Si no hay conceptos en una categoría, revisa <strong>Membresías y planes → Precios de planes</strong> o contacta al coordinador para cargar el catálogo comercial.
+</div>
+
+<h4>Paso 4: Carrito (lado derecho)</h4>
+<ul>
+  <li><strong>Buscar socio</strong> — Campo de búsqueda por número, nombre, correo o teléfono. Elige un resultado de la lista desplegable. Una vez seleccionado, muestra el nombre con botón X para quitar.</li>
+  <li><strong>Agregar inscripción automática en primera alta</strong> — Casilla que añade la inscripción al carrito si el socio nunca ha pagado inscripción.</li>
+  <li><strong>Líneas del carrito</strong> — Cada concepto con botones − / + para cantidad, icono de basura para eliminar y subtotal.</li>
+  <li><strong>Total</strong> — Suma en pesos.</li>
+  <li><strong>Forma de pago</strong> — Botones: Efectivo, Tarjeta, Transferencia, etc. (según métodos configurados).</li>
+  <li><strong>Notas (opcional)</strong> — Texto libre.</li>
+  <li><strong>Vaciar</strong> — Limpia el carrito.</li>
+  <li><strong>Cobrar</strong> — Registra la venta y el pago en la sesión de caja activa. Muestra «Procesando…» mientras confirma.</li>
+</ul>
+
+<h3>Ventas</h3>
+<p>Ruta: <strong>Caja y ventas → Ventas</strong></p>
+<p>Listado: ID, Sucursal, Socio, Estado, Total, Pagado, Saldo pendiente, Fecha. No se crean ventas aquí directamente (salen del POS). Acciones por fila:</p>
+<ul>
+  <li><strong>Registrar pago</strong> — Si hay saldo pendiente. Campos: Método de pago, Caja abierta (opcional), Monto, Notas.</li>
+  <li><strong>Solicitar CFDI</strong> — Cuando la venta está pagada por completo y aún no tiene factura. Formulario fiscal extenso: RFC receptor, Razón social, Régimen fiscal (ej. 601, 612), Uso CFDI, Forma y método de pago SAT, correo, teléfono y domicilio fiscal completo (calle, número exterior/interior, colonia, ciudad, municipio, estado, código postal).</li>
+</ul>
+
+<h3>Pagos</h3>
+<p>Ruta: <strong>Caja y ventas → Pagos</strong></p>
+<p>Historial: ID, Sucursal, Estado, Método, Monto, Proveedor, Fecha de pago. Acción <strong>Reembolsar</strong> (coordinador/administrador) en pagos completados; pide motivo.</p>
+
+<h3>Sesiones de caja</h3>
+<p>Ruta: <strong>Caja y ventas → Sesiones de caja</strong></p>
+<p>Columnas: ID, Sucursal, Estado, Apertura, Esperado, Diferencia, Abierta, Cerrada. Acciones en sesiones abiertas:</p>
+<ul>
+  <li><strong>Retiro</strong> — Monto, Motivo, Correo del coordinador/admin, Contraseña del autorizador.</li>
+  <li><strong>Cerrar caja</strong> — Monto contado, Notas de cierre.</li>
+</ul>
+
+<h3>Documentos fiscales (Facturiva)</h3>
+<p>Ruta: <strong>Caja y ventas → Documentos fiscales</strong></p>
+<p>Facturas electrónicas vinculadas a ventas. Columnas: ID, Venta, Proveedor, Estado, Monto, UUID, Fecha de emisión.</p>
+<ul>
+  <li><strong>Emitir CFDI</strong> / <strong>Marcar pendiente CFDI</strong> — En borrador; timbra con Facturiva si está configurado.</li>
+  <li><strong>Cancelar</strong> — En facturas emitidas; elige motivo SAT (01–04).</li>
+</ul>
+
+<h2 id="membresia">Membresías y planes</h2>
+
+<p>El catálogo comercial está repartido en dos grupos de menú relacionados: <strong>Membresía y cobros</strong> y <strong>Membresías y planes</strong>.</p>
+
+<h3>Planes comerciales</h3>
+<p>Ruta: <strong>Membresía y cobros → Planes</strong> (o equivalente «Planes comerciales»)</p>
+<p>Campos al crear/editar:</p>
+<ul>
+  <li><strong>Código</strong> — Identificador interno corto.</li>
+  <li><strong>Nombre</strong> — Nombre comercial visible en POS y reportes.</li>
+  <li><strong>Tipo</strong> — Membresía, Paquete de visitas, Inscripción, etc.</li>
+  <li><strong>Estado</strong> — Activo o inactivo.</li>
+</ul>
+
+<h3>Precios de planes</h3>
+<p>Ruta: <strong>Membresías y planes → Precios de planes</strong></p>
+<p>Campos comunes:</p>
+<ul>
+  <li>Plan (selector)</li>
+  <li>Moneda (MXN por defecto)</li>
+  <li>Precio</li>
+  <li>Vigente desde / Vigente hasta (hasta es opcional)</li>
+</ul>
+<p>Secciones según tipo de plan:</p>
+<ul>
+  <li><strong>Membresía</strong> — Periodicidad (mensual, anual, etc.); el sistema calcula la duración de la vigencia.</li>
+  <li><strong>Paquete de visitas</strong> — Visitas incluidas (1, 5, 10 o personalizado), Vigencia del paquete (30, 60 o 90 días).</li>
+  <li><strong>Inscripción</strong> — Cuota única; no otorga acceso al gym por sí sola.</li>
+</ul>
+
+<h3>Contratos y vigencias</h3>
+<p>Ruta: <strong>Membresía y cobros → Contratos y vigencias</strong></p>
+<p>Listado de membresías activadas. Columnas visibles: Socio, Plan, Inicio, Fin, Estado, Referencia de pago (opcional en vista). No se editan filas directamente desde la tabla; se crean al registrar un pago o al cobrar membresía en POS.</p>
+<p>Estados habituales incluyen vigente, vencida o cancelada según fechas y reglas del plan. Si un socio insiste en que pagó pero no aparece, busca primero en Ventas y Pagos del mismo día antes de crear un contrato duplicado.</p>
+<p>Botón <strong>Registrar pago / activar vigencia</strong>:</p>
+<ul>
+  <li><strong>Socio</strong></li>
+  <li><strong>Plan y precio</strong> — Solo planes tipo membresía</li>
+  <li><strong>Inicio de vigencia</strong></li>
+  <li><strong>Fin de vigencia</strong> — Opcional (vacío = sin fecha de fin)</li>
+  <li><strong>Referencia de pago</strong> — Folio, últimos dígitos, etc.</li>
+  <li><strong>Notas de cobro</strong></li>
+</ul>
+
+<h3>Paquetes de visitas</h3>
+<p>Ruta: <strong>Membresías y planes → Paquetes de visitas</strong></p>
+<p>Consulta de monederos de visitas por socio: disponibles, totales, estado, vencimiento.</p>
+<p>Botón <strong>Emitir paquete de visitas</strong>:</p>
+<ul>
+  <li>Socio</li>
+  <li>Paquete (plan tipo visita)</li>
+</ul>
+<p>El sistema aplica el precio vigente y crea el monedero.</p>
+
+<h2 id="agenda">Agenda y clases</h2>
+
+<h3>Horarios de clase</h3>
+<p>Ruta: <strong>Agenda y clases → Horarios de clase</strong></p>
+<p>Campos:</p>
+<ul>
+  <li><strong>Sucursal</strong> (Padierna, Huipulco, etc.) — primero elige sucursal</li>
+  <li><strong>Clase</strong> — solo aparecen clases creadas para esa sucursal</li>
+  <li>Entrenador (opcional)</li>
+  <li>Inicio y Fin (fecha y hora)</li>
+  <li>Cupo (número máximo de personas)</li>
+  <li>Estado (programada, cancelada, etc.)</li>
+</ul>
+<p>Al guardar un horario futuro con estado programada, aparece automáticamente en la app para que socios reserven hasta llenar el cupo. Si cancelas un horario, las reservas existentes deben gestionarse (avisar socios; cancelar reservas desde Reservas de clases si procede). Mantén coherencia entre sede física del horario y la ubicación real de la clase para evitar confusiones en recepción.</p>
+
+<h3>Clases</h3>
+<p>Ruta: <strong>Agenda y clases → Clases</strong></p>
+<p>Catálogo de tipos de clase <strong>por sucursal</strong> (la misma disciplina puede existir en Padierna y Huipulco con códigos o descripciones distintas):</p>
+<ul>
+  <li><strong>Sucursal</strong>, Código, Nombre, Estado, Descripción</li>
+  <li>El código es único dentro de cada sucursal (puede repetirse en otra sede)</li>
+  <li>Columna «Horarios» cuenta cuántos horarios tiene cada clase</li>
+  <li>Filtro por sucursal en el listado</li>
+</ul>
+
+<h3>Reservas de clases</h3>
+<p>Ruta: <strong>Agenda y clases → Reservas de clases</strong></p>
+<p>Subtítulo aclara que aquí son clases grupales; equipos con cupo van en Recepción.</p>
+<p>Botón <strong>Reservar clase</strong>:</p>
+<ul>
+  <li>Socio — Búsqueda por número y nombre</li>
+  <li>Horario de clase — Solo horarios futuros programados</li>
+</ul>
+<p>En el listado, acción <strong>Cancelar</strong> en reservas confirmadas con campo Motivo.</p>
+
+<h2 id="inventario">Inventario y tienda</h2>
+
+<h3>Productos</h3>
+<p>Ruta: <strong>Inventario y tienda → Productos</strong></p>
+<p>Campos: SKU, Nombre, Estado, Moneda, Precio, Costo, Maneja inventario (Sí/No).</p>
+<p>Acción <strong>Ajustar stock</strong> (productos con inventario):</p>
+<ul>
+  <li>Sucursal</li>
+  <li>Tipo de movimiento (entrada, salida, ajuste)</li>
+  <li>Cantidad (+ entrada / − salida)</li>
+  <li>Motivo</li>
+</ul>
+
+<h3>Existencias</h3>
+<p>Ruta: <strong>Inventario y tienda → Existencias</strong> — Solo lectura: SKU, Producto, Sucursal, Disponible, Mínimo.</p>
+
+<h3>Movimientos de stock</h3>
+<p>Ruta: <strong>Inventario y tienda → Movimientos de stock</strong> — Historial de entradas, salidas y ajustes (solo lectura).</p>
+
+<h3>Categorías de productos</h3>
+<p>Ruta: <strong>Inventario y tienda → Categorías de productos</strong> — Nombre, Estado, Orden.</p>
+
+<h3>Proveedores</h3>
+<p>Ruta: <strong>Inventario y tienda → Proveedores</strong> — Nombre, Contacto, Teléfono, Email, Estado.</p>
+
+<h2 id="entrenamiento">Entrenamiento</h2>
+
+<h3>Rutinas</h3>
+<p>Ruta: <strong>Entrenamiento → Rutinas</strong></p>
+
+<p><strong>Datos generales:</strong> Nombre, Tipo (General o Personalizada), Entrenador autor, Socio objetivo (si es personalizada), Activa (interruptor), Objetivo/descripción.</p>
+
+<p><strong>Plan de entrenamiento</strong> — Repetidor «Bloques / días» con botón «Agregar día o bloque». Cada bloque incluye:</p>
+<ul>
+  <li>Nombre del día/bloque, Enfoque, Duración estimada (min)</li>
+  <li>Calentamiento (texto)</li>
+  <li>Ejercicios (repetidor): nombre, grupo muscular, equipo, series, repeticiones, duración, descanso, tempo, intensidad, carga, distancia, video de referencia, indicaciones técnicas</li>
+  <li>Enfriamiento / estiramiento</li>
+</ul>
+
+<p><strong>Material de apoyo</strong> (opcional, colapsado): videos o enlaces con Tipo, Título, URL, Proveedor.</p>
+
+<h3>Asignaciones de rutina</h3>
+<p>Ruta: <strong>Entrenamiento → Asignaciones de rutina</strong></p>
+<p>Botón <strong>Asignar rutina</strong>:</p>
+<ul>
+  <li>Rutina activa</li>
+  <li>Socio</li>
+  <li>Entrenador (opcional)</li>
+  <li>Fecha de inicio / Fecha de fin</li>
+  <li>Notas para el socio</li>
+</ul>
+<p>La app muestra la rutina asignada al socio en su sección de entrenamiento.</p>
+
+<h3>Registros de avance</h3>
+<p>Ruta: <strong>Entrenamiento → Registros de avance</strong> — Solo lectura para recepción y coordinación. Columnas: Socio, Rutina, Quién registró, Avance %, Completados/Total, Fecha. Los entrenadores registran avance desde la app o panel según permiso.</p>
+
+<p>Cada fila representa un momento en que el socio (o su entrenador) marcó ejercicios completados dentro de una asignación activa. El porcentaje de avance se calcula sobre el total de ítems configurados en la rutina. Usa este listado para conversaciones de seguimiento («llevas 60 % de la rutina de fuerza») sin modificar datos históricos: no hay edición ni eliminación desde el panel para preservar trazabilidad.</p>
+
+<h3>Contenidos multimedia (biblioteca interna)</h3>
+<p>Si tu rol incluye acceso al grupo <strong>Contenidos multimedia</strong>, allí se alojan videos o material educativo que la app puede presentar a socios (clases grabadas, tips, etc.). No confundir con las imágenes de campañas push (esas usan myimageen). La publicación de multimedia puede requerir permisos de coordinador; recepción normalmente solo consulta.</p>
+
+<h2 id="legal">Legal y documentos</h2>
+
+<h3>Documentos legales</h3>
+<p>Ruta: <strong>Documentación legal → Documentos legales</strong> (grupo Legal)</p>
+<p>Campos al crear/editar:</p>
+<ul>
+  <li><strong>Tipo de documento</strong> — Reglamento interno, Liberación de responsabilidades, Aviso de privacidad, etc.</li>
+  <li><strong>Versión</strong> — Número entero; incrementa en cada cambio sustancial.</li>
+  <li><strong>Título visible</strong></li>
+  <li><strong>Alcance</strong> — Global (recomendado en Crece) o por sede.</li>
+  <li><strong>Estado</strong> — Borrador o Publicado. Al publicar, la app exige nueva aceptación a los socios. Un documento ya publicado no permite cambiar el estado desde el formulario (crea nueva versión).</li>
+  <li><strong>Contenido</strong> — Editor de texto enriquecido (negritas, listas, títulos) que la app muestra al socio.</li>
+</ul>
+
+<h3>Aceptaciones legales</h3>
+<p>Ruta: <strong>Legal y documentos → Aceptaciones legales</strong></p>
+<p>Registro de quién aceptó qué versión: Documento, Versión, Usuario, Fecha, IP. Acción <strong>Descargar PDF</strong> por fila.</p>
+
+<h2 id="comunicacion">Comunicación</h2>
+
+<h3>Campañas push</h3>
+<p>Ruta: <strong>Comunicación → Campañas push</strong></p>
+<p>Al crear campaña:</p>
+<ul>
+  <li><strong>Título</strong> (máx. 120 caracteres)</li>
+  <li><strong>Resumen</strong> — Texto corto que aparece en la bandeja del teléfono (máx. 500)</li>
+  <li><strong>Mensaje completo (en la app)</strong> — Texto enriquecido para la bandeja interna de notificaciones</li>
+  <li><strong>Imagen</strong> (opcional) — Requiere configurar myimageen (ver abajo)</li>
+  <li><strong>Audiencia</strong> — Global (todos), Un socio específico, Personal del club, etc.</li>
+  <li>Campos de destinatario según audiencia (número CRC o nombre del personal)</li>
+</ul>
+<p>En el listado: botón <strong>Enviar</strong> o <strong>Reenviar</strong> en borrador o fallida; columnas de destinatarios, push exitosas, fallidas y sin token.</p>
+
+<h4>Estados de una campaña</h4>
+<ul>
+  <li><strong>Borrador</strong> — Editable; aún no se envió.</li>
+  <li><strong>Enviando</strong> — Proceso en curso; no editable.</li>
+  <li><strong>Enviada</strong> — Completada; campos bloqueados. Solo puedes eliminar de bandejas vía Notificaciones en app.</li>
+  <li><strong>Fallida</strong> — Hubo error; puedes editar y reenviar.</li>
+</ul>
+
+<h4>Audiencias disponibles</h4>
+<p>Al crear la campaña, el campo Audiencia controla quién recibe el mensaje:</p>
+<ul>
+  <li><strong>Global</strong> — Todas las cuentas activas con acceso a la app.</li>
+  <li><strong>Un socio</strong> — Aparece selector «Socio destinatario»; busca por número CRC o nombre.</li>
+  <li><strong>Personal del club</strong> — Selector «Persona del personal»; útil para avisos internos a entrenadores o recepción.</li>
+</ul>
+<p>El resumen (campo corto) es lo primero que ve el socio en la pantalla de bloqueo del teléfono; el mensaje completo se lee al abrir la notificación dentro de Crece Sport Club.</p>
+
+<h3>Notificaciones en app</h3>
+<p>Ruta: <strong>Comunicación → Notificaciones en app</strong></p>
+<p>Bandeja de mensajes ya entregados. Eliminar quita el mensaje de la app del socio (campañas masivas se quitan de todos los destinatarios). Acción <strong>Eliminar</strong> por fila o selección múltiple.</p>
+
+<h3>Imágenes de notificaciones (myimageen)</h3>
+<p>Ruta: <strong>Comunicación → Imágenes de notificaciones</strong></p>
+<p>Solo configuración de la clave de servicio externo myimageen.com (las imágenes no se guardan en el servidor del club).</p>
+<ul>
+  <li>Enlace para crear cuenta en myimageen.com</li>
+  <li><strong>API key</strong> — Campo de contraseña. Déjalo vacío para conservar la clave ya guardada. Obtén la clave en Configuración → API de myimageen.</li>
+  <li>Botón <strong>Guardar</strong> — Confirma «API key guardada».</li>
+</ul>
+
+<h2 id="administracion">Administración</h2>
+
+<h3>Usuarios</h3>
+<p>Ruta: <strong>Administración → Usuarios</strong></p>
+<p>Campos: Nombre, Correo, Teléfono, Estado, Contraseña (obligatoria al crear), Roles (múltiple). Coordinadores no ven ni editan administradores ni otros coordinadores. Acciones: Editar, Eliminar (no puedes eliminarte a ti mismo).</p>
+
+<h3>Organización</h3>
+<p>Ruta: <strong>Administración → Organización</strong></p>
+<p>Datos de la sede: Código interno (solo lectura), Nombre comercial, Zona horaria, Prefijo número de socio (CRC, solo lectura).</p>
+
+<h3>Importaciones</h3>
+<p>Ruta: <strong>Administración → Importaciones</strong></p>
+<p>Subtítulo explica formato CSV: columnas nombre, correo, telefono; opcionales numero_socio_anterior, fecha_alta, estado. Número oficial generado: CRC-######.</p>
+<p>Botón <strong>Subir socios</strong>:</p>
+<ul>
+  <li>Archivo CSV o XLSX</li>
+  <li>Sucursal por defecto</li>
+  <li>Casilla «Analizar inmediatamente»</li>
+</ul>
+<p>Acciones por lote: <strong>Analizar</strong>, <strong>Ejecutar</strong> (crea cuentas y socios), <strong>Reintentar</strong> si falló. Recepción solo puede ver lotes, no ejecutarlos.</p>
+
+<h3>Verificación de cuentas</h3>
+<p>Ruta: <strong>Administración → Verificación de cuentas</strong></p>
+<p><strong>Correo electrónico:</strong> interruptor «Verificación por email activa» (usa el servidor de correo del club).</p>
+<p><strong>SMS — Más Mensajes:</strong> enlace al proveedor, interruptor «Activar verificación por SMS», campo API Key (Bearer). Déjalo vacío para conservar clave guardada. Botón Guardar.</p>
+
+<p>Cuando la verificación está activa, un socio nuevo que se registre desde la app debe confirmar su correo (recibe enlace) o ingresar código SMS según configuración. El teléfono se captura a 10 dígitos en México; el sistema agrega prefijo +52 automáticamente. Si los socios reportan «no me llega el código», revisa primero carpeta de spam en correo o saldo del servicio SMS con Más Mensajes antes de desactivar la verificación.</p>
+
+<h3>Diferencias entre coordinador y administrador</h3>
+<p>Ambos perfiles operan casi todo el negocio diario. Las diferencias prácticas más comunes:</p>
+<ul>
+  <li>Solo el <strong>administrador</strong> gestiona cuentas de coordinadores y otros administradores, y accede a Verificación de cuentas.</li>
+  <li>Solo el <strong>administrador</strong> edita el número oficial CRC en la ficha del socio.</li>
+  <li>El <strong>coordinador</strong> no puede modificar usuarios de su mismo nivel o superior.</li>
+  <li>Ninguno de los dos opera el kiosco /acceso ni la sección Sistema técnico colapsada (reservada al soporte del proveedor).</li>
+</ul>
+
+<h2 id="kiosco">Kiosco de accesos (/acceso)</h2>
+
+<p>URL: <strong>https://manage.crecesportclub.com/acceso/login</strong></p>
+
+<div class="note">
+  <strong>Solo web:</strong> Este kiosco no existe en la app móvil. Ábrelo siempre en el navegador de la tablet o computadora de la entrada; no instales CreceApp esperando la pantalla de kiosco.
+</div>
+
+<div class="warning">
+  El kiosco es <strong>solo registro de tiempo en club</strong>. No controla torniquetes, chapas electrónicas ni acceso físico a instalaciones. Sirve para que el socio escanee su QR y quede constancia de entrada y salida.
+</div>
+
+<h3>Quién puede usarlo</h3>
+<p>Cuentas con rol <strong>escaneo_accesos</strong>. Inicio de sesión con correo y contraseña (sin verificación Turnstile). Tras entrar, redirección automática a la pantalla de registro. La sesión permanece activa (recordarme) para turnos largos en tablet.</p>
+
+<h3>Pantalla «Registro de accesos»</h3>
+<ul>
+  <li>Título central «Registro de accesos».</li>
+  <li>Área de retroalimentación que muestra mensajes grandes durante ~3 segundos:
+    <ul>
+      <li><strong>Acceso registrado</strong> — Entrada al club o llegada a clase.</li>
+      <li><strong>Salida registrada</strong> — Salida del club o de clase.</li>
+      <li>Mensajes de error en rojo si el QR es inválido, el socio no tiene vigencia, etc.</li>
+    </ul>
+  </li>
+  <li>Texto «Esperando escaneo…» / «Escanea con el escáner o coloca tu QR en la cámara» cuando no hay mensaje activo.</li>
+  <li><strong>Lector USB</strong> — Campo oculto siempre enfocado; el escáner de código de barras actúa como teclado y envía Enter al terminar.</li>
+  <li><strong>Cámara</strong> — Recuadro inferior con vista en vivo; detecta QR automáticamente (cámara trasera en móviles/tablets).</li>
+</ul>
+
+<p>Colocación recomendada del hardware: el lector USB en mostrador fijo apuntando hacia donde el socio presenta el teléfono impreso (poco común) o el escáner lee directamente la pantalla del teléfono. La tablet con cámara puede estar en atril a la altura del pecho; evita reflejos fuertes de ventanas detrás del socio porque dificultan la lectura por cámara (el lector USB sigue siendo la opción más confiable en horas pico).</p>
+
+<div class="tip">
+  Coloca la tablet a la altura del pecho, bien iluminada. Tras cada escaneo la pantalla vuelve a enfocar el lector USB para el siguiente socio sin tocar la pantalla.
+</div>
+
+<h3>Qué QR acepta</h3>
+<p>Tres tipos de código; el sistema detecta cuál es y actúa en consecuencia:</p>
+<ul>
+  <li><strong>Pase de acceso</strong> — Entrada o salida del club (alterna según si ya hay sesión abierta).</li>
+  <li><strong>Reserva de clase</strong> — Llegada o salida de clase; si el socio no había entrado al club, el primer escaneo también registra entrada.</li>
+  <li><strong>Reserva de equipo</strong> — Inicio o fin del turno del aparato; el primer escaneo también registra entrada al club si hace falta.</li>
+</ul>
+<p>No es necesario que el socio muestre primero el pase general y después el de reserva: con reserva activa, <strong>uno solo</strong> al llegar.</p>
+
+<h2 id="flujos">Flujos paso a paso</h2>
+
+<h3>Alta de un socio nuevo</h3>
+<ol class="steps">
+  <li>En <strong>Administración → Usuarios</strong>, crea cuenta con correo, contraseña, teléfono y rol <em>socio</em>, o importa desde CSV si son muchos.</li>
+  <li>En <strong>Recepción → Socios → Crear</strong>, selecciona esa cuenta de usuario y define estado y fecha de alta.</li>
+  <li>Edita el socio y completa la pestaña <strong>Nuevo ingreso</strong> (datos personales, emergencia, salud, objetivos, declaraciones).</li>
+  <li>En el <strong>Punto de venta</strong>, busca al socio, activa «Agregar inscripción automática» si aplica, agrega membresía o paquete y pulsa <strong>Cobrar</strong>.</li>
+  <li>O en <strong>Contratos y vigencias → Registrar pago / activar vigencia</strong> si el cobro fue fuera del POS.</li>
+  <li>Indica al socio que descargue la app, inicie sesión con su correo y complete aceptación de documentos legales si aún aparecen pendientes.</li>
+</ol>
+
+<h3>Vender una membresía en mostrador</h3>
+<ol class="steps">
+  <li>Abre caja en <strong>Punto de venta</strong> (fondo inicial + Abrir caja y continuar).</li>
+  <li>Busca al socio en el carrito por número CRC, nombre, correo o teléfono.</li>
+  <li>Pestaña <strong>Membresías</strong> → toca el plan deseado.</li>
+  <li>Revisa total, elige forma de pago y pulsa <strong>Cobrar</strong>.</li>
+  <li>La vigencia se activa automáticamente según la periodicidad del precio. Verifica en Contratos y vigencias.</li>
+  <li>Al cerrar turno, usa <strong>Corte</strong> para revisar y <strong>Cerrar caja</strong> con efectivo contado.</li>
+</ol>
+
+<h3>Reservar una clase para un socio</h3>
+<ol class="steps">
+  <li>Confirma que existe un <strong>Horario de clase</strong> futuro con cupo (Agenda y clases).</li>
+  <li>Ve a <strong>Reservas de clases → Reservar clase</strong>.</li>
+  <li>Selecciona socio y horario → confirma.</li>
+  <li>Si la clase está llena, el socio puede quedar en <strong>Lista de espera</strong>; promuévelo con «Promover siguiente» cuando haya baja.</li>
+  <li>El día de la clase, el socio escanea su QR de reserva en recepción o kiosco para registrar asistencia.</li>
+</ol>
+
+<h3>Enviar una notificación push</h3>
+<ol class="steps">
+  <li>Verifica <strong>Imágenes de notificaciones</strong> si adjuntarás foto (API key de myimageen).</li>
+  <li><strong>Comunicación → Campañas push → Crear</strong>: título, resumen, mensaje, audiencia, imagen opcional.</li>
+  <li>Guarda y pulsa <strong>Enviar</strong> en la fila. Confirma en el diálogo.</li>
+  <li>Revisa columnas Push OK, fallidas y sin token. «Sin token» indica socios sin app instalada o sin permiso de notificaciones.</li>
+  <li>Para retirar un mensaje ya enviado de las bandejas, usa <strong>Notificaciones en app → Eliminar</strong>.</li>
+</ol>
+
+<h3>Importar socios desde hoja de cálculo</h3>
+<ol class="steps">
+  <li>Prepara CSV con columnas: nombre, correo, telefono (y opcionales indicados en la pantalla).</li>
+  <li><strong>Administración → Importaciones → Subir socios</strong>: archivo, sucursal por defecto, analizar inmediatamente.</li>
+  <li>Cuando el estado sea listo para ejecutar, pulsa <strong>Analizar</strong> si no lo hiciste al subir.</li>
+  <li>Revisa totales de filas correctas y con error en el listado.</li>
+  <li>Pulsa <strong>Ejecutar</strong> (solo coordinador/administrador). El sistema crea usuarios y fichas CRC.</li>
+  <li>Completa nuevo ingreso y cobro según necesidad caso por caso.</li>
+</ol>
+
+<h3>Atender un socio en mostrador (checklist rápido)</h3>
+<ol class="steps">
+  <li>Saluda y pide identificación si vas a modificar datos sensibles o cobrar.</li>
+  <li>Busca al socio en <strong>Recepción → Socios</strong> por número CRC o nombre.</li>
+  <li>Revisa columna Onboarding y estado de membresía (Contratos o Paquetes de visitas).</li>
+  <li>Si viene a entrar: dirígelo al kiosco o usa <strong>Check-ins → Escanear QR</strong>.</li>
+  <li>Si viene a pagar: abre o reanuda caja en POS, agrega conceptos y cobra.</li>
+  <li>Si viene a reservar clase: confirma cupo en Horarios y usa Reservar clase o indícale la app.</li>
+  <li>Despídete recordando descargar la app si aún no la tiene y tener QR listo en la siguiente visita.</li>
+</ol>
+
+<h3>Cierre de turno en recepción</h3>
+<ol class="steps">
+  <li>En POS, pulsa <strong>Corte</strong> y anota efectivo esperado.</li>
+  <li>Cuenta billetes y monedas en cajón; pulsa <strong>Cerrar caja</strong> con monto contado y notas si hay diferencia.</li>
+  <li>Verifica que no queden ventas a medias en otra pestaña del navegador.</li>
+  <li>Cierra sesión del panel si compartes equipo con el siguiente turno.</li>
+  <li>En kiosco (si aplica), deja sesión activa solo si el siguiente operador es el mismo usuario; si no, cierra sesión en /acceso.</li>
+</ol>
+
+<h2 id="faq">Preguntas frecuentes</h2>
+
+<h3>¿Por qué el socio no puede entrar al panel web?</h3>
+<p>Los socios usan la app móvil. El panel /admin es solo para personal. Si un socio necesita soporte, haz los cambios tú en Recepción → Socios.</p>
+
+<h3>El POS no me deja cobrar</h3>
+<p>Debes abrir caja primero o reanudar la sesión abierta en tu sucursal. Si otro recepcionista dejó caja abierta, pulsa «Continuar con esta caja» o pide que la cierren.</p>
+
+<h3>Escaneo en recepción vs kiosco</h3>
+<p>Recepción usa botones «Escanear QR» o «Registrar check-in» en Check-ins. El kiosco /acceso es pantalla dedicada para fila de entrada con lector USB y cámara siempre activos. Ambos registran en el mismo historial.</p>
+
+<h3>¿El socio debe mostrar dos QR (acceso y reserva)?</h3>
+<p><strong>No.</strong> En la app hay pantallas distintas (acceso general, reserva de clase, reserva de equipo), pero al llegar con reserva basta <strong>un escaneo</strong> del QR correspondiente. Recepción o kiosco registran la reserva y la entrada al club en el mismo paso cuando aplica. El pase general se usa sobre todo sin reserva o para la <strong>salida</strong> del club.</p>
+
+<h3>¿El kiosco abre la puerta?</h3>
+<p>No. Solo registra entrada y salida en el sistema. Los torniquetes o accesos físicos, si existen, son independientes.</p>
+
+<h3>No veo el menú de Facturación o Push</h3>
+<p>Tu rol no incluye esas funciones. Recepción no timbra facturas ni envía campañas. Pide a un coordinador.</p>
+
+<h3>¿Cómo cambio el número CRC de un socio?</h3>
+<p>Solo un administrador puede editar el campo «Número de socio» en la pestaña General al editar la ficha.</p>
+
+<h3>El socio dice que la app no muestra membresía activa</h3>
+<p>Verifica en Contratos y vigencias que tenga vigencia activa con fechas correctas, o un paquete de visitas con saldo. Un cobro en POS de membresía debería activarla automáticamente.</p>
+
+<h3>Lista de espera: ¿cuándo promover?</h3>
+<p>Cuando alguien cancela una reserva y queda cupo, usa «Promover siguiente» en la fila del horario correspondiente. El sistema respeta el orden de la lista.</p>
+
+<h3>Retiro de efectivo: pide autorización</h3>
+<p>Es deliberado. Un coordinador o administrador debe ingresar su correo y contraseña en el modal de retiro (POS o Sesiones de caja) para autorizar.</p>
+
+<h3>Documento legal: socios antiguos ¿deben firmar de nuevo?</h3>
+<p>Sí, al publicar una nueva versión la app solicita aceptación actualizada. Consulta Aceptaciones legales para evidencia con fecha e IP.</p>
+
+<h3>Campaña push con imagen no se ve</h3>
+<p>Revisa que la API key de myimageen esté guardada en Imágenes de notificaciones y que la imagen se haya subido al crear la campaña (no se puede cambiar tras enviar).</p>
+
+<h3>Importación falló en algunas filas</h3>
+<p>Revisa correos duplicados o formato de teléfono. Corrige el CSV y sube un nuevo lote, o crea manualmente los casos pendientes.</p>
+
+<h3>Entrenador no ve pestaña Nuevo ingreso</h3>
+<p>Es correcto: ve «Salud y objetivos» en solo lectura. Solo recepción/coordinación/administración editan el formulario completo.</p>
+
+<h3>¿Puedo usar el mismo usuario en recepción y kiosco?</h3>
+<p>Sí, si la cuenta tiene ambos roles (recepcion + escaneo_accesos). Inicia sesión en /admin para mostrador y en /acceso para la tablet de entrada.</p>
+
+<h3>¿Qué significa «Onboarding completado» en Socios?</h3>
+<p>Indica que el socio cumplió los requisitos mínimos: cuenta activa, documentos legales aceptados en la app (si aplica) y formulario de nuevo ingreso con datos obligatorios. Hasta entonces puede aparecer como pendiente aunque ya haya pagado membresía.</p>
+
+<h3>La cámara del kiosco no enciende</h3>
+<p>El navegador debe tener permiso de cámara para manage.crecesportclub.com. En Chrome: icono de candado en la barra de direcciones → Permisos → Cámara → Permitir. Si falla la cámara, el lector USB sigue funcionando de forma independiente.</p>
+
+<h3>¿Puedo registrar salida manual en recepción?</h3>
+<p>El flujo normal es escanear de nuevo el QR del socio (alterna entrada/salida). El botón «Registrar check-in» registra entradas manuales; para salidas irregulares escanea en recepción o consulta al coordinador.</p>
+
+<h2 id="referencia-navegacion">Referencia rápida del menú lateral</h2>
+
+<p>Además de las secciones detalladas arriba, esta tabla ayuda a ubicar cada pantalla del panel web. Los nombres coinciden con el menú izquierdo tras iniciar sesión.</p>
+
+<table class="table">
+  <thead>
+    <tr><th>Grupo de menú</th><th>Elemento</th><th>Para qué sirve</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>—</td><td>Tablero</td><td>Pantalla inicial con tarjetas resumen (AdminOverview y OperationsOverview).</td></tr>
+    <tr><td>Recepción</td><td>Socios</td><td>Alta, edición, formulario de salud y vínculo con cuenta de usuario.</td></tr>
+    <tr><td>Recepción</td><td>Check-ins</td><td>Historial de accesos; escaneo QR y registro manual desde mostrador.</td></tr>
+    <tr><td>Recepción</td><td>Equipos reservables</td><td>Configuración de equipos con turnos para reserva en app.</td></tr>
+    <tr><td>Recepción</td><td>Reservas de equipos</td><td>Consulta y cancelación de reservas hechas por socios.</td></tr>
+    <tr><td>Recepción</td><td>Lista de espera</td><td>Cola de espera cuando una clase está llena.</td></tr>
+    <tr><td>Caja y ventas</td><td>Punto de venta</td><td>Cobro táctil con caja abierta.</td></tr>
+    <tr><td>Caja y ventas</td><td>Ventas</td><td>Historial de órdenes; pagos parciales y solicitud de factura.</td></tr>
+    <tr><td>Caja y ventas</td><td>Pagos</td><td>Detalle de cobros; reembolsos.</td></tr>
+    <tr><td>Caja y ventas</td><td>Sesiones de caja</td><td>Aperturas, cierres, retiros autorizados.</td></tr>
+    <tr><td>Caja y ventas</td><td>Documentos fiscales</td><td>CFDI timbrados vía Facturiva.</td></tr>
+    <tr><td>Membresía y cobros</td><td>Planes</td><td>Catálogo de productos comerciales (membresía, visitas, inscripción).</td></tr>
+    <tr><td>Membresía y cobros</td><td>Contratos y vigencias</td><td>Membresías activas; registrar pago fuera de POS.</td></tr>
+    <tr><td>Membresías y planes</td><td>Paquetes de visitas</td><td>Monederos de visitas por socio.</td></tr>
+    <tr><td>Membresías y planes</td><td>Precios de planes</td><td>Precios vigentes, periodicidad y vigencia de paquetes.</td></tr>
+    <tr><td>Agenda y clases</td><td>Horarios de clase</td><td>Calendario de sesiones con cupo.</td></tr>
+    <tr><td>Agenda y clases</td><td>Clases</td><td>Tipos de clase (Spinning, Funcional, etc.).</td></tr>
+    <tr><td>Agenda y clases</td><td>Reservas de clases</td><td>Reservas confirmadas; reservar o cancelar.</td></tr>
+    <tr><td>Inventario y tienda</td><td>Productos</td><td>Artículos de tienda; ajuste de existencias.</td></tr>
+    <tr><td>Inventario y tienda</td><td>Existencias</td><td>Stock actual por sucursal.</td></tr>
+    <tr><td>Inventario y tienda</td><td>Movimientos de stock</td><td>Auditoría de entradas y salidas.</td></tr>
+    <tr><td>Inventario y tienda</td><td>Categorías de productos</td><td>Agrupación para tienda y POS.</td></tr>
+    <tr><td>Inventario y tienda</td><td>Proveedores</td><td>Datos de proveedores de mercancía.</td></tr>
+    <tr><td>Entrenamiento</td><td>Rutinas</td><td>Diseño de planes de ejercicio.</td></tr>
+    <tr><td>Entrenamiento</td><td>Asignaciones de rutina</td><td>Vincular rutina a un socio.</td></tr>
+    <tr><td>Entrenamiento</td><td>Registros de avance</td><td>Progreso reportado por socios/entrenadores.</td></tr>
+    <tr><td>Legal / Documentación</td><td>Documentos legales</td><td>Textos que la app pide aceptar.</td></tr>
+    <tr><td>Legal y documentos</td><td>Aceptaciones legales</td><td>Evidencia de firmas digitales.</td></tr>
+    <tr><td>Comunicación</td><td>Campañas push</td><td>Mensajes masivos o individuales al teléfono.</td></tr>
+    <tr><td>Comunicación</td><td>Notificaciones en app</td><td>Bandeja interna; eliminar mensajes.</td></tr>
+    <tr><td>Comunicación</td><td>Imágenes de notificaciones</td><td>Clave del servicio myimageen para fotos en push.</td></tr>
+    <tr><td>Administración</td><td>Usuarios</td><td>Cuentas del personal y socios (cuenta).</td></tr>
+    <tr><td>Administración</td><td>Organización</td><td>Nombre comercial y zona horaria del club.</td></tr>
+    <tr><td>Administración</td><td>Importaciones</td><td>Carga masiva de socios desde CSV.</td></tr>
+    <tr><td>Administración</td><td>Verificación de cuentas</td><td>Activar confirmación por correo o SMS al registrarse.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="detalle-checkins">Detalle de columnas en Check-ins</h2>
+
+<p>Comprender el listado ayuda a resolver dudas de socios sobre su tiempo en el club:</p>
+<ul>
+  <li><strong>Estado</strong> — Si el acceso está en curso (dentro del club) o ya cerró con salida registrada.</li>
+  <li><strong>Resultado</strong> — Texto descriptivo: acceso permitido, rechazado por falta de vigencia, etc.</li>
+  <li><strong>Tipo QR</strong> — Indica si el registro vino del pase general, de reserva de clase, de equipo, o «Manual» si recepción usó el botón sin escaneo.</li>
+  <li><strong>Entrada / Salida</strong> — Marcas de tiempo exactas. Si Salida está vacía o dice «En curso», el socio aún no escaneó salida.</li>
+  <li><strong>Duración</strong> — Calculada al registrar salida; útil para reportes de permanencia.</li>
+</ul>
+
+<h2 id="detalle-pos-pagos">Formas de pago en el punto de venta</h2>
+
+<p>En el carrito del POS, los botones de forma de pago dependen de la configuración del club. Típicamente incluyen:</p>
+<ul>
+  <li><strong>Efectivo</strong> — Suma al efectivo esperado en la sesión de caja activa.</li>
+  <li><strong>Tarjeta</strong> — Registra cobro con terminal externa; el monto queda en el historial de pagos.</li>
+  <li><strong>Transferencia</strong> — Para pagos bancarios verificados en mostrador.</li>
+</ul>
+<p>Tras pulsar <strong>Cobrar</strong>, no cierres la ventana hasta ver confirmación. Si el carrito incluye membresía, la vigencia se crea en paralelo; si incluye productos con inventario, descuenta stock automáticamente.</p>
+
+<h2 id="detalle-facturacion">Facturación paso a paso (Facturiva)</h2>
+
+<ol class="steps">
+  <li>Localiza la venta pagada en <strong>Ventas</strong> (saldo $0.00).</li>
+  <li>Pulsa <strong>Solicitar CFDI</strong> y captura datos fiscales del receptor con exactitud (RFC, régimen, domicilio fiscal).</li>
+  <li>Ve a <strong>Documentos fiscales</strong>; el registro aparecerá en estado borrador.</li>
+  <li>Pulsa <strong>Emitir CFDI</strong> si Facturiva está configurado; si no, el botón indicará pendiente de configuración.</li>
+  <li>Tras emitir, anota el UUID para el socio. Para cancelar una factura emitida por error, usa <strong>Cancelar</strong> con motivo SAT válido.</li>
+</ol>
+
+<h2 id="detalle-equipos-app">Cómo ven los socios los equipos reservables en la app</h2>
+
+<p>Lo que configures en Equipos reservables se refleja casi en tiempo real en la app:</p>
+<ul>
+  <li>Nombre y descripción del equipo.</li>
+  <li>Horario de operación (días y hora de apertura/cierre).</li>
+  <li>Duración de turnos y máximo de turnos seguidos por reserva.</li>
+  <li>Disponibilidad por unidad (si hay 6 caminadoras, la app muestra slots por cada una).</li>
+</ul>
+<p>Cuando el socio reserva, genera un QR específico. Al escanearlo en recepción o kiosco dentro de la ventana de entrada anticipada, se registra uso del equipo. Si no escanea dentro del tiempo de gracia, la reserva puede liberarse para otro socio.</p>
+
+<h2 id="detalle-onboarding">Onboarding del socio: qué revisar en recepción</h2>
+
+<p>Cuando un socio nuevo llega con la app instalada pero no puede reservar o acceder:</p>
+<ol class="steps">
+  <li>En Socios, verifica columna Onboarding (ícono de reloj = pendiente).</li>
+  <li>Abre la ficha → pestaña Nuevo ingreso: ¿faltan campos obligatorios?</li>
+  <li>En Aceptaciones legales, busca al usuario: ¿aceptó la versión publicada de reglamento, privacidad y liberación?</li>
+  <li>En Contratos y vigencias o Paquetes de visitas: ¿tiene derecho de acceso activo?</li>
+  <li>Si todo está completo y sigue pendiente, guarda de nuevo la ficha del socio para forzar recálculo del onboarding.</li>
+</ol>
+
+<h2 id="buenas-practicas">Buenas prácticas operativas</h2>
+
+<ul>
+  <li><strong>Caja</strong> — Un recepcionista por sesión de caja abierta; cierra al cambio de turno con conteo físico.</li>
+  <li><strong>QR</strong> — Pide al socio brillo de pantalla al máximo; códigos dañados en captura de pantalla antigua pueden fallar.</li>
+  <li><strong>Reservas</strong> — Cancela desde el panel si el socio llama; libera cupo y lista de espera.</li>
+  <li><strong>Push</strong> — Redacta resumen corto (lo que se ve en pantalla bloqueada) y detalle en mensaje completo.</li>
+  <li><strong>Importaciones</strong> — Prueba con 5 filas antes de cargar miles; revisa analizar antes de ejecutar.</li>
+  <li><strong>Datos de salud</strong> — Trata la pestaña Nuevo ingreso como información médica sensible; no compartas fuera del personal autorizado.</li>
+</ul>
+
+<div class="note">
+  Para incidencias que no aparecen en este manual (pantalla en blanco, error persistente, configuración de Facturiva o correo del club), escala al administrador del club o al soporte del proveedor del software.
+</div>
+
+<p>Este documento se genera a partir del panel en producción de Crece Sport Club. Si ves un botón o menú que no coincide con el texto aquí descrito, anota la fecha y tu rol para que el administrador actualice el manual o verifique que tu cuenta tenga la versión más reciente del sistema.</p>
+
+<p>Conserva este manual como referencia de mostrador: los flujos de caja, accesos y alta de socios son los que más se consultan en el día a día. Las tablas de permisos ayudan a entender rápidamente a quién escalar cuando necesitas una acción que tu usuario no puede realizar. Imprime o marca las secciones de Flujos y FAQ para capacitación de personal nuevo.</p>
+
+  </div>
+  <footer class="content-footer">
+    <p>Crece Sport Club · Documento para uso interno del personal. Si algo no coincide con tu pantalla, consulta con coordinación o administración.</p>
+  </footer>
+</main>
+</div>
+
+<button type="button" class="btn-top" id="btn-top" title="Volver arriba" aria-label="Volver arriba">↑</button>
+<script>
+(function () {
+  const sidebar = document.querySelector('nav.sidebar');
+  const links = sidebar ? sidebar.querySelectorAll('a[href^="#"]') : [];
+  const sections = [];
+  links.forEach(function (a) {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) sections.push({ link: a, el: el });
+  });
+
+  const search = document.getElementById('nav-search');
+  if (search && sidebar) {
+    search.addEventListener('input', function () {
+      const q = search.value.trim().toLowerCase();
+      sidebar.querySelectorAll('li').forEach(function (li) {
+        if (li.classList.contains('nav-group')) return;
+        const a = li.querySelector('a');
+        if (!a) return;
+        const text = a.textContent.toLowerCase();
+        li.classList.toggle('nav-hidden', q.length > 0 && !text.includes(q));
+      });
+    });
+  }
+
+  function onScroll() {
+    let current = sections[0];
+    const y = window.scrollY + 120;
+    sections.forEach(function (s) {
+      if (s.el.offsetTop <= y) current = s;
+    });
+    links.forEach(function (a) { a.classList.remove('is-active'); });
+    if (current) current.link.classList.add('is-active');
+
+    const btn = document.getElementById('btn-top');
+    if (btn) btn.classList.toggle('visible', window.scrollY > 400);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const btnTop = document.getElementById('btn-top');
+  if (btnTop) btnTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  const toggle = document.getElementById('menu-toggle');
+  if (toggle && sidebar) {
+    toggle.addEventListener('click', function () {
+      sidebar.classList.toggle('open');
+    });
+    links.forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.innerWidth <= 960) sidebar.classList.remove('open');
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
