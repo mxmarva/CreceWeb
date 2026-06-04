@@ -2,21 +2,21 @@
 
 Documentación para socios, recepción, entrenadores y personal que usa **CreceApp**.
 
+## URL en el servidor web
+
+**`https://www.crecesportclub.com/manual_app/`**
+
+El servidor abre **`index.html`** automáticamente en esa ruta.
+
 ## Editar contenido
 
-1. Modifica **`body.html`** en esta carpeta.
+1. Modifica **`source/body.html`**.
 2. Regenera desde **Crece-Backend**:
 
 ```bash
 python scripts/generate_user_manuals.py
 ```
 
-Eso actualiza **`index.html`** en esta carpeta.
-
-## Cómo leerlo
-
-Abre **`index.html`** en el navegador. Misma navegación que el manual del panel (menú lateral y buscador).
-
 ## Publicación
 
-Incluye los cambios en el commit del repo **CreceWeb** junto con el manual del panel si aplica.
+Commit de `index.html`, `css/` y `source/body.html` en CreceWeb. Verifica `/manual_app/` tras el deploy.

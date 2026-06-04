@@ -1,0 +1,8 @@
+# Entrada pública del manual (Apache / LiteSpeed)
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # No publicar la carpeta de fuente editable
+  RewriteRule ^source/ - [F,L]
+</IfModule>

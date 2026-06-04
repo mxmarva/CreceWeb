@@ -2,24 +2,27 @@
 
 Documentación para el personal del club (panel **manage.crecesportclub.com** y kiosco **/acceso**).
 
+## URL en el servidor web
+
+En producción el personal abre solo:
+
+**`https://www.crecesportclub.com/manual/`**
+
+(o la ruta equivalente en tu dominio). El servidor debe servir **`index.html`** por defecto en esa carpeta (incluido `.htaccess` con `DirectoryIndex index.html`).
+
+No enlaces ni compartas `source/body.html`; es solo la plantilla editable.
+
 ## Editar contenido
 
-1. Modifica **`body.html`** en esta carpeta (secciones con anclas `#intro`, `#caja`, etc.).
-2. Regenera el manual completo desde **Crece-Backend**:
+1. Modifica **`source/body.html`** (secciones con anclas `#intro`, `#caja`, etc.).
+2. Regenera desde **Crece-Backend**:
 
 ```bash
 python scripts/generate_user_manuals.py
 ```
 
-Eso actualiza **`index.html`** y copia estilos a `manual_app` si aplica.
-
-## Cómo leerlo
-
-1. Abre **`index.html`** en el navegador (misma carpeta que `css/manual.css`).
-2. Usa el menú lateral para saltar de sección.
-3. Usa el buscador del menú para filtrar temas.
-4. En celular, **☰ Menú** abre la navegación.
+Eso reconstruye **`index.html`** y sincroniza estilos con `manual_app`.
 
 ## Publicación
 
-Este repo (CreceWeb) suele publicarse en GitHub Pages u hosting del sitio del club. Haz commit de `body.html` e `index.html` tras regenerar.
+Haz commit de `index.html`, `css/` y `source/body.html` en **CreceWeb** y despliega el sitio. Tras el deploy, verifica que `/manual/` abre el manual completo con menú lateral.
