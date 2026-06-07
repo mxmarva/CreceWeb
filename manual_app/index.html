@@ -181,7 +181,7 @@
     <tr>
       <td><span class="badge badge-app">Administración</span></td>
       <td>Resumen operativo del club y consultas administrativas</td>
-      <td>Administrador, coordinador y recepción</td>
+      <td>Administrador, coordinador, recepción y venta de mostrador</td>
     </tr>
     <tr>
       <td><span class="badge badge-app">Entrenamiento</span></td>
@@ -192,7 +192,7 @@
 </table>
 
 <div class="note">
-  <strong>Coordinador y recepción:</strong> Aunque en el panel web tienen menús distintos, en CreceApp ambos ven la misma pantalla de inicio que el administrador (<em>Administración</em>), con métricas del club y acceso a consultas en modo solo lectura.
+  <strong>Personal administrativo:</strong> Coordinador, recepción, venta de mostrador y administrador comparten en la app la pantalla de inicio <em>Administración</em> (métricas y consultas en modo solo lectura). En el panel web cada rol tiene menús distintos; por ejemplo, venta de mostrador solo opera caja y tienda.
 </div>
 
 <p>En tu perfil (pestaña <strong>Perfil</strong>) verás una etiqueta con tu rol principal: <em>Socio</em>, <em>Administración</em> o <em>Entrenador</em>, además del estado de tu cuenta (Activa, Pendiente de verificación, etc.).</p>
@@ -228,12 +228,12 @@
     </tr>
     <tr>
       <td><strong>Perfil</strong></td>
-      <td>Tu foto inicial, nombre, correo, membresía, accesos a ajustes, QR, reservas, cerrar sesión.</td>
+      <td>Tu foto de recepción (si existe) o inicial, nombre, correo, membresía, accesos a ajustes, QR, reservas, cerrar sesión.</td>
     </tr>
   </tbody>
 </table>
 
-<h3>Pestañas para administrador, coordinador y recepción</h3>
+<h3>Pestañas para administrador, coordinador, recepción y venta de mostrador</h3>
 
 <table>
   <thead>
@@ -495,7 +495,9 @@
 
 <h2 id="socio-home">Socio: pantalla de inicio (Mi día)</h2>
 
-<p>La pestaña <strong>Mi día</strong> es el centro de operaciones del socio. Arriba aparece un saludo con tu nombre y, a la derecha, la <strong>campana de notificaciones</strong>.</p>
+<p>La pestaña <strong>Mi día</strong> es el centro de operaciones del socio. Arriba aparece un saludo con tu nombre, tu <strong>foto de recepción</strong> (si el club ya la capturó en mostrador) o la inicial de tu nombre en un círculo, y a la derecha la <strong>campana de notificaciones</strong>.</p>
+
+<p>La foto de recepción la sube el personal del club desde el panel web; en la app solo la ves, no puedes cambiarla.</p>
 
 <h3>Campana de notificaciones</h3>
 <p>El icono de campana muestra un contador rojo si tienes avisos sin leer. Al tocarlo abres la lista completa de <strong>Notificaciones</strong>. Desde ahí puedes leer cada aviso o marcar todos como leídos.</p>
@@ -978,7 +980,7 @@
 
 <h3>Pantalla Perfil</h3>
 
-<p>Encabezado con inicial de tu nombre en círculo, nombre completo, correo, badges de estado y rol.</p>
+<p>Encabezado con tu <strong>foto de recepción</strong> (si el club ya la capturó) o la inicial de tu nombre en círculo, nombre completo, correo, badges de estado y rol. La foto la gestiona recepción en el panel; aquí es solo lectura.</p>
 
 <p>Secciones posibles según tu perfil:</p>
 
@@ -1079,7 +1081,16 @@
 
 <h3>Reporte (pestaña 3)</h3>
 
-<p>Barra de periodo con presets: <strong>Hoy</strong>, <strong>Esta semana</strong>, <strong>Este mes</strong>, <strong>Personalizado</strong> (elige rango en calendario). Debajo, secciones con métricas de ventas, cobros, caja y accesos del intervalo seleccionado.</p>
+<p>Barra de periodo con presets: <strong>Hoy</strong>, <strong>Esta semana</strong>, <strong>Este mes</strong>, <strong>Personalizado</strong> (elige rango en calendario). Muestra el <strong>resumen operativo</strong> del club para la sede y fechas elegidas, en secciones:</p>
+<ul>
+  <li><strong>Ventas</strong> — Órdenes registradas/completadas/canceladas, monto vendido, cobrado y saldo pendiente.</li>
+  <li><strong>Pagos</strong> — Total cobrado y desglose por método (efectivo, tarjeta, transferencia, etc.).</li>
+  <li><strong>Caja</strong> — Sesiones de caja, abiertas, efectivo esperado y diferencia de arqueo.</li>
+  <li><strong>Membresías</strong> — Activas, vencidas, suspendidas y canceladas.</li>
+  <li><strong>Accesos al club</strong> — Check-ins aceptados y rechazados.</li>
+  <li><strong>Inventario</strong> — Productos con stock bajo y unidades totales en inventario.</li>
+</ul>
+<p>Es consulta rápida en el teléfono; para gráficas de afluencia, asistencia a clases, utilidad de productos o exportar CSV usa el panel web en <strong>Reportes</strong>.</p>
 
 <h3>Ventas (pestaña 4)</h3>
 
@@ -1103,7 +1114,7 @@
 
 <p><strong>Membresías</strong> — Consulta contratos y vigencias; no puedes renovar ni modificar plan desde aquí.</p>
 
-<p><strong>Inventario (productos)</strong> — Existencias de artículos de tienda; para surtir o vender usa el punto de venta web.</p>
+<p><strong>Inventario (productos)</strong> — Existencias por sucursal (SKU, disponible y mínimo). Solo consulta; para surtir, ajustar o vender usa el panel web (<strong>Productos → Ajustar stock</strong> o POS). En la pestaña <strong>Reporte</strong> del personal administrativo, la sección <strong>Inventario</strong> del resumen operativo muestra cuántos productos están bajo mínimo y el total de unidades en stock.</p>
 
 <div class="warning">
   Para abrir caja, registrar un pago, devolver un producto o crear una membresía, usa el panel web en <strong>manage.crecesportclub.com</strong>. La app móvil no incluye punto de venta ni formularios de alta de socios para personal administrativo.
@@ -1157,6 +1168,11 @@
       <td><span class="badge badge-app">App</span> Número de socio CRC-######</td>
       <td><span class="badge badge-web">Web</span> Alta de socio o registro en app</td>
       <td>Recepción → Socios; importación masiva</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Foto en inicio y perfil (recepción)</td>
+      <td><span class="badge badge-web">Web</span> Captura en mostrador</td>
+      <td>Recepción → Socios → acción <strong>Capt foto</strong></td>
     </tr>
     <tr>
       <td><span class="badge badge-app">App</span> Membresía y vigencia</td>

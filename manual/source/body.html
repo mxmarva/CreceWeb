@@ -19,7 +19,7 @@
   <strong>Importante:</strong> El kiosco de accesos <em>no</em> abre torniquetes ni controla puertas físicas. Solo registra en el sistema la hora de entrada y salida de los socios cuando escanean su código QR. Para planear torniquetes con relé y mini PC (Orange Pi), ver <a href="#torniquetes">Torniquetes físicos e integración futura</a>.
 </div>
 
-<p>El menú lateral del panel está ordenado por frecuencia de uso: primero <strong>Recepción</strong> y <strong>Caja y ventas</strong> (operación diaria), luego <strong>Reservaciones</strong> (clases y equipos), <strong>Membresías y planes</strong>, <strong>Inventario y tienda</strong>, <strong>Entrenamiento</strong>, <strong>Comunicación</strong> y <strong>Contenidos multimedia</strong>. Al final, colapsados por defecto: <strong>Legal y documentos</strong>, <strong>Administración</strong> y <strong>Sistema técnico</strong> (ajustes avanzados del servidor).</p>
+<p>El menú lateral del panel está ordenado por frecuencia de uso: primero <strong>Recepción</strong> y <strong>Caja y ventas</strong> (operación diaria), luego <strong>Reservaciones</strong> (clases y equipos), <strong>Membresías y planes</strong>, <strong>Inventario y tienda</strong>, <strong>Reportes</strong>, <strong>Entrenamiento</strong>, <strong>Comunicación</strong> y <strong>Contenidos multimedia</strong>. Al final, colapsados por defecto: <strong>Legal y documentos</strong>, <strong>Administración</strong> y <strong>Sistema técnico</strong> (ajustes avanzados del servidor).</p>
 
 <h3>Convenciones de este manual</h3>
 <ul>
@@ -107,7 +107,14 @@
       <td>Sí (operación diaria)</td>
       <td>No*</td>
       <td>No</td>
-      <td>Atención en mostrador: socios, check-ins, POS, reservas, consulta de membresías. Sin facturación electrónica, campañas push ni ejecutar importaciones masivas.</td>
+      <td>Atención en mostrador: socios, check-ins, POS (membresías y productos), reservas, consulta de membresías. Sin facturación electrónica, campañas push ni ejecutar importaciones masivas.</td>
+    </tr>
+    <tr>
+      <td><strong>venta_mostrador</strong></td>
+      <td>Sí (solo caja/tienda)</td>
+      <td>No</td>
+      <td>Sí (consulta administrativa)</td>
+      <td>Cajero dedicado: abre su propia caja, vende <strong>productos de tienda</strong> en POS (no membresías ni inscripciones). Sin socios, check-ins, reservas ni facturación.</td>
     </tr>
     <tr>
       <td><strong>coordinador</strong></td>
@@ -140,10 +147,13 @@
 <p>Solo ve el kiosco en <strong>/acceso/login</strong>. Tras iniciar sesión llega directo a «Registro de accesos». No hay menú lateral: la pantalla completa está dedicada al escaneo.</p>
 
 <h4>Recepción</h4>
-<p>Perfil de mostrador. Atiende socios, registra entradas manuales o por QR en recepción, opera el punto de venta, consulta contratos y paquetes de visita (sin emitirlos directamente en algunos flujos), cancela reservas de equipos y clases, y ve reportes básicos. No envía campañas push, no timbra facturas ni ejecuta importaciones masivas de socios.</p>
+<p>Perfil de mostrador. Atiende socios, registra entradas manuales o por QR en recepción, opera el punto de venta (membresías, inscripciones, paquetes de visita y productos), consulta contratos y paquetes de visita (sin emitirlos directamente en algunos flujos), cancela reservas de equipos y clases, y ve reportes básicos. No envía campañas push, no timbra facturas ni ejecuta importaciones masivas de socios.</p>
+
+<h4>Venta de mostrador</h4>
+<p>Perfil de cajero especializado en la barra o tienda del club. Abre y cierra <strong>su propia</strong> sesión de caja; no puede operar la caja de otro usuario. En el POS solo ve la categoría <strong>Tienda</strong> (productos con inventario): no vende membresías, inscripciones ni paquetes de visita. Puede cobrar ventas de mostrador sin socio vinculado. No accede a socios, check-ins, reservas, membresías ni facturación. En CreceApp ve la misma pantalla de inicio administrativa que recepción (métricas en modo consulta).</p>
 
 <h4>Coordinador</h4>
-<p>Responsable operativo del club. Puede crear usuarios de niveles inferiores (recepción, entrenador, escaneo, socios), pero no editar cuentas de otros coordinadores ni administradores. Gestiona precios, membresías, inventario, facturación, push e importaciones. Autoriza retiros de efectivo en caja.</p>
+<p>Responsable operativo del club. Puede crear usuarios de niveles inferiores (recepción, venta de mostrador, entrenador, escaneo, socios), pero no editar cuentas de otros coordinadores ni administradores. Gestiona precios, membresías, inventario, facturación, push e importaciones. Autoriza retiros de efectivo en caja y puede ver o cerrar sesiones de caja de todo el personal.</p>
 
 <h4>Administrador</h4>
 <p>Mismo alcance de negocio que el coordinador, más gestión de roles elevados, configuración de verificación de cuentas (correo y SMS) y edición del número oficial de socio (formato CRC-######). No accede al kiosco de escaneo ni a la sección colapsada «Sistema técnico» del panel (reservada al soporte del proveedor del software).</p>
@@ -173,6 +183,8 @@
   <tbody>
     <tr><td>Ver listado de socios</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td></tr>
     <tr><td>Crear y editar socios</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Capturar foto de recepción</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Emitir credencial PDF</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Formulario de nuevo ingreso (salud)</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Solo lectura parcial</td><td>No</td></tr>
     <tr><td>Editar número de socio CRC</td><td>No</td><td>No</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Check-ins: listar</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
@@ -190,13 +202,16 @@
   </thead>
   <tbody>
     <tr><td>Punto de venta (POS)</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
-    <tr><td>Abrir y cerrar caja</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Abrir y cerrar caja (propia sesión)</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Ver o cerrar cajas de otros usuarios</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Retiro de efectivo (requiere autorización)</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Ver ventas y registrar pagos</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Reembolsar pagos</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Solicitar y emitir facturas (CFDI)</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
   </tbody>
 </table>
+
+<p class="note"><strong>Rol venta de mostrador:</strong> Solo abre su propia caja y vende productos de tienda en POS (sin membresías ni inscripciones). No aparece en las columnas anteriores porque es un perfil aparte; ver tabla de perfiles y el apartado <strong>Venta de mostrador</strong>.</p>
 
 <h3>Membresías y planes</h3>
 <table class="table">
@@ -228,6 +243,20 @@
   </tbody>
 </table>
 
+<h3>Reportes</h3>
+<table class="table">
+  <thead>
+    <tr><th>Capacidad</th><th>Recepción</th><th>Coordinador</th><th>Administrador</th><th>Entrenador</th><th>Escaneo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Resumen ejecutivo y Uso y asistencia</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Indicadores financieros en reportes</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Ventas y ganancias (reporte completo)</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Exportar reportes a CSV</td><td>Sí (operativos)</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+  </tbody>
+</table>
+<p>Recepción ve reportes operativos (visitas, clases, equipos) y el resumen ejecutivo <em>sin</em> cifras financieras detalladas. Coordinador y administrador acceden también a ingresos, utilidad de productos y proyección.</p>
+
 <h3>Legal, comunicación e importaciones</h3>
 <table class="table">
   <thead>
@@ -256,6 +285,7 @@
 <ol class="steps">
   <li>Cuenta creada (Usuarios o importación) con rol socio.</li>
   <li>Ficha de socio vinculada con número CRC asignado.</li>
+  <li>Foto de recepción capturada en mostrador (visible en la app y en la credencial impresa).</li>
   <li>Formulario de nuevo ingreso completo en recepción (o datos equivalentes).</li>
   <li>Documentos legales publicados y aceptados en la app.</li>
   <li>Membresía o paquete de visitas activo.</li>
@@ -265,7 +295,7 @@
 
 <h3>Qué configura el panel y consume la app</h3>
 <ul>
-  <li><strong>Socios y cuentas</strong> — Alta, estado activo/inactivo, onboarding completado, datos de salud del nuevo ingreso.</li>
+  <li><strong>Socios y cuentas</strong> — Alta, estado activo/inactivo, onboarding completado, foto de recepción, datos de salud del nuevo ingreso y credencial impresa.</li>
   <li><strong>Reservas</strong> — Horarios de clases publicados, cupos, reservas confirmadas o en lista de espera; reservas de equipos con sus turnos y códigos QR.</li>
   <li><strong>Documentos legales</strong> — Reglamento, aviso de privacidad, liberación de responsabilidades. La app obliga al socio a leer y aceptar la versión publicada antes de usar ciertas funciones.</li>
   <li><strong>Notificaciones push</strong> — Campañas con título, resumen, mensaje completo e imagen opcional. Llegan a la bandeja del teléfono y quedan en la bandeja interna de la app.</li>
@@ -315,7 +345,65 @@
 <p>Ruta: <strong>Recepción → Socios</strong></p>
 
 <h4>Listado</h4>
-<p>La tabla muestra: ID, Nº socio, Usuario (nombre), Estado (activo/inactivo/etc.), columna Onboarding (ícono de check si completó el proceso en app o recepción), Fecha de alta y Última actualización. Puedes buscar por número de socio o nombre. Cada fila tiene botón <strong>Editar</strong>.</p>
+<p>La tabla muestra: ID (oculta por defecto), <strong>Nº socio</strong>, <strong>Nombre</strong>, <strong>Estado</strong>, ícono de <strong>Onboarding</strong> (check verde si completó el proceso en app o recepción; reloj si está pendiente), <strong>Alta</strong> y <strong>Act.</strong> (última actualización, oculta por defecto). Puedes buscar por número de socio o nombre.</p>
+
+<p>La búsqueda por número de socio acepta el formato con o sin guión: <strong>CRC-000002</strong> y <strong>CRC000002</strong> encuentran el mismo registro.</p>
+
+<h4>Acciones rápidas en cada fila</h4>
+<p>Las acciones aparecen como enlaces compactos en la fila (no en un menú de tres puntos):</p>
+<table class="table">
+  <thead>
+    <tr><th>Acción</th><th>Quién</th><th>Qué hace</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Ver info</strong></td>
+      <td>Quien tenga lectura de socios</td>
+      <td>Abre un modal de solo lectura con bloque destacado <strong>Información crítica — emergencia</strong> (contacto de emergencia, alertas médicas, traslado/seguro y datos del socio en instalaciones) y el resto del formulario de nuevo ingreso debajo. Útil en mostrador ante una urgencia. Botón <strong>Cerrar</strong>; sin guardar cambios.</td>
+    </tr>
+    <tr>
+      <td><strong>Capt foto</strong></td>
+      <td>Quien tenga escritura de socios</td>
+      <td>Abre modal para tomar o subir la foto de recepción (ver siguiente apartado).</td>
+    </tr>
+    <tr>
+      <td><strong>Emit. Crede</strong></td>
+      <td>Quien tenga lectura de socios</td>
+      <td>Descarga en una pestaña nueva el PDF de credencial del socio (frente y reverso).</td>
+    </tr>
+    <tr>
+      <td><strong>Ficha PDF</strong></td>
+      <td>Quien tenga lectura y formulario de salud cargado</td>
+      <td>Descarga el PDF imprimible del formulario de nuevo ingreso (datos personales, emergencia, salud, objetivos y declaraciones). También disponible como <strong>Descargar ficha PDF</strong> al pie del modal <strong>Ver info</strong>.</td>
+    </tr>
+    <tr>
+      <td><strong>Editar</strong></td>
+      <td>Quien tenga escritura de socios</td>
+      <td>Abre la ficha completa del socio en el formulario de edición.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Capturar foto del socio</h4>
+<p>Desde <strong>Capt foto</strong> se abre el modal <strong>Capturar foto del socio</strong>:</p>
+<ul>
+  <li><strong>Cámara</strong> — Vista en vivo con recorte vertical (misma proporción que la credencial). El marco de vista previa es fijo; alinea el rostro del socio dentro del recuadro.</li>
+  <li><strong>Tomar foto</strong> — Captura el encuadre actual y muestra la vista previa antes de enviar.</li>
+  <li><strong>Guardar foto</strong> — Confirma y guarda la imagen. Queda disponible en la app del socio (inicio y perfil) y en la credencial PDF.</li>
+  <li><strong>Subir archivo (alternativa)</strong> — Si la cámara no está disponible, sube JPEG, PNG o WebP (máx. 8 MB).</li>
+</ul>
+
+<div class="note">
+  <strong>Requisitos de cámara:</strong> El navegador debe tener permiso de cámara y el panel debe abrirse por <strong>HTTPS</strong>. En HTTP o sin permisos, usa la subida de archivo.
+</div>
+
+<h4>Emitir credencial PDF</h4>
+<p><strong>Emit. Crede</strong> genera un PDF de <strong>dos caras</strong> con el tamaño de una credencial física:</p>
+<ul>
+  <li><strong>Frente</strong> — Logo del club, foto de recepción, nombre, número de socio, fecha de alta y código de barras Code 128 con el número sin guiones (ej. CRC000002).</li>
+  <li><strong>Reverso</strong> — Datos de emergencia, traslado y seguro del formulario de salud, más un código QR con la misma información en formato JSON (<code>crece_credencial_emergencia</code>, versión 1) para lectura rápida con escáner.</li>
+</ul>
+<p>Si el socio aún no tiene foto de recepción, el frente muestra un espacio vacío hasta que captures una con <strong>Capt foto</strong>.</p>
 
 <h4>Crear socio</h4>
 <p>Pulsa <strong>Crear</strong> en la esquina superior. Campos obligatorios en la pestaña General:</p>
@@ -331,6 +419,7 @@
   <li><strong>Estado</strong> — Activa o suspende al socio en operaciones del club.</li>
   <li><strong>Fecha de alta</strong> — Editable.</li>
   <li><strong>Onboarding completado</strong> — Texto informativo (fecha o «Pendiente»). Se actualiza automáticamente cuando el socio cumple requisitos (documentos legales, datos de salud, etc.).</li>
+  <li><strong>Foto de recepción</strong> — Indica si ya hay foto capturada («Capturada · visible en la app del socio») o si falta («Pendiente · usa «Capt foto» en el listado»). No se sube desde aquí; usa la acción del listado.</li>
   <li><strong>Versión formulario salud</strong> — Normalmente V2; indica qué formato de nuevo ingreso aplica.</li>
 </ul>
 
@@ -466,7 +555,7 @@
 
 <h2 id="caja">Caja y ventas</h2>
 
-<p>Grupo <strong>Caja y ventas</strong>: punto de venta táctil, historial de ventas, pagos, sesiones de caja y documentos fiscales. La disciplina de caja es fundamental: toda venta en mostrador debe pasar por el POS con sesión abierta para que arqueos, reembolsos y facturación cuadren al centavo.</p>
+<p>Grupo <strong>Caja y ventas</strong>: punto de venta táctil, historial de ventas, pagos, sesiones de caja, <strong>Facturar ventas</strong> (asistente CFDI) y documentos fiscales. La disciplina de caja es fundamental: toda venta en mostrador debe pasar por el POS con sesión abierta para que arqueos, reembolsos y facturación cuadren al centavo.</p>
 
 <div class="warning">
   No registres cobros «por fuera» del POS si tu procedimiento interno exige trazabilidad. Un pago manual en Ventas sin pasar por caja abierta puede desajustar el efectivo esperado al cierre.
@@ -476,12 +565,13 @@
 <p>Ruta: <strong>Caja y ventas → Punto de venta</strong></p>
 
 <h4>Paso 1: Abrir caja</h4>
-<p>Si no hay caja abierta, la pantalla muestra un candado y el mensaje «Abre la caja para usar el POS». Opciones:</p>
+<p>Si no hay caja abierta <em>por ti</em>, la pantalla muestra un candado y el mensaje «Abre la caja para usar el POS». Opciones:</p>
 <ul>
-  <li>Si ya hay caja abierta en la sucursal por otro usuario: verás número de sesión, quién la abrió, fecha y efectivo esperado. Botones <strong>Continuar con esta caja</strong> o <strong>Cerrar caja</strong> (si tienes permiso).</li>
-  <li>Si no hay caja abierta y tienes permiso: formulario con <strong>Fondo inicial (efectivo)</strong> (obligatorio), <strong>Notas (opcional)</strong> y botón <strong>Abrir caja y continuar</strong>.</li>
+  <li>Si <strong>tú</strong> ya tienes una sesión abierta (aunque hayas salido del POS): verás número de sesión, sucursal, fecha y efectivo esperado. Botones <strong>Continuar con esta caja</strong> o <strong>Cerrar caja</strong>.</li>
+  <li>Si no tienes caja abierta y tienes permiso: formulario con sucursal (si hay varias), <strong>Fondo inicial (efectivo)</strong> (obligatorio), <strong>Notas (opcional)</strong> y botón <strong>Abrir caja y continuar</strong>.</li>
   <li>Sin permiso de caja: mensaje indicando pedir a un coordinador que abra en Sesiones de caja.</li>
 </ul>
+<p>No puedes cobrar en la caja que abrió otro usuario; cada cajero opera solo su propia sesión.</p>
 
 <h4>Paso 2: Barra de caja activa</h4>
 <p>Con caja abierta, arriba aparece el número de sesión y efectivo esperado. Botones (con permiso):</p>
@@ -500,6 +590,7 @@
   <li><strong>Tienda</strong> — Productos físicos con inventario.</li>
 </ul>
 <p>Toca una tarjeta para agregar al carrito. Tras agregar, aparece la etiqueta «Agregado» brevemente.</p>
+<p>El rol <strong>venta de mostrador</strong> solo ve la pestaña <strong>Tienda</strong> (productos); no tiene acceso a membresías, inscripciones ni paquetes de visita en el POS.</p>
 
 <div class="note">
   Si no hay conceptos en una categoría, revisa <strong>Membresías y planes → Planes comerciales</strong> (precios y periodicidades en cada plan) o contacta al coordinador.
@@ -519,11 +610,44 @@
 
 <h3>Ventas</h3>
 <p>Ruta: <strong>Caja y ventas → Ventas</strong></p>
-<p>Listado: ID, Sucursal, Socio, Estado, Total, Pagado, Saldo pendiente, Fecha. No se crean ventas aquí directamente (salen del POS). Acciones por fila:</p>
+<p>Listado: ID, Sucursal, Socio, Estado, Total, Pagado, Saldo pendiente, Fecha. No se crean ventas aquí directamente (salen del POS). En la esquina superior aparece el botón <strong>Facturar ventas</strong>, que abre el asistente de facturación (ver siguiente apartado).</p>
+<p>Acciones por fila:</p>
 <ul>
   <li><strong>Registrar pago</strong> — Si hay saldo pendiente. Campos: Método de pago, Caja abierta (opcional), Monto, Notas.</li>
-  <li><strong>Solicitar CFDI</strong> — Cuando la venta está pagada por completo y aún no tiene factura. Formulario fiscal extenso: RFC receptor, Razón social, Régimen fiscal (ej. 601, 612), Uso CFDI, Forma y método de pago SAT, correo, teléfono y domicilio fiscal completo (calle, número exterior/interior, colonia, ciudad, municipio, estado, código postal).</li>
+  <li><strong>Facturar</strong> — Si la venta está pagada por completo y aún no tiene factura activa. Abre <strong>Facturar ventas</strong> con esa orden ya preseleccionada.</li>
 </ul>
+
+<h3>Facturar ventas (asistente CFDI)</h3>
+<p>Ruta: <strong>Caja y ventas → Facturar ventas</strong> (también desde el botón homónimo en Ventas o la acción <strong>Facturar</strong> de una fila).</p>
+<p>Asistente en tres pasos para timbrar una o varias ventas en un solo CFDI:</p>
+
+<p><strong>1. Sucursal y socio</strong></p>
+<ul>
+  <li><strong>Sucursal</strong> — Obligatoria. Solo puedes consolidar ventas de la <em>misma</em> sucursal; otra sede requiere otra factura.</li>
+  <li><strong>Número de socio (opcional)</strong> — Si el socio tiene datos fiscales guardados, se autocompletan al escribir su número (con o sin guión, ej. CRC-000123 o CRC000123). También filtra las ventas elegibles de ese socio.</li>
+</ul>
+
+<p><strong>2. Ventas a incluir</strong></p>
+<ul>
+  <li>Tabla de ventas <strong>pagadas y sin facturar</strong> de los últimos 90 días en la sucursal elegida.</li>
+  <li>Marca con casilla las órdenes a consolidar. El resumen superior muestra cuántas ventas, líneas y el total en MXN.</li>
+  <li><strong>Agregar venta</strong> — Campo <strong># orden</strong> + botón para incluir manualmente una venta por su ID.</li>
+  <li><strong>Ventas de hoy sin socio</strong> — Bloque aparte para cobros de mostrador sin socio vinculado; marca las que correspondan al mismo cliente.</li>
+</ul>
+
+<p><strong>3. Datos fiscales del receptor</strong></p>
+<ul>
+  <li>RFC, Razón social, Régimen fiscal (ej. 601, 612, 626), Uso CFDI, Forma y método de pago SAT.</li>
+  <li><strong>Correo fiscal</strong> — Obligatorio; Facturiva envía el CFDI al cliente a ese correo.</li>
+  <li>Teléfono y domicilio fiscal completo (calle, núm. exterior/interior, colonia, ciudad, municipio, estado, C.P.).</li>
+  <li><strong>Guardar estos datos fiscales en el socio</strong> — Casilla opcional; la próxima factura del mismo socio se autocompleta.</li>
+</ul>
+
+<p>Pulsa <strong>Emitir factura</strong> al final. Si Facturiva está conectado, el sistema crea el borrador, timbra y redirige a <strong>Documentos fiscales</strong> con notificación de éxito (incluye UUID si aplica). Si Facturiva aún no está configurado, el documento queda en estado pendiente para timbrar después desde ese listado.</p>
+
+<div class="note">
+  <strong>Requisitos para facturar:</strong> Saldo pendiente $0.00, venta en estado pagada/cumplida y sin CFDI activo previo. No mezcles ventas de distintas sucursales ni monedas en la misma factura.
+</div>
 
 <h3>Pagos</h3>
 <p>Ruta: <strong>Caja y ventas → Pagos</strong></p>
@@ -531,7 +655,11 @@
 
 <h3>Sesiones de caja</h3>
 <p>Ruta: <strong>Caja y ventas → Sesiones de caja</strong></p>
-<p>Columnas: ID, Sucursal, Estado, Apertura, Esperado, Diferencia, Abierta, Cerrada. Acciones en sesiones abiertas:</p>
+<p>Columnas: ID, Sucursal, <strong>Cajero</strong> (quien abrió la sesión), Estado, Apertura, Esperado, Diferencia, Abierta, Cerrada.</p>
+
+<p>Cada usuario de caja trabaja con <strong>su propia sesión abierta</strong>: solo puede cobrar y registrar movimientos en la caja que él mismo abrió. Si intentas usar la caja de otro usuario, el sistema rechaza la operación. Coordinador y administrador ven todas las sesiones, pueden filtrar por cajero y cerrar una caja ajena si hace falta (por ejemplo, cambio de turno con caja olvidada abierta).</p>
+
+<p>Acciones en sesiones abiertas (según permisos y dueño de la caja):</p>
 <ul>
   <li><strong>Retiro</strong> — Monto, Motivo, Correo del coordinador/admin, Contraseña del autorizador.</li>
   <li><strong>Cerrar caja</strong> — Monto contado, Notas de cierre.</li>
@@ -539,9 +667,19 @@
 
 <h3>Documentos fiscales (Facturiva)</h3>
 <p>Ruta: <strong>Caja y ventas → Documentos fiscales</strong></p>
-<p>Facturas electrónicas vinculadas a ventas. Columnas: ID, Venta, Proveedor, Estado, Monto, UUID, Fecha de emisión.</p>
+<p>Historial de CFDI vinculados a una o varias ventas. Columnas: ID, <strong>Ventas</strong> (puede listar varios # de orden), Proveedor, Estado, Monto, UUID, Emitido.</p>
+
+<p>Botones en la parte superior (coordinador/administrador con permiso de facturación):</p>
 <ul>
-  <li><strong>Emitir CFDI</strong> / <strong>Marcar pendiente CFDI</strong> — En borrador; timbra con Facturiva si está configurado.</li>
+  <li><strong>Contratar Facturiva</strong> — Enlace al sitio del proveedor si aún no tienes cuenta.</li>
+  <li><strong>Conectar Facturiva</strong> — Pega la <strong>Clave API</strong>, elige la <strong>Organización emisora</strong> y la <strong>Serie y folio por defecto</strong> registrados en Facturiva. Sin esta configuración no se timbra; los documentos quedan pendientes.</li>
+</ul>
+
+<p>Acciones por fila:</p>
+<ul>
+  <li><strong>Emitir CFDI</strong> — En borrador, si Facturiva está conectado. Timbra y envía al correo fiscal del receptor.</li>
+  <li><strong>Marcar pendiente CFDI</strong> — Mismo botón cuando Facturiva aún no está listo; deja el registro en espera de configuración.</li>
+  <li><strong>Descargar PDF</strong> — En facturas ya emitidas con Facturiva; abre el PDF timbrado en una pestaña nueva.</li>
   <li><strong>Cancelar</strong> — En facturas emitidas; elige motivo SAT (01–04).</li>
 </ul>
 
@@ -615,37 +753,129 @@
 
 <h2 id="inventario">Inventario y tienda</h2>
 
+<p>El inventario se gestiona por <strong>sucursal</strong>. Los cambios manuales los hace personal con permiso de escritura (coordinador o administrador). Recepción y venta de mostrador pueden <strong>consultar</strong> existencias, pero no ajustar stock.</p>
+
 <h3>Productos</h3>
 <p>Ruta: <strong>Inventario y tienda → Productos</strong></p>
-<p>Campos: SKU, Nombre, Estado, Moneda, <strong>Precio al público</strong>, <strong>Costo para el club</strong>, Maneja inventario (Sí/No).</p>
-<p>Al crear un producto con inventario, aparece la sección <strong>Inventario inicial</strong>: sucursal, existencias iniciales y stock mínimo. Las ventas en POS descontarán automáticamente.</p>
-<p>Acción <strong>Ajustar stock</strong> (en el listado, productos con inventario):</p>
+<p>Campos: SKU, Nombre, Estado, Moneda, <strong>Precio al público</strong>, <strong>Precio con IVA incluido</strong> (Sí = el precio en mostrador ya trae 16 %; No = se suma IVA al cobrar y en el CFDI), <strong>Costo para el club</strong> (alimenta el reporte de utilidad bruta en <strong>Ventas y ganancias</strong>), Maneja inventario (Sí/No).</p>
+<p>Al crear un producto con inventario, aparece la sección <strong>Inventario inicial</strong>: sucursal, existencias iniciales y stock mínimo. Después de guardado, al editar el producto verás el bloque <strong>Existencias actuales</strong> por sucursal.</p>
+<p>Las ventas en POS descontan existencias automáticamente (movimiento tipo <strong>Venta</strong>). Los reembolsos de productos pueden generar <strong>Devolución</strong> según el flujo de caja.</p>
+
+<h4>Ajustar stock</h4>
+<p>Acción <strong>Ajustar stock</strong> en el listado de productos (solo si el producto maneja inventario y tienes permiso de escritura):</p>
 <ul>
-  <li>Sucursal</li>
-  <li>Tipo de movimiento (compra, ajuste, merma, etc.)</li>
-  <li>Cantidad (+ entrada / − salida)</li>
-  <li>Stock mínimo opcional (alerta en Existencias)</li>
-  <li>Motivo</li>
+  <li><strong>Sucursal</strong> — Dónde aplica el movimiento.</li>
+  <li><strong>Tipo de movimiento</strong> — Compra, Venta, Devolución, Ajuste, Traspaso entrada, Traspaso salida, Merma.</li>
+  <li><strong>Cantidad</strong> — Número entero positivo para entradas; negativo para salidas (ej. <code>-3</code> para descontar tres unidades).</li>
+  <li><strong>Stock mínimo (opcional)</strong> — Actualiza el umbral de alerta de esa sucursal sin mover existencias.</li>
+  <li><strong>Motivo</strong> — Texto breve para la auditoría (recomendado en ajustes y mermas).</li>
 </ul>
+<p>El sistema no permite dejar existencias negativas: si la salida supera el disponible, muestra error y no guarda el movimiento.</p>
+
+<div class="tip">
+  <strong>Traspaso entre sucursales:</strong> No hay un asistente aparte en el panel. Registra una <strong>Traspaso salida</strong> en la sucursal origen y una <strong>Traspaso entrada</strong> (o <strong>Compra</strong>/<strong>Ajuste</strong> con motivo) en la sucursal destino, con la misma cantidad.
+</div>
 
 <h3>Existencias</h3>
 <p>Ruta: <strong>Inventario y tienda → Existencias</strong></p>
-<p><strong>Qué muestra:</strong> el saldo <em>actual</em> por producto y sucursal (Disponible y Mínimo). Es consulta: no se edita la cantidad aquí; cada cambio pasa por Ajustar stock, ventas POS o traspasos.</p>
-<p>Acción <strong>Stock mínimo</strong> para definir el nivel de alerta sin mover existencias. Cuando el disponible llega al mínimo, Crece envía <strong>push</strong> (app móvil) y <strong>correo</strong> a usuarios con rol administrador o coordinador. También hay un resumen diario a las 08:00 (zona del club).</p>
+<p>Listado de saldo por producto y sucursal: SKU, Producto, Sucursal, <strong>Disponible</strong>, <strong>Mínimo</strong>. Las filas en rojo indican que el disponible ya está en o por debajo del mínimo.</p>
+<p>No se edita la cantidad aquí. Acción <strong>Stock mínimo</strong> para cambiar solo el umbral de alerta.</p>
+
+<h4>Alertas de stock bajo</h4>
+<p>Cuando el disponible cruza el mínimo (por venta, ajuste o carga inicial), administradores y coordinadores reciben <strong>push</strong> en la app y <strong>correo</strong> con el detalle del producto y sucursal. Además, cada día a las <strong>08:00</strong> (zona horaria del club) puede enviarse un <strong>resumen diario</strong> si aún hay productos bajo mínimo. Las alertas tienen enfriamiento para no repetir el mismo aviso en exceso.</p>
 
 <h3>Movimientos de inventario</h3>
 <p>Ruta: <strong>Inventario y tienda → Movimientos de inventario</strong></p>
-<p><strong>Qué muestra:</strong> el historial (auditoría) de cada cambio: compras, ventas, devoluciones, ajustes, mermas y traspasos entre sucursales, con cantidad (+/−), saldo después, motivo, usuario y fecha. Solo lectura.</p>
+<p>Auditoría de solo lectura. Columnas: SKU, Producto, Sucursal, Tipo (insignia de color), Cantidad (con signo <code>+</code> / <code>−</code>), <strong>Saldo después</strong>, Motivo, Usuario, Fecha. Ordenado por fecha descendente.</p>
+<p>Úsalo para conciliar diferencias de conteo físico, revisar quién hizo un ajuste o verificar ventas automáticas del POS.</p>
 
 <h3>Conteo físico</h3>
 <p>Ruta: <strong>Inventario y tienda → Conteo físico</strong></p>
-<p>Hoja imprimible para inventario en anaquel/bodega: lista productos con inventario, columna <strong>Sistema</strong> (lo que dice Crece), espacios en blanco para <strong>Conteo físico</strong>, <strong>Diferencia</strong> y notas. Tras contar, registra ajustes en Productos → Ajustar stock.</p>
+<p>Hoja imprimible para anaquel o bodega:</p>
+<ul>
+  <li>Selector de <strong>Sucursal</strong>, botón <strong>Actualizar</strong> y <strong>Imprimir hoja</strong>.</li>
+  <li>Tabla con SKU, Producto, <strong>Sistema</strong> (saldo en Crece), <strong>Mínimo</strong>, columnas en blanco para <strong>Conteo físico</strong>, <strong>Diferencia</strong> (físico − sistema) y <strong>Notas</strong>.</li>
+  <li>Productos bajo mínimo aparecen resaltados. Al pie, espacios para firmas <strong>Contó</strong> / <strong>Revisó</strong>.</li>
+</ul>
+
+<h4>Después del conteo en piso</h4>
+<ol class="steps">
+  <li>Imprime la hoja y cuenta físicamente cada producto.</li>
+  <li>Calcula la diferencia (conteo físico − sistema) por renglón.</li>
+  <li>En <strong>Productos → Ajustar stock</strong>, registra un movimiento tipo <strong>Ajuste</strong> (o Compra/Merma según el caso) con la cantidad necesaria para igualar el sistema al conteo. Indica motivo, por ejemplo «Conteo físico 02/06/2026».</li>
+  <li>Verifica en <strong>Existencias</strong> y en <strong>Movimientos de inventario</strong> que el saldo y la auditoría quedaron correctos.</li>
+</ol>
+
+<p>Para indicadores de stock bajo, utilidad de productos y exportaciones, ver la sección <a href="#reportes">Reportes</a>. Las alertas push y correo de stock bajo complementan esos reportes para acción inmediata.</p>
 
 <h3>Categorías de productos</h3>
 <p>Ruta: <strong>Inventario y tienda → Categorías de productos</strong> — Nombre, Estado, Orden.</p>
 
 <h3>Proveedores</h3>
 <p>Ruta: <strong>Inventario y tienda → Proveedores</strong> — Nombre, Contacto, Teléfono, Email, Estado.</p>
+
+<h2 id="reportes">Reportes</h2>
+
+<p>Grupo <strong>Reportes</strong> del menú lateral: indicadores del club filtrados por <strong>sucursal</strong> y <strong>periodo</strong>. Las tres pantallas comparten los mismos filtros superiores.</p>
+
+<h3>Filtros comunes</h3>
+<ul>
+  <li><strong>Sucursal</strong> — Padierna, Huipulco u otra sede activa.</li>
+  <li><strong>Periodo</strong> — Últimos 7 / 30 / 90 días, mes actual, mes anterior o <strong>Personalizado</strong> (fechas Desde / Hasta).</li>
+  <li><strong>Actualizar</strong> — Recalcula las métricas y gráficas con los filtros elegidos.</li>
+</ul>
+
+<h3>Resumen ejecutivo</h3>
+<p>Ruta: <strong>Reportes → Resumen ejecutivo</strong></p>
+<p>Vista rápida de tarjetas con los KPIs más importantes del periodo:</p>
+<ul>
+  <li><strong>Financieros</strong> (solo coordinador/administrador) — Ingresos por ventas, utilidad bruta de productos, margen %, proyección del próximo mes.</li>
+  <li><strong>Operativos</strong> (también recepción) — Visitas al club, tiempo promedio de estancia, reservas de clases, tasa de asistencia, reservas de equipos.</li>
+</ul>
+<p>Si tu rol no tiene permiso financiero, verás un aviso y las tarjetas de ingresos quedarán ocultas. Botón <strong>Descargar Excel (CSV)</strong> exporta los indicadores visibles.</p>
+
+<h3>Ventas y ganancias</h3>
+<p>Ruta: <strong>Reportes → Ventas y ganancias</strong> — Solo coordinador y administrador.</p>
+<p>Análisis financiero del periodo seleccionado:</p>
+<ul>
+  <li>Tarjetas: <strong>Ingresos totales</strong>, ticket promedio, <strong>utilidad bruta de productos</strong> (con margen %), ingresos de membresías/servicios.</li>
+  <li>Gráfica <strong>Ingresos diarios</strong> (línea de tiempo).</li>
+  <li>Desglose <strong>Ingresos por tipo de venta</strong> (membresía, producto, inscripción, etc.).</li>
+  <li>Tabla <strong>Top productos (utilidad)</strong> — Usa el <strong>Costo para el club</strong> capturado en cada producto.</li>
+  <li>Bloque <strong>Proyección (últimos 3 meses)</strong> — Promedio mensual y estimado del próximo mes.</li>
+</ul>
+<p>Exportaciones CSV:</p>
+<ul>
+  <li><strong>Resumen financiero (CSV)</strong> — Totales, cobros, utilidad y proyección.</li>
+  <li><strong>Top productos (CSV)</strong> — Producto, unidades, ingresos, costo estimado y utilidad bruta.</li>
+</ul>
+
+<h3>Uso y asistencia</h3>
+<p>Ruta: <strong>Reportes → Uso y asistencia</strong> (título en pantalla: <em>Uso del club, clases y equipos</em>).</p>
+<p>Tres pestañas con gráficas (Chart.js) y botón <strong>Descargar Excel (CSV)</strong> según la pestaña activa:</p>
+
+<p><strong>1. Uso del club</strong></p>
+<ul>
+  <li>Visitas totales, socios únicos, estancia promedio y mediana (minutos).</li>
+  <li>Gráfica <strong>Horas de mayor afluencia</strong> (barras).</li>
+  <li>Gráfica <strong>Visitas por día</strong> (línea).</li>
+</ul>
+
+<p><strong>2. Clases</strong></p>
+<ul>
+  <li>Horarios en el periodo, reservas confirmadas, tasa de asistencia, no asistió.</li>
+  <li>Gráfica <strong>Reservas por día</strong>.</li>
+</ul>
+
+<p><strong>3. Equipos</strong></p>
+<ul>
+  <li>Reservas totales, completadas, canceladas, socios únicos.</li>
+  <li>Lista <strong>Equipos más reservados</strong> y gráfica <strong>Reservas por día</strong>.</li>
+</ul>
+
+<div class="tip">
+  <strong>App móvil:</strong> El personal administrativo ve un <strong>resumen operativo</strong> similar en CreceApp (pestaña <strong>Reporte</strong>): ventas, pagos, caja, membresías, accesos e inventario del periodo. Los gráficos detallados y la utilidad de productos están en el panel web.
+</div>
 
 <h2 id="entrenamiento">Entrenamiento</h2>
 
@@ -1048,10 +1278,11 @@
     <tr><td>Recepción</td><td>Check-ins</td><td>Historial de accesos; escaneo QR y registro manual desde mostrador.</td></tr>
     <tr><td>Recepción</td><td>Contratos y vigencias</td><td>Membresías activas; registrar pago fuera de POS.</td></tr>
     <tr><td>Caja y ventas</td><td>Punto de venta</td><td>Cobro táctil con caja abierta.</td></tr>
-    <tr><td>Caja y ventas</td><td>Ventas</td><td>Historial de órdenes; pagos parciales y solicitud de factura.</td></tr>
+    <tr><td>Caja y ventas</td><td>Ventas</td><td>Historial de órdenes; pagos parciales y acceso rápido a facturar.</td></tr>
+    <tr><td>Caja y ventas</td><td>Facturar ventas</td><td>Asistente para consolidar ventas pagadas y emitir CFDI.</td></tr>
     <tr><td>Caja y ventas</td><td>Pagos</td><td>Detalle de cobros; reembolsos.</td></tr>
     <tr><td>Caja y ventas</td><td>Sesiones de caja</td><td>Aperturas, cierres, retiros autorizados.</td></tr>
-    <tr><td>Caja y ventas</td><td>Documentos fiscales</td><td>CFDI timbrados vía Facturiva.</td></tr>
+    <tr><td>Caja y ventas</td><td>Documentos fiscales</td><td>Historial CFDI; conectar Facturiva, timbrar, PDF y cancelaciones.</td></tr>
     <tr><td>Reservaciones</td><td>Clases</td><td>Tipos de clase por sucursal (Spinning, Funcional, etc.).</td></tr>
     <tr><td>Reservaciones</td><td>Horarios de clase</td><td>Calendario de sesiones con cupo.</td></tr>
     <tr><td>Reservaciones</td><td>Reservas de clases</td><td>Reservas confirmadas; reservar o cancelar.</td></tr>
@@ -1061,9 +1292,10 @@
     <tr><td>Membresías y planes</td><td>Planes comerciales</td><td>Plan + tabla de precios/periodicidades en una pantalla.</td></tr>
     <tr><td>Membresías y planes</td><td>Paquetes de visitas</td><td>Monederos de visitas por socio.</td></tr>
     <tr><td>Manual (web)</td><td><a href="#torniquetes">Torniquetes físicos</a></td><td>Qué hace Crece hoy, puente con relé, Orange Pi y datos que el club debe dar al integrador.</td></tr>
-    <tr><td>Inventario y tienda</td><td>Productos</td><td>Artículos de tienda; ajuste de existencias.</td></tr>
-    <tr><td>Inventario y tienda</td><td>Existencias</td><td>Stock actual por sucursal.</td></tr>
-    <tr><td>Inventario y tienda</td><td>Movimientos de stock</td><td>Auditoría de entradas y salidas.</td></tr>
+    <tr><td>Inventario y tienda</td><td>Productos</td><td>Catálogo de tienda; acción Ajustar stock.</td></tr>
+    <tr><td>Inventario y tienda</td><td>Conteo físico</td><td>Hoja imprimible para inventario en anaquel/bodega.</td></tr>
+    <tr><td>Inventario y tienda</td><td>Existencias</td><td>Saldo y mínimos por sucursal; alertas de stock bajo.</td></tr>
+    <tr><td>Inventario y tienda</td><td>Movimientos de inventario</td><td>Auditoría: compras, ventas POS, ajustes, mermas, traspasos.</td></tr>
     <tr><td>Inventario y tienda</td><td>Categorías de productos</td><td>Agrupación para tienda y POS.</td></tr>
     <tr><td>Inventario y tienda</td><td>Proveedores</td><td>Datos de proveedores de mercancía.</td></tr>
     <tr><td>Entrenamiento</td><td>Rutinas</td><td>Diseño de planes de ejercicio.</td></tr>
@@ -1071,9 +1303,9 @@
     <tr><td>Entrenamiento</td><td>Registros de avance</td><td>Progreso reportado por socios/entrenadores.</td></tr>
     <tr><td>Legal y documentos</td><td>Documentos legales</td><td>Textos que la app pide aceptar (global o por sucursal).</td></tr>
     <tr><td>Legal y documentos</td><td>Aceptaciones legales</td><td>Evidencia de firmas digitales.</td></tr>
-    <tr><td>Reportes</td><td>Resumen ejecutivo</td><td>KPIs del periodo: ventas, visitas, clases y equipos.</td></tr>
-    <tr><td>Reportes</td><td>Ventas y ganancias</td><td>Ingresos, utilidad de productos (precio − costo), proyección 3 meses. Solo coordinación/admin.</td></tr>
-    <tr><td>Reportes</td><td>Uso y asistencia</td><td>Tiempo en club, horas pico, asistencia a clases y reservas de equipos.</td></tr>
+    <tr><td>Reportes</td><td>Resumen ejecutivo</td><td>Tarjetas KPI del periodo; CSV. Financiero solo coord/admin.</td></tr>
+    <tr><td>Reportes</td><td>Ventas y ganancias</td><td>Ingresos, gráficas, top productos, utilidad y proyección. Solo coord/admin.</td></tr>
+    <tr><td>Reportes</td><td>Uso y asistencia</td><td>Pestañas: uso del club, clases y equipos; gráficas y CSV.</td></tr>
     <tr><td>Comunicación</td><td>Campañas push</td><td>Mensajes masivos o individuales al teléfono.</td></tr>
     <tr><td>Comunicación</td><td>Notificaciones en app</td><td>Bandeja interna; eliminar mensajes.</td></tr>
     <tr><td>Comunicación</td><td>Imágenes de notificaciones</td><td>Clave del servicio myimageen para fotos en push.</td></tr>
@@ -1107,13 +1339,28 @@
 
 <h2 id="detalle-facturacion">Facturación paso a paso (Facturiva)</h2>
 
+<h3>Primera vez: conectar Facturiva</h3>
 <ol class="steps">
-  <li>Localiza la venta pagada en <strong>Ventas</strong> (saldo $0.00).</li>
-  <li>Pulsa <strong>Solicitar CFDI</strong> y captura datos fiscales del receptor con exactitud (RFC, régimen, domicilio fiscal).</li>
-  <li>Ve a <strong>Documentos fiscales</strong>; el registro aparecerá en estado borrador.</li>
-  <li>Pulsa <strong>Emitir CFDI</strong> si Facturiva está configurado; si no, el botón indicará pendiente de configuración.</li>
-  <li>Tras emitir, anota el UUID para el socio. Para cancelar una factura emitida por error, usa <strong>Cancelar</strong> con motivo SAT válido.</li>
+  <li>Ve a <strong>Documentos fiscales</strong> y pulsa <strong>Conectar Facturiva</strong> (o <strong>Contratar Facturiva</strong> si aún no tienes cuenta).</li>
+  <li>Pega la <strong>Clave API</strong> generada en Facturiva.</li>
+  <li>Selecciona la <strong>Organización emisora</strong> y la <strong>Serie y folio por defecto</strong> que ya existan en Facturiva.</li>
+  <li>Guarda. A partir de ahí, <strong>Emitir factura</strong> en el asistente timbrará de inmediato.</li>
 </ol>
+
+<h3>Facturar una o varias ventas</h3>
+<ol class="steps">
+  <li>Abre <strong>Facturar ventas</strong> (menú lateral, botón en Ventas o acción <strong>Facturar</strong> en una fila pagada).</li>
+  <li>Elige la <strong>sucursal</strong> correcta. Si conoces el socio, escribe su número para autocompletar datos fiscales y ver sus ventas elegibles.</li>
+  <li>Marca las órdenes a incluir (puedes consolidar varias del mismo socio en un solo CFDI). Revisa el total del resumen.</li>
+  <li>Completa o verifica los <strong>datos fiscales del receptor</strong> (correo obligatorio). Marca <strong>Guardar estos datos fiscales en el socio</strong> si quieres reutilizarlos.</li>
+  <li>Pulsa <strong>Emitir factura</strong>. Facturiva timbra y envía el CFDI al correo del cliente; el sistema muestra el UUID en la notificación.</li>
+  <li>Si necesitas copia impresa o reenvío manual, en <strong>Documentos fiscales</strong> usa <strong>Descargar PDF</strong> en la fila emitida.</li>
+  <li>Para corregir una factura ya timbrada, usa <strong>Cancelar</strong> con motivo SAT válido y vuelve a facturar las ventas si aplica.</li>
+</ol>
+
+<div class="tip">
+  Si Facturiva no está conectado, el asistente deja el documento en estado pendiente. Conéctalo y luego pulsa <strong>Emitir CFDI</strong> en <strong>Documentos fiscales</strong> sobre el borrador correspondiente.
+</div>
 
 <h2 id="detalle-equipos-app">Cómo ven los socios los equipos reservables en la app</h2>
 
@@ -1140,7 +1387,7 @@
 <h2 id="buenas-practicas">Buenas prácticas operativas</h2>
 
 <ul>
-  <li><strong>Caja</strong> — Un recepcionista por sesión de caja abierta; cierra al cambio de turno con conteo físico.</li>
+  <li><strong>Caja</strong> — Cada cajero abre su propia sesión; no compartas la misma caja entre dos personas a la vez. Cierra al cambio de turno con conteo físico. Si hay varios mostradores (recepción + tienda), asigna el rol <strong>venta de mostrador</strong> al personal que solo vende productos.</li>
   <li><strong>QR</strong> — Pide al socio brillo de pantalla al máximo; códigos dañados en captura de pantalla antigua pueden fallar.</li>
   <li><strong>Reservas</strong> — Cancela desde el panel si el socio llama; libera cupo y lista de espera.</li>
   <li><strong>Push</strong> — Redacta resumen corto (lo que se ve en pantalla bloqueada) y detalle en mensaje completo.</li>
