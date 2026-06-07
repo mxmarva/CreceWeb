@@ -470,16 +470,16 @@
   <li><strong>Verificación Turnstile</strong> — Si está activa en el servidor, el envío exige completar la verificación antirrobots (igual que en el login del panel).</li>
   <li><strong>Correo de bienvenida</strong> — Llega al correo del prospecto con su número de socio y un código para establecer contraseña (mismo flujo que «Olvidé mi contraseña» en la app).</li>
   <li><strong>Onboarding incompleto</strong> — No sustituye el formulario completo de salud ni las firmas legales; el socio debe descargar la app y completar lo pendiente.</li>
-  <li><strong>Formalización en sucursal</strong> — El formulario aclara que debe acudir a recepción a pagar su plan para formalizar la membresía.</li>
-  <li><strong>Canal registrado</strong> — Estos altas quedan marcadas como canal <strong>Web</strong> en la ficha del socio (ver abajo).</li>
+  <li><strong>Formalización en recepción</strong> — El formulario aclara que debe acudir a una sucursal a pagar su plan para activar la membresía. Eso es cobro/operación en mostrador; <em>no</em> cambia el canal de inscripción.</li>
+  <li><strong>Canal registrado</strong> — La ficha queda con canal <strong>Web</strong> desde el envío del formulario y se mantiene así aunque el socio pague después en recepción (ver abajo).</li>
 </ul>
 
 <div class="note">
-  Recepción puede buscar al socio recién registrado por correo o número CRC en <strong>Recepción → Socios</strong>, cobrar membresía en POS y ayudar a completar datos faltantes si el socio no logra entrar a la app.
+  Recepción puede buscar al socio recién registrado por correo o número CRC en <strong>Recepción → Socios</strong>, cobrar membresía en POS y ayudar a completar datos faltantes si el socio no logra entrar a la app. El canal seguirá siendo <strong>Web</strong>; solo es <strong>Sucursal</strong> si recepción creó la ficha con <strong>Crear</strong> en el panel.
 </div>
 
 <h4>Crear socio</h4>
-<p>Pulsa <strong>Crear</strong> en la esquina superior. Campos obligatorios en la pestaña General:</p>
+<p>Pulsa <strong>Crear</strong> en la esquina superior. Es el alta hecha por personal en mostrador (no aplica si el socio ya se pre-registró por web o por la app). El canal quedará como <strong>Sucursal</strong>. Campos obligatorios en la pestaña General:</p>
 <ul>
   <li><strong>Usuario (cuenta)</strong> — Selector de cuentas existentes que aún no tienen ficha de socio. Debes crear antes la cuenta en Administración → Usuarios con rol socio, o importar socios masivamente. Solo aparece al crear; no se puede cambiar después.</li>
   <li><strong>Estado</strong> — Por defecto Activo.</li>
@@ -492,7 +492,7 @@
   <li><strong>Estado</strong> — Activa o suspende al socio en operaciones del club.</li>
   <li><strong>Fecha de alta</strong> — Editable.</li>
   <li><strong>Onboarding completado</strong> — Texto informativo (fecha o «Pendiente»). Se actualiza automáticamente cuando el socio cumple requisitos (documentos legales, datos de salud, etc.).</li>
-  <li><strong>Canal de inscripción o registro</strong> — Indica cómo se dio de alta la ficha: <strong>Web</strong> (formulario público /nuevo-ingreso), <strong>App</strong> (el socio se registró o completó onboarding en CreceApp) o <strong>Sucursal</strong> (alta desde el panel por recepción u otro usuario interno). Socios antiguos sin ese dato pueden mostrar «No disponible».</li>
+  <li><strong>Canal de inscripción o registro</strong> — Indica <em>dónde se originó</em> la ficha (no dónde pagó ni formalizó la membresía): <strong>Web</strong> (formulario público /nuevo-ingreso), <strong>App</strong> (registro u onboarding del socio en CreceApp) o <strong>Sucursal</strong> (ficha creada por personal con <strong>Crear</strong> en Recepción → Socios). Quien se pre-registró por web sigue siendo <strong>Web</strong> aunque cobres en POS; quien se registró en la app sigue siendo <strong>App</strong> aunque pague en mostrador. Socios antiguos sin ese dato pueden mostrar «No disponible».</li>
   <li><strong>Foto de recepción</strong> — Indica si ya hay foto capturada («Capturada · visible en la app del socio») o si falta («Pendiente · usa «Capt foto» en el listado»). No se sube desde aquí; usa la acción del listado.</li>
   <li><strong>Versión formulario salud</strong> — Normalmente V2; indica qué formato de nuevo ingreso aplica.</li>
 </ul>
@@ -1224,12 +1224,13 @@
   <li>Indica al socio que descargue la app, inicie sesión con su correo y complete aceptación de documentos legales si aún aparecen pendientes.</li>
 </ol>
 
-<h3>Pre-registro web → formalización en sucursal</h3>
+<h3>Pre-registro web → cobro en recepción</h3>
+<p>El canal de inscripción es <strong>Web</strong> desde que envía el formulario; el cobro en sucursal activa la membresía pero <strong>no</strong> cambia el canal a Sucursal.</p>
 <ol class="steps">
-  <li>El prospecto llena <strong>manage.crecesportclub.com/nuevo-ingreso</strong> (con verificación Turnstile si está activa) y recibe correo con número de socio y código para crear contraseña.</li>
+  <li>El prospecto llena <strong>manage.crecesportclub.com/nuevo-ingreso</strong> (con verificación Turnstile si está activa) y recibe correo con número de socio y código para crear contraseña. El sistema registra canal <strong>Web</strong>.</li>
   <li>Indícale que descargue CreceApp, use <strong>Olvidé mi contraseña</strong> con su correo y el código del correo de bienvenida.</li>
-  <li>En <strong>Recepción → Socios</strong>, búscalo por correo o CRC; verifica que el canal sea <strong>Web</strong> en <strong>Ver info</strong>, la pestaña General o la ficha PDF.</li>
-  <li>Cobra membresía o paquete en <strong>Punto de venta</strong> (o activa vigencia según el caso) para formalizar.</li>
+  <li>En <strong>Recepción → Socios</strong>, búscalo por correo o CRC (no uses <strong>Crear</strong> si ya existe ficha). Confirma que el canal sigue siendo <strong>Web</strong> en <strong>Ver info</strong>, la pestaña General o la ficha PDF.</li>
+  <li>Cobra membresía o paquete en <strong>Punto de venta</strong> (o activa vigencia según el caso). El canal permanece <strong>Web</strong>.</li>
   <li>Revisa onboarding pendiente: el socio puede necesitar completar salud y documentos legales en la app.</li>
 </ol>
 
@@ -1342,7 +1343,7 @@
 <p>Indica que el socio cumplió los requisitos mínimos: cuenta activa, documentos legales aceptados en la app (si aplica) y formulario de nuevo ingreso con datos obligatorios. Hasta entonces puede aparecer como pendiente aunque ya haya pagado membresía.</p>
 
 <h3>¿Qué es «Canal de inscripción o registro»?</h3>
-<p>Indica por dónde se originó la ficha de socio: <strong>Web</strong> (formulario público de pre-registro), <strong>App</strong> (registro o onboarding del socio en CreceApp) o <strong>Sucursal</strong> (alta hecha por personal en Recepción → Socios). Aparece en la pestaña General al editar, en <strong>Ver info</strong> y en la ficha PDF. Sirve para saber si el socio llegó por internet, por la app o fue capturado en mostrador.</p>
+<p>Indica <strong>dónde se creó la ficha</strong>, no dónde pagó la membresía: <strong>Web</strong> (formulario público /nuevo-ingreso), <strong>App</strong> (registro u onboarding en CreceApp) o <strong>Sucursal</strong> (personal dio de alta la ficha con <strong>Crear</strong> en Recepción → Socios). Un socio pre-registrado por web sigue siendo canal <strong>Web</strong> aunque cobres en mostrador; uno registrado en la app sigue siendo <strong>App</strong> aunque pague en recepción. Solo es <strong>Sucursal</strong> si recepción creó la ficha desde el panel. Aparece en la pestaña General, <strong>Ver info</strong> y la ficha PDF.</p>
 
 <h3>La cámara del kiosco no enciende</h3>
 <p>El navegador debe tener permiso de cámara para manage.crecesportclub.com. En Chrome: icono de candado en la barra de direcciones → Permisos → Cámara → Permitir. Si falla la cámara, el lector USB sigue funcionando de forma independiente.</p>
