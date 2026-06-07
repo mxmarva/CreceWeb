@@ -685,7 +685,7 @@
 <p>Ruta: <strong>Contenidos multimedia → Biblioteca multimedia</strong></p>
 <p>Sube enlaces (YouTube, etc.), <strong>videos internos</strong> o archivos (PDF, imágenes). Los videos internos se validan y procesan en segundo plano (requiere cola activa en el servidor).</p>
 <ul>
-  <li><strong>Tamaño máximo de video</strong> — Lo define el ajuste técnico <code>media.max_upload_size_mb</code> (por defecto 250&nbsp;MB; si ves un error de «no mayor que 12288 kilobytes», el límite actual es 12&nbsp;MB). Un administrador puede subirlo en <strong>Sistema técnico → Configuración técnica</strong>.</li>
+  <li><strong>Tamaño máximo de video</strong> — Lo define <code>media.max_upload_size_mb</code> en <strong>Sistema técnico → Configuración técnica</strong> (ej. 250&nbsp;MB). Si el error dice «12288 kilobytes», el tope es el de <strong>Livewire</strong> (12&nbsp;MB por defecto), no PHP ni ese ajuste: en el servidor debe existir <code>LIVEWIRE_MAX_UPLOAD_KB</code> en <code>.env</code> (ej. 256000) y ejecutar <code>php artisan config:clear</code>.</li>
   <li><strong>Formatos</strong> — MP4, MOV, AVI, MKV, WebM.</li>
   <li>Tras subir el archivo, espera a que termine la barra de carga y pulsa <strong>Guardar</strong>.</li>
 </ul>
