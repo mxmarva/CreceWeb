@@ -106,8 +106,10 @@
 
 <p>Si el club tiene activada la verificación antirrobots, debajo de los campos de correo y contraseña aparecerá un recuadro de verificación automática (Cloudflare Turnstile). Debes esperar a que se complete antes de pulsar <strong>Iniciar sesión</strong>. Si intentas entrar antes, verás el mensaje «Espera a que termine la verificación de seguridad».</p>
 
+<p>La misma verificación Turnstile protege el <strong>formulario público de pre-registro web</strong> (<strong>manage.crecesportclub.com/nuevo-ingreso</strong>) que usan los prospectos para solicitar alta como socio. Allí el botón <strong>Enviar pre-registro</strong> permanece deshabilitado hasta completar la verificación.</p>
+
 <div class="tip">
-  Si el botón de inicio de sesión muestra «Espera la verificación de seguridad» al pasar el cursor, espera unos segundos más o recarga la página. Esto protege las cuentas del personal contra intentos masivos de acceso.
+  Si el botón de inicio de sesión muestra «Espera la verificación de seguridad» al pasar el cursor, espera unos segundos más o recarga la página. Esto protege las cuentas del personal contra intentos masivos de acceso. En el pre-registro web aplica la misma lógica: espera el recuadro de Turnstile antes de enviar.
 </div>
 
 <h3>Errores comunes al iniciar sesión</h3>
@@ -413,7 +415,7 @@
     <tr>
       <td><strong>Ver info</strong></td>
       <td>Quien tenga lectura de socios</td>
-      <td>Abre un modal de solo lectura con bloque destacado <strong>Información crítica — emergencia</strong> (contacto de emergencia, alertas médicas, traslado/seguro y datos del socio en instalaciones) y el resto del formulario de nuevo ingreso debajo. Útil en mostrador ante una urgencia. Botón <strong>Cerrar</strong>; sin guardar cambios.</td>
+      <td>Abre un modal de solo lectura con bloque destacado <strong>Información crítica — emergencia</strong> (contacto de emergencia, alertas médicas, traslado/seguro y datos del socio en instalaciones), el campo <strong>Canal de inscripción o registro</strong> (Web, App o Sucursal) y el resto del formulario de nuevo ingreso debajo. Útil en mostrador ante una urgencia. Botón <strong>Cerrar</strong>; sin guardar cambios.</td>
     </tr>
     <tr>
       <td><strong>Capt foto</strong></td>
@@ -428,7 +430,7 @@
     <tr>
       <td><strong>Ficha PDF</strong></td>
       <td>Quien tenga lectura y formulario de salud cargado</td>
-      <td>Descarga el PDF imprimible del formulario de nuevo ingreso (datos personales, emergencia, salud, objetivos y declaraciones). También disponible como <strong>Descargar ficha PDF</strong> al pie del modal <strong>Ver info</strong>.</td>
+      <td>Descarga el PDF imprimible del formulario de nuevo ingreso (datos personales, emergencia, salud, objetivos, declaraciones y <strong>canal de inscripción o registro</strong>). También disponible como <strong>Descargar ficha PDF</strong> al pie del modal <strong>Ver info</strong>.</td>
     </tr>
     <tr>
       <td><strong>Editar</strong></td>
@@ -459,6 +461,23 @@
 </ul>
 <p>Si el socio aún no tiene foto de recepción, el frente muestra un espacio vacío hasta que captures una con <strong>Capt foto</strong>.</p>
 
+<h4 id="pre-registro-web">Pre-registro web público</h4>
+<p>URL: <strong>manage.crecesportclub.com/nuevo-ingreso</strong> — formulario público (sin iniciar sesión en el panel) para que un prospecto solicite alta como socio. Puede mostrarse en el sitio del club dentro de un iframe (por ejemplo, en una página de GitHub Pages).</p>
+
+<p>El formulario recopila datos equivalentes al «nuevo ingreso» inicial: actividad física habitual, fecha de inicio aproximada, horarios preferidos, datos personales, domicilio, contacto, cómo se enteró del club y datos fiscales opcionales. El sistema asigna automáticamente el <strong>número de socio CRC-######</strong> y crea la cuenta de usuario con el correo indicado.</p>
+
+<ul>
+  <li><strong>Verificación Turnstile</strong> — Si está activa en el servidor, el envío exige completar la verificación antirrobots (igual que en el login del panel).</li>
+  <li><strong>Correo de bienvenida</strong> — Llega al correo del prospecto con su número de socio y un código para establecer contraseña (mismo flujo que «Olvidé mi contraseña» en la app).</li>
+  <li><strong>Onboarding incompleto</strong> — No sustituye el formulario completo de salud ni las firmas legales; el socio debe descargar la app y completar lo pendiente.</li>
+  <li><strong>Formalización en sucursal</strong> — El formulario aclara que debe acudir a recepción a pagar su plan para formalizar la membresía.</li>
+  <li><strong>Canal registrado</strong> — Estos altas quedan marcadas como canal <strong>Web</strong> en la ficha del socio (ver abajo).</li>
+</ul>
+
+<div class="note">
+  Recepción puede buscar al socio recién registrado por correo o número CRC en <strong>Recepción → Socios</strong>, cobrar membresía en POS y ayudar a completar datos faltantes si el socio no logra entrar a la app.
+</div>
+
 <h4>Crear socio</h4>
 <p>Pulsa <strong>Crear</strong> en la esquina superior. Campos obligatorios en la pestaña General:</p>
 <ul>
@@ -473,6 +492,7 @@
   <li><strong>Estado</strong> — Activa o suspende al socio en operaciones del club.</li>
   <li><strong>Fecha de alta</strong> — Editable.</li>
   <li><strong>Onboarding completado</strong> — Texto informativo (fecha o «Pendiente»). Se actualiza automáticamente cuando el socio cumple requisitos (documentos legales, datos de salud, etc.).</li>
+  <li><strong>Canal de inscripción o registro</strong> — Indica cómo se dio de alta la ficha: <strong>Web</strong> (formulario público /nuevo-ingreso), <strong>App</strong> (el socio se registró o completó onboarding en CreceApp) o <strong>Sucursal</strong> (alta desde el panel por recepción u otro usuario interno). Socios antiguos sin ese dato pueden mostrar «No disponible».</li>
   <li><strong>Foto de recepción</strong> — Indica si ya hay foto capturada («Capturada · visible en la app del socio») o si falta («Pendiente · usa «Capt foto» en el listado»). No se sube desde aquí; usa la acción del listado.</li>
   <li><strong>Versión formulario salud</strong> — Normalmente V2; indica qué formato de nuevo ingreso aplica.</li>
 </ul>
@@ -1194,14 +1214,23 @@
 
 <h2 id="flujos">Flujos paso a paso</h2>
 
-<h3>Alta de un socio nuevo</h3>
+<h3>Alta de un socio nuevo (desde recepción / panel)</h3>
 <ol class="steps">
   <li>En <strong>Administración → Usuarios</strong>, crea cuenta con correo, contraseña, teléfono y rol <em>socio</em>, o importa desde CSV si son muchos.</li>
-  <li>En <strong>Recepción → Socios → Crear</strong>, selecciona esa cuenta de usuario y define estado y fecha de alta.</li>
+  <li>En <strong>Recepción → Socios → Crear</strong>, selecciona esa cuenta de usuario y define estado y fecha de alta. El canal quedará como <strong>Sucursal</strong>.</li>
   <li>Edita el socio y completa la pestaña <strong>Nuevo ingreso</strong> (datos personales, emergencia, salud, objetivos, declaraciones).</li>
   <li>En el <strong>Punto de venta</strong>, busca al socio, activa «Agregar inscripción automática» si aplica, agrega membresía o paquete y pulsa <strong>Cobrar</strong>.</li>
   <li>O en <strong>Contratos y vigencias → Registrar pago / activar vigencia</strong> si el cobro fue fuera del POS.</li>
   <li>Indica al socio que descargue la app, inicie sesión con su correo y complete aceptación de documentos legales si aún aparecen pendientes.</li>
+</ol>
+
+<h3>Pre-registro web → formalización en sucursal</h3>
+<ol class="steps">
+  <li>El prospecto llena <strong>manage.crecesportclub.com/nuevo-ingreso</strong> (con verificación Turnstile si está activa) y recibe correo con número de socio y código para crear contraseña.</li>
+  <li>Indícale que descargue CreceApp, use <strong>Olvidé mi contraseña</strong> con su correo y el código del correo de bienvenida.</li>
+  <li>En <strong>Recepción → Socios</strong>, búscalo por correo o CRC; verifica que el canal sea <strong>Web</strong> en <strong>Ver info</strong>, la pestaña General o la ficha PDF.</li>
+  <li>Cobra membresía o paquete en <strong>Punto de venta</strong> (o activa vigencia según el caso) para formalizar.</li>
+  <li>Revisa onboarding pendiente: el socio puede necesitar completar salud y documentos legales en la app.</li>
 </ol>
 
 <h3>Vender una membresía en mostrador</h3>
@@ -1311,6 +1340,9 @@
 
 <h3>¿Qué significa «Onboarding completado» en Socios?</h3>
 <p>Indica que el socio cumplió los requisitos mínimos: cuenta activa, documentos legales aceptados en la app (si aplica) y formulario de nuevo ingreso con datos obligatorios. Hasta entonces puede aparecer como pendiente aunque ya haya pagado membresía.</p>
+
+<h3>¿Qué es «Canal de inscripción o registro»?</h3>
+<p>Indica por dónde se originó la ficha de socio: <strong>Web</strong> (formulario público de pre-registro), <strong>App</strong> (registro o onboarding del socio en CreceApp) o <strong>Sucursal</strong> (alta hecha por personal en Recepción → Socios). Aparece en la pestaña General al editar, en <strong>Ver info</strong> y en la ficha PDF. Sirve para saber si el socio llegó por internet, por la app o fue capturado en mostrador.</p>
 
 <h3>La cámara del kiosco no enciende</h3>
 <p>El navegador debe tener permiso de cámara para manage.crecesportclub.com. En Chrome: icono de candado en la barra de direcciones → Permisos → Cámara → Permitir. Si falla la cámara, el lector USB sigue funcionando de forma independiente.</p>
