@@ -149,7 +149,7 @@
 <p>Solo ve el kiosco en <strong>/acceso/login</strong>. Tras iniciar sesión llega directo a «Registro de accesos». No hay menú lateral: la pantalla completa está dedicada al escaneo.</p>
 
 <h4>Recepción</h4>
-<p>Perfil de mostrador. Atiende socios, registra entradas manuales o por QR en recepción, opera el punto de venta (membresías, inscripciones, paquetes de visita y productos), consulta contratos y paquetes de visita (sin emitirlos directamente en algunos flujos), cancela reservas de equipos y clases, y ve reportes básicos. No envía campañas push, no timbra facturas ni ejecuta importaciones masivas de socios.</p>
+<p>Perfil de mostrador. Atiende socios, registra entradas manuales o por QR en recepción, opera el punto de venta (membresías, inscripciones, paquetes de visita y productos), consulta contratos y paquetes de visita (sin emitirlos directamente en algunos flujos), cancela reservas de equipos y clases, atiende el <strong>chat con socios</strong> desde la app, y ve reportes básicos. No envía campañas push, no timbra facturas ni ejecuta importaciones masivas de socios.</p>
 
 <h4>Venta de mostrador</h4>
 <p>Perfil de cajero especializado en la barra o tienda del club. Abre y cierra <strong>su propia</strong> sesión de caja; no puede operar la caja de otro usuario. En el POS solo ve la categoría <strong>Tienda</strong> (productos con inventario): no vende membresías, inscripciones ni paquetes de visita. Puede cobrar ventas de mostrador sin socio vinculado. No accede a socios, check-ins, reservas, membresías ni facturación. En CreceApp ve la misma pantalla de inicio administrativa que recepción (métricas en modo consulta).</p>
@@ -194,6 +194,9 @@
     <tr><td>Equipos reservables: crear/editar</td><td>Solo ver</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Reservas de equipos: cancelar</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Lista de espera: promover o cancelar</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Chat con socios: ver bandeja y conversación</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Chat con socios: responder y tipificar</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Chat: preguntas frecuentes y horario</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
   </tbody>
 </table>
 
@@ -527,6 +530,65 @@
   <li><strong>Referencia de pago</strong> y <strong>Notas de cobro</strong></li>
 </ul>
 <p>Antes de duplicar un contrato, revisa Ventas y Pagos del mismo día.</p>
+
+<h3 id="chat-soporte">Chat con socios</h3>
+<p>Ruta: <strong>Recepción → Chat</strong> (<code>/admin/support-chat</code>)</p>
+
+<p>Canal de mensajería en tiempo casi real entre el socio (app móvil) y recepción/coordinación. El socio inicia el contacto desde <strong>Contacto con el club</strong> en CreceApp; el personal responde desde esta pantalla. La conversación es <strong>efímera</strong>: al finalizar y tipificar se archiva solo el resumen (motivo de contacto y notas); los mensajes y adjuntos se eliminan del servidor.</p>
+
+<h4>Quién puede qué</h4>
+<ul>
+  <li><strong>chat.read / chat.write</strong> — Recepción, coordinador y administrador (y venta de mostrador con permiso de chat): ver la bandeja, abrir conversaciones, responder y tipificar al cerrar.</li>
+  <li><strong>chat.manage</strong> — Coordinador y administrador: editar <strong>Preguntas frecuentes</strong> y <strong>Horario de chat</strong>.</li>
+</ul>
+
+<h4>Bandeja y alertas</h4>
+<ul>
+  <li>Columna izquierda <strong>Pendientes de atención</strong> — Chats nuevos, en atención o <strong>Esperando tipificación</strong> (cuando el socio cerró desde la app).</li>
+  <li>Badge rojo en el menú <strong>Chat</strong> y widget en el tablero cuando hay chats sin respuesta del personal.</li>
+  <li><strong>Toast flotante</strong> en cualquier pantalla del panel (excepto dentro del chat): avisa si un socio lleva tiempo esperando. Colores: naranja (&lt; 90 s), ámbar (≥ 90 s), rojo (≥ 10 min). Al tocar el aviso, abre la bandeja de chat.</li>
+  <li>La lista se actualiza automáticamente cada pocos segundos mientras permaneces en la pantalla.</li>
+</ul>
+
+<h4>Atender un chat</h4>
+<p>Al seleccionar un chat pendiente, el sistema lo asigna al usuario que lo abrió (si tiene permiso de escritura). La pantalla tiene tres zonas:</p>
+<ul>
+  <li><strong>Chat en vivo</strong> — Historial con nombre y hora de cada mensaje; campo para responder; botón <strong>Enviar</strong>.</li>
+  <li><strong>Consulta del socio</strong> — Foto, número CRC, contacto, enlaces a Socios / Contratos / Ventas, asistencia reciente, próximas reservas (con cancelación rápida si tienes permiso) y contactos anteriores tipificados.</li>
+  <li><strong>Carga de medios</strong> — Por defecto el socio <em>no</em> puede adjuntar archivos. Usa <strong>Habilitar carga de medios</strong> en ese chat para permitir imágenes (JPG, PNG, WebP) o PDF (tamaño máximo configurable en el servidor, por defecto 3 MB). Puedes <strong>Deshabilitar carga de medios</strong> cuando ya no haga falta. Los adjuntos del socio se descargan con el enlace en el mensaje.</li>
+</ul>
+
+<h4>Finalizar y tipificar</h4>
+<p>La <strong>tipificación</strong> (motivo de contacto y notas) la registra siempre el personal, nunca el socio.</p>
+<table class="table">
+  <thead>
+    <tr><th>Situación</th><th>Qué pasa</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>El personal pulsa <strong>Finalizar chat</strong></td>
+      <td>Se abre de inmediato el modal <strong>Tipificación del contacto</strong>. Completa motivo (obligatorio) y notas (opcional), luego <strong>Finalizar chat</strong>. Se archiva el resumen y se borra la conversación.</td>
+    </tr>
+    <tr>
+      <td>El socio cierra desde la app</td>
+      <td>El chat pasa a <strong>Esperando tipificación</strong>. Si lo tienes abierto o entras al panel, el modal de tipificación aparece <strong>automáticamente</strong> (sin necesidad de volver a seleccionar el chat). También verás un aviso en pantalla y una notificación del panel. El socio ya no ve el chat en la app.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Los contactos tipificados quedan en <strong>Contactos anteriores</strong> del panel lateral al atender al mismo socio en el futuro.</p>
+
+<h3 id="chat-faq">Preguntas frecuentes del chat (panel)</h3>
+<p>Ruta: <strong>Recepción → Preguntas frecuentes</strong></p>
+<p>Textos que el socio ve en la app antes de abrir un chat (desplegables). Campos: tipo de consulta (opcional, para filtrar), pregunta, respuesta, orden y activa/inactiva. Requiere permiso <strong>chat.manage</strong>.</p>
+
+<h3 id="chat-horario">Horario y disponibilidad del chat</h3>
+<p>Ruta: <strong>Recepción → Horario de chat</strong></p>
+<ul>
+  <li><strong>Horario de atención</strong> — Franjas por día de la semana. Fuera de horario la app muestra que el chat no está disponible y no permite iniciar conversación nueva.</li>
+  <li><strong>Estado manual del personal</strong> — Automático, Disponible, Ocupado o Ausente. En automático, si hay varios chats pendientes de respuesta (umbral configurable, por defecto 3), la app muestra <strong>Ocupado</strong>.</li>
+  <li><strong>Chats pendientes para marcar ocupado</strong> — Número que dispara el estado ocupado en automático.</li>
+</ul>
+<p>El tamaño máximo de adjuntos (MB) se ajusta en configuración técnica del servidor (clave <code>chat.support.attachment_max_mb</code>); no está en esta pantalla.</p>
 
 <h2 id="reservaciones">Reservaciones</h2>
 <p>Clases grupales, equipos reservables desde la app y listas de espera. Todo lo que el socio reserva fuera del POS está aquí.</p>
@@ -1190,6 +1252,22 @@
   <li>Al cerrar turno, usa <strong>Corte</strong> para revisar y <strong>Cerrar caja</strong> con efectivo contado.</li>
 </ol>
 
+<h3>Atender chat desde la app del socio</h3>
+<ol class="steps">
+  <li>El socio abre <strong>Contacto con el club</strong> en CreceApp (desde inicio o Ajustes), revisa preguntas frecuentes si aplica e inicia chat con tipo de consulta y mensaje inicial (solo en horario configurado).</li>
+  <li>En el panel, entra a <strong>Recepción → Chat</strong> o toca el toast de alerta si estás en otra sección.</li>
+  <li>Selecciona el chat en <strong>Pendientes de atención</strong>, lee el contexto del socio en el panel derecho y responde en <strong>Chat en vivo</strong>.</li>
+  <li>Si necesitas un comprobante o captura, pulsa <strong>Habilitar carga de medios</strong>; el socio verá el clip para adjuntar imagen o PDF.</li>
+  <li>Al terminar, pulsa <strong>Finalizar chat</strong>, completa la tipificación y confirma. Si el socio cerró primero desde la app, el modal de tipificación se abrirá automáticamente al detectarlo.</li>
+</ol>
+
+<h3>Configurar horario y FAQ del chat</h3>
+<ol class="steps">
+  <li>Coordinación o administración: <strong>Recepción → Horario de chat</strong> — define franjas y, si hace falta, estado manual del personal.</li>
+  <li><strong>Recepción → Preguntas frecuentes</strong> — redacta respuestas cortas por tipo de consulta para reducir chats repetitivos.</li>
+  <li>Prueba en CreceApp que el estado (disponible / ocupado / fuera de horario) coincida con lo esperado.</li>
+</ol>
+
 <h3>Reservar una clase para un socio</h3>
 <ol class="steps">
   <li>Confirma que existe un <strong>Horario de clase</strong> futuro con cupo (Reservaciones).</li>
@@ -1297,6 +1375,12 @@
 <h3>¿Puedo registrar salida manual en recepción?</h3>
 <p>El flujo normal es escanear de nuevo el QR del socio (alterna entrada/salida). El botón «Registrar check-in» registra entradas manuales; para salidas irregulares escanea en recepción o consulta al coordinador.</p>
 
+<h3>¿Dónde atiendo al socio que escribe desde la app?</h3>
+<p>En <strong>Recepción → Chat</strong>. Si no estás en esa pantalla, un toast en la esquina avisa cuando hay mensajes sin responder; el badge del menú también indica pendientes. Al cerrar el socio desde la app debes tipificar: el modal aparece solo al detectar el cierre.</p>
+
+<h3>¿Se guardan los mensajes del chat para siempre?</h3>
+<p><strong>No.</strong> Al tipificar y finalizar, solo permanecen el motivo de contacto, las notas y datos de referencia (socio, tipo de consulta, fechas). El historial de mensajes y archivos adjuntos se elimina del servidor.</p>
+
 <h2 id="referencia-navegacion">Referencia rápida del menú lateral</h2>
 
 <p>Además de las secciones detalladas arriba, esta tabla ayuda a ubicar cada pantalla del panel web. Los nombres coinciden con el menú izquierdo tras iniciar sesión.</p>
@@ -1310,6 +1394,9 @@
     <tr><td>Recepción</td><td>Socios</td><td>Alta, edición, formulario de salud y vínculo con cuenta de usuario.</td></tr>
     <tr><td>Recepción</td><td>Check-ins</td><td>Historial de accesos; escaneo QR y registro manual desde mostrador.</td></tr>
     <tr><td>Recepción</td><td>Contratos y vigencias</td><td>Membresías activas; registrar pago fuera de POS.</td></tr>
+    <tr><td>Recepción</td><td>Chat</td><td>Atención en vivo a socios que escriben desde la app; tipificación al cerrar.</td></tr>
+    <tr><td>Recepción</td><td>Preguntas frecuentes</td><td>FAQ del chat visible en CreceApp antes de iniciar conversación.</td></tr>
+    <tr><td>Recepción</td><td>Horario de chat</td><td>Franjas horarias y disponibilidad mostrada en la app.</td></tr>
     <tr><td>Caja y ventas</td><td>Punto de venta</td><td>Cobro táctil con caja abierta.</td></tr>
     <tr><td>Caja y ventas</td><td>Ventas</td><td>Historial de órdenes; pagos parciales y acceso rápido a facturar.</td></tr>
     <tr><td>Caja y ventas</td><td>Facturar ventas</td><td>Asistente para consolidar ventas pagadas y emitir CFDI.</td></tr>
