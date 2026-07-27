@@ -873,6 +873,30 @@ table.schedule th {
   background: var(--purple);
 }
 
+.app-store-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.app-store-badges a {
+  display: inline-block;
+  line-height: 0;
+}
+
+.app-store-badges a:hover {
+  opacity: 0.88;
+  color: inherit;
+}
+
+.app-store-badges img {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
 .footer-bar {
   max-width: 1200px;
   margin: 2rem auto 0;

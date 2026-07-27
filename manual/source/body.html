@@ -16,7 +16,7 @@
 </div>
 
 <div class="note">
-  <strong>Importante:</strong> El kiosco de accesos <em>no</em> abre torniquetes ni controla puertas físicas. Solo registra en el sistema la hora de entrada y salida de los socios cuando escanean su código QR. Para planear torniquetes con relé y mini PC (Orange Pi), ver <a href="#torniquetes">Torniquetes físicos e integración futura</a>.
+  <strong>Importante:</strong> El kiosco web <em>/acceso</em> registra entrada y salida de socios por QR, pero <em>no</em> dispara el relé del torniquete. El control físico (Orange Pi + relé) es un puente aparte documentado en <a href="#torniquetes">Torniquetes físicos</a>. El personal usa credencial de barras + PIN en el <a href="#rrhh">checador de Recursos humanos</a> y en la misma puerta.
 </div>
 
 <p>El menú lateral del panel está ordenado por frecuencia de uso: primero <strong>Recepción</strong> y <strong>Caja y ventas</strong> (operación diaria), luego <strong>Reservaciones</strong> (clases y equipos), <strong>Membresías y planes</strong>, <strong>Inventario y tienda</strong>, <strong>Reportes</strong>, <strong>Entrenamiento</strong>, <strong>Comunicación</strong> y <strong>Contenidos multimedia</strong>. Al final, colapsados por defecto: <strong>Legal y documentos</strong>, <strong>Administración</strong> y <strong>Sistema técnico</strong> (ajustes avanzados del servidor).</p>
@@ -213,6 +213,21 @@
     <tr><td>Ver ventas y registrar pagos</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Reembolsar pagos</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Solicitar y emitir facturas (CFDI)</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Egresos internos (Finanzas)</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+  </tbody>
+</table>
+
+<h3>Recursos humanos y puertas</h3>
+<table class="table">
+  <thead>
+    <tr><th>Capacidad</th><th>Recepción</th><th>Coordinador</th><th>Administrador</th><th>Entrenador</th><th>Escaneo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Ver colaboradores / asistencia / incidencias</td><td>Sí (lectura)</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Alta de colaboradores, PIN y credencial PDF</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Checador (barras + PIN)</td><td>Sí (si hay permiso)</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Pre-nómina (export CSV)</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Puertas de acceso (dispositivos / clave maestra)</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
   </tbody>
 </table>
 
@@ -896,6 +911,46 @@
 <h3>Proveedores</h3>
 <p>Ruta: <strong>Inventario y tienda → Proveedores</strong> — Nombre, Contacto, Teléfono, Email, Estado.</p>
 
+<h2 id="rrhh">Recursos humanos</h2>
+
+<p>Grupo <strong>Recursos humanos</strong>: expediente de colaboradores, turnos, checador, incidencias y pre-nómina interna. No calcula ISR ni IMSS; sirve para control operativo y un resumen exportable.</p>
+
+<h3>Colaboradores</h3>
+<p>Ruta: <strong>Recursos humanos → Colaboradores</strong></p>
+<ul>
+  <li>Al crear la ficha, el sistema genera un código único <strong>EMP-######</strong> (credencial de barras).</li>
+  <li>Asigna un <strong>PIN</strong> numérico (se guarda cifrado; nunca se muestra después). Con permiso se puede restablecer.</li>
+  <li>Descarga la <strong>credencial PDF</strong> (Code 128 del código sin guiones, nombre, puesto y foto opcional).</li>
+  <li>La misma credencial + PIN sirven en el <strong>checador</strong> del panel y en el <strong>torniquete</strong> (Orange Pi).</li>
+</ul>
+
+<h3>Turnos</h3>
+<p>Ruta: <strong>Recursos humanos → Turnos</strong> — Define días, hora de inicio/fin y tolerancia de retardo. Asigna el turno a uno o más colaboradores con vigencia.</p>
+
+<h3>Checador</h3>
+<p>Ruta: <strong>Recursos humanos → Checador</strong></p>
+<ol class="steps">
+  <li>El colaborador escanea su código de barras (lector USB modo teclado) o lo escribe.</li>
+  <li>Ingresa el PIN.</li>
+  <li>El sistema registra entrada o salida (y marcas de descanso si aplica), detecta retardo u horas extra según el turno.</li>
+</ol>
+
+<h3>Incidencias</h3>
+<p>Ruta: <strong>Recursos humanos → Incidencias</strong> — Vacaciones, permiso, incapacidad, día económico, etc., con fechas y estado (pendiente / aprobada / rechazada).</p>
+
+<h3>Pre-nómina</h3>
+<p>Ruta: <strong>Recursos humanos → Pre-nómina</strong> — Elige periodo y exporta CSV con días trabajados, horas, retardos, faltas e incidencias. Es un resumen interno, no una nómina fiscal.</p>
+
+<h2 id="finanzas-egresos">Finanzas: egresos</h2>
+
+<p>Grupo <strong>Finanzas</strong>: registro interno de egresos del club (sin contabilidad externa ni timbrado de egresos).</p>
+<ul>
+  <li><strong>Categorías de egreso</strong> — Servicios, mantenimiento, renta, etc.</li>
+  <li><strong>Egresos</strong> — Concepto, proveedor, monto, sucursal, estado (pendiente / programado / pagado), fechas y notas.</li>
+  <li>Adjunta comprobante <strong>PDF o XML</strong> al crear o editar.</li>
+</ul>
+<p>Los egresos pagados entran al balance de <a href="#reportes">Reportes → Ventas y ganancias</a>.</p>
+
 <h2 id="reportes">Reportes</h2>
 
 <p>Grupo <strong>Reportes</strong> del menú lateral: indicadores del club filtrados por <strong>sucursal</strong> y <strong>periodo</strong>. Las tres pantallas comparten los mismos filtros superiores.</p>
@@ -920,21 +975,22 @@
 <p>Ruta: <strong>Reportes → Ventas y ganancias</strong> — Solo coordinador y administrador.</p>
 <p>Análisis financiero del periodo seleccionado:</p>
 <ul>
-  <li>Tarjetas: <strong>Ingresos totales</strong>, ticket promedio, <strong>utilidad bruta de productos</strong> (con margen %), ingresos de membresías/servicios.</li>
+  <li>Tarjetas: <strong>Ingresos totales</strong>, <strong>egresos pagados</strong>, <strong>balance neto</strong> (ingresos − egresos), ticket promedio, utilidad de productos, egresos pendientes y cobros.</li>
   <li>Gráfica <strong>Ingresos diarios</strong> (línea de tiempo).</li>
+  <li><strong>Cobros por método de pago</strong> y <strong>egresos pagados por categoría</strong>.</li>
   <li>Desglose <strong>Ingresos por tipo de venta</strong> (membresía, producto, inscripción, etc.).</li>
   <li>Tabla <strong>Top productos (utilidad)</strong> — Usa el <strong>Costo para el club</strong> capturado en cada producto.</li>
   <li>Bloque <strong>Proyección (últimos 3 meses)</strong> — Promedio mensual y estimado del próximo mes.</li>
 </ul>
 <p>Exportaciones CSV:</p>
 <ul>
-  <li><strong>Resumen financiero (CSV)</strong> — Totales, cobros, utilidad y proyección.</li>
+  <li><strong>Resumen financiero (CSV)</strong> — Totales, cobros, egresos, balance, utilidad y proyección.</li>
   <li><strong>Top productos (CSV)</strong> — Producto, unidades, ingresos, costo estimado y utilidad bruta.</li>
 </ul>
 
 <h3>Uso y asistencia</h3>
 <p>Ruta: <strong>Reportes → Uso y asistencia</strong> (título en pantalla: <em>Uso del club, clases y equipos</em>).</p>
-<p>Tres pestañas con gráficas (Chart.js) y botón <strong>Descargar Excel (CSV)</strong> según la pestaña activa:</p>
+<p>Cuatro pestañas con gráficas (Chart.js) y botón <strong>Descargar Excel (CSV)</strong> según la pestaña activa:</p>
 
 <p><strong>1. Uso del club</strong></p>
 <ul>
@@ -953,6 +1009,12 @@
 <ul>
   <li>Reservas totales, completadas, canceladas, socios únicos.</li>
   <li>Lista <strong>Equipos más reservados</strong> y gráfica <strong>Reservas por día</strong>.</li>
+</ul>
+
+<p><strong>4. Personal y puertas</strong></p>
+<ul>
+  <li>Entradas de personal, retardos, accesos de torniquete permitidos y denegados.</li>
+  <li>Horas pico de socios (check-in) y de personal (checadas).</li>
 </ul>
 
 <div class="tip">
@@ -1148,77 +1210,60 @@
 </ul>
 <p>No es necesario que el socio muestre primero el pase general y después el de reserva: con reserva activa, <strong>uno solo</strong> al llegar.</p>
 
-<h2 id="torniquetes">Torniquetes físicos e integración futura</h2>
+<h2 id="torniquetes">Torniquetes físicos (Orange Pi)</h2>
 
-<p>Esta sección es para coordinación, administración y quien evalúe instalar control de acceso con torniquete en la entrada. Resume cómo funciona Crece hoy y qué se necesita para conectar hardware en el futuro.</p>
+<p>El club puede operar un <strong>torniquete bidireccional</strong> con un puente local (Orange Pi u otra placa Linux), lector USB (modo teclado), teclado numérico y relé de contacto seco. El software del puente está en el repositorio del backend: <code>devices/orange-pi-access-gate/</code>.</p>
 
-<h3>Qué hace Crece hoy (sin torniquete)</h3>
+<h3>Qué hace cada capa</h3>
 <ul>
-  <li>El sistema <strong>valida</strong> al socio (membresía vigente, reserva, etc.) cuando se escanea su QR en recepción o en el kiosco <strong>/acceso</strong>.</li>
-  <li>Queda <strong>registrada</strong> la hora de entrada y salida en el historial de check-ins.</li>
-  <li>Crece <strong>no envía señal</strong> hoy a torniquetes, chapas magnéticas, barreras ni cerraduras. Si hay torniquete en la entrada, hoy se opera <strong>aparte</strong> del software (personal, botón, otro controlador).</li>
+  <li><strong>Kiosco /acceso</strong> — Solo registra check-in/out en el panel; <em>no</em> mueve el relé.</li>
+  <li><strong>Puente Orange Pi</strong> — Autentica y dispara el relé; consulta la API Crece o la caché offline.</li>
+  <li><strong>Panel → Puertas de acceso</strong> — Alta de dispositivo (token de una sola vez), rotación de token, bitácora y clave maestra.</li>
 </ul>
 
-<h3>Integración futura (concepto)</h3>
-<p>Para que el paso se abra solo cuando el acceso es válido, hace falta un <strong>puente local</strong> en la sucursal:</p>
-<ol class="steps">
-  <li>El socio escanea QR (kiosco, lector USB o recepción).</li>
-  <li>Crece responde «acceso permitido» o «rechazado» (API en la nube).</li>
-  <li>Un equipo en la entrada (mini PC) recibe esa respuesta y activa un <strong>relé</strong> conectado al torniquete.</li>
-  <li>El torniquete libera un paso (o marca entrada/salida según su lógica).</li>
-</ol>
-<p>La integración depende del <strong>modelo exacto</strong> del torniquete y de si expone entradas/salidas (relé, contacto seco, RS485, Wiegand, etc.). No hay un conector universal: cada marca se cotiza y prueba.</p>
-
-<h3>Equipo recomendado en la entrada (referencia)</h3>
-<ul>
-  <li><strong>Mini computadora tipo Orange Pi</strong> (u otra placa similar de bajo costo), con Linux, alimentación estable y red cableada o Wi‑Fi confiable junto al torniquete.</li>
-  <li>Funciona como <strong>puente</strong>: escucha a Crece (o al kiosco local) y dispara el relé; no requiere un servidor de escritorio completo en recepción.</li>
-  <li><strong>Lector de QR USB</strong> (modo teclado) y/o tablet con kiosco web, como ya se usa sin torniquete.</li>
-  <li><strong>Módulo de relés</strong> (1 o 2 canales) compatible con la señal que pida el torniquete; cableado por electricista o integrador.</li>
-  <li><strong>UPS o regulador</strong> si hay cortes de luz frecuentes (evita que quede el torniquete trabado o el puente offline).</li>
-</ul>
-<div class="note">
-  Se busca costo razonable en hardware de puente (p. ej. placas tipo Orange Pi). No es obligatorio un PC de escritorio ni equipos de gama alta en cada entrada.
-</div>
-
-<h3>Información que el club debe reunir antes de cotizar</h3>
-<p>Entregar al proveedor del software y al integrador de acceso físico la mayor cantidad posible de estos datos:</p>
+<h3>Flujos en la puerta</h3>
 <table>
   <thead>
-    <tr><th>Tema</th><th>Qué documentar</th></tr>
+    <tr><th>Quién</th><th>Cómo</th><th>Resultado</th></tr>
   </thead>
   <tbody>
-    <tr><td>Marca y modelo</td><td>Fabricante, modelo exacto y año de cada torniquete (foto de placa y manual si existe).</td></tr>
-    <tr><td>Tipo de control</td><td>¿Se abre con <strong>relé</strong>, contacto seco, tarjeta, huella, o controlador propietario? ¿Entrada y salida en el mismo torniquete o torniquetes separados?</td></tr>
-    <tr><td>Señales eléctricas</td><td>Voltaje del relé (12 V / 24 V), si comparte tierra con el controlador, diagrama de cableado del instalador original.</td></tr>
-    <tr><td>Comportamiento</td><td>¿Un pulso abre un paso? ¿Cuántos segundos permanece abierto? ¿Anti‑rebote o doble paso?</td></tr>
-    <tr><td>Sentido de flujo</td><td>¿Cómo se distingue entrada vs salida en hardware (dos torniquetes, lector en cada lado, botón de salida)?</td></tr>
-    <tr><td>Sucursales</td><td>Cuántas entradas (Padierna, Huipulco, etc.) y si cada una lleva su propio puente y relé.</td></tr>
-    <tr><td>Red</td><td>IP fija o DHCP, firewall del club, si el puente puede llamar a internet (HTTPS hacia manage.crecesportclub.com).</td></tr>
-    <tr><td>Operación actual</td><td>¿Hoy el personal abre manualmente? ¿Hay botón de emergencia o modo libre en horario pico?</td></tr>
-    <tr><td>Objetivo</td><td>Solo socios con QR válido, ¿también visitas/paquetes?, ¿registrar salida obligatoria al salir?</td></tr>
+    <tr><td>Socio</td><td>Escanea QR de la app</td><td>Si hay vigencia (y firma válida), pulso de relé + check-in/out. Sin vigencia → denegado.</td></tr>
+    <tr><td>Colaborador</td><td>Escanea barras EMP + PIN en teclado</td><td>Si el expediente está activo y el PIN es correcto, abre y registra checada (origen <em>turnstile</em>).</td></tr>
+    <tr><td>Emergencia / override</td><td>Clave maestra numérica + Enter</td><td>Abre y deja bitácora auditable <em>master_override</em>.</td></tr>
   </tbody>
 </table>
 
-<h3>Escenarios habituales con relé</h3>
+<h3>Alta del dispositivo</h3>
+<ol class="steps">
+  <li>En el panel: <strong>Recepción → Puertas de acceso</strong> → crear dispositivo (elige sucursal). Anota Device UID y token (el token solo se muestra una vez).</li>
+  <li>Define la <strong>clave maestra</strong> numérica (coordinador/administrador).</li>
+  <li>En la Orange Pi, copia credenciales a <code>/etc/crece-access-gate.env</code> (permisos 600) y activa el servicio systemd según el README del paquete.</li>
+</ol>
+
+<h3>Modo offline</h3>
+<p>El puente descarga un <strong>snapshot</strong> periódico (socios autorizados + empleados con hash de PIN). Sin internet:</p>
 <ul>
-  <li><strong>Torniquete con entrada «dry contact» o relé</strong> — Es el caso más sencillo de integrar: el puente cierra el contacto unos segundos cuando Crece autoriza el acceso.</li>
-  <li><strong>Controlador cerrado (solo software del fabricante)</strong> — Puede requerir licencia, SDK o no ser integrable; conviene confirmarlo antes de comprar.</li>
-  <li><strong>Doble torniquete (entrada / salida)</strong> — Suele necesitarse dos relés o lógica en el puente según si el último evento del socio fue entrada o salida.</li>
+  <li>Empleados: valida PIN contra la caché.</li>
+  <li>Socios: requiere clave HMAC local (<code>CRECE_ACCESS_HMAC_KEY</code> = <code>APP_KEY</code> del servidor) y que el socio figure como autorizado en la caché.</li>
+  <li>Clave maestra local opcional (<code>CRECE_MASTER_PIN_LOCAL</code>).</li>
+  <li>Los eventos se encolan y, al recuperar red, el servidor los convierte en los <strong>mismos</strong> check-ins de socio y checadas de personal (con la hora real del paso), para que reportes, pre-nómina y la app no distingan online vs offline.</li>
 </ul>
 
-<h3>Qué no cubre solo el software Crece</h3>
+<h3>Hardware de referencia</h3>
 <ul>
-  <li>Compra e instalación física del torniquete, obra civil, electricidad y permisos.</li>
-  <li>Mantenimiento mecánico del brazo, sensores ópticos internos del fabricante.</li>
-  <li>Modo «incendio» o liberación de emergencia (debe seguir existiendo en el hardware según normativa local).</li>
+  <li>Orange Pi (Linux) + servicio systemd del agente.</li>
+  <li>Lector USB QR/barras (HID teclado) + teclado numérico independiente.</li>
+  <li>Módulo de relé (contacto seco) al torniquete; UPS recomendado.</li>
+  <li>Red hacia <code>manage.crecesportclub.com</code>.</li>
 </ul>
 
-<div class="warning">
-  Hasta que exista un proyecto de integración aprobado, operen el kiosco y recepción como registro oficial de tiempo en club, y el torniquete (si lo hay) con su procedimiento actual. No asuman que el panel «abre la puerta» por sí solo.
+<div class="note">
+  La liberación de emergencia / modo incendio del torniquete debe seguir existiendo en el hardware según normativa local; no depende solo de Crece.
 </div>
 
-<p>Para iniciar un proyecto de integración, coordinación debe contactar al soporte del proveedor del software con la tabla anterior completa y fotos del equipo instalado.</p>
+<div class="warning">
+  No reutilicen el rol web de «escaneo de accesos» para el puente: cada puerta usa su propio token de dispositivo.
+</div>
 
 <h2 id="flujos">Flujos paso a paso</h2>
 
@@ -1331,7 +1376,7 @@
 <p><strong>No.</strong> En la app hay pantallas distintas (acceso general, reserva de clase, reserva de equipo), pero al llegar con reserva basta <strong>un escaneo</strong> del QR correspondiente. Recepción o kiosco registran la reserva y la entrada al club en el mismo paso cuando aplica. El pase general se usa sobre todo sin reserva o para la <strong>salida</strong> del club.</p>
 
 <h3>¿El kiosco abre la puerta?</h3>
-<p>No. Solo registra entrada y salida en el sistema. Los torniquetes, si existen, hoy son independientes. Para requisitos de integración futura (Orange Pi, relé, datos del fabricante), ver la sección <a href="#torniquetes">Torniquetes físicos e integración futura</a>.</p>
+<p>No. El kiosco solo registra entrada y salida en el sistema. El torniquete físico lo opera el puente Orange Pi documentado en <a href="#torniquetes">Torniquetes físicos</a>.</p>
 
 <h3>No veo el menú de Facturación o Push</h3>
 <p>Tu rol no incluye esas funciones. Recepción no timbra facturas ni envía campañas. Pide a un coordinador.</p>
@@ -1411,7 +1456,10 @@
     <tr><td>Reservaciones</td><td>Reservas de equipos</td><td>Consulta y cancelación de reservas de equipos.</td></tr>
     <tr><td>Membresías y planes</td><td>Planes comerciales</td><td>Plan + tabla de precios/periodicidades en una pantalla.</td></tr>
     <tr><td>Membresías y planes</td><td>Paquetes de visitas</td><td>Monederos de visitas por socio.</td></tr>
-    <tr><td>Manual (web)</td><td><a href="#torniquetes">Torniquetes físicos</a></td><td>Qué hace Crece hoy, puente con relé, Orange Pi y datos que el club debe dar al integrador.</td></tr>
+    <tr><td>Recursos humanos</td><td>Colaboradores / Turnos / Checador / Incidencias / Pre-nómina</td><td>Expediente EMP, PIN, credencial PDF, asistencia y CSV de pre-nómina (sin ISR/IMSS).</td></tr>
+    <tr><td>Finanzas</td><td>Egresos / Categorías</td><td>Gastos internos con PDF/XML; entran al balance de reportes.</td></tr>
+    <tr><td>Recepción</td><td>Puertas de acceso / Bitácora de puerta</td><td>Dispositivos del torniquete, token, clave maestra y denegaciones.</td></tr>
+    <tr><td>Manual (web)</td><td><a href="#torniquetes">Torniquetes físicos</a></td><td>Orange Pi, flujos socio/empleado/maestra, offline e instalación.</td></tr>
     <tr><td>Inventario y tienda</td><td>Productos</td><td>Catálogo de tienda; acción Ajustar stock.</td></tr>
     <tr><td>Inventario y tienda</td><td>Conteo físico</td><td>Hoja imprimible para inventario en anaquel/bodega.</td></tr>
     <tr><td>Inventario y tienda</td><td>Existencias</td><td>Saldo y mínimos por sucursal; alertas de stock bajo.</td></tr>
@@ -1424,8 +1472,8 @@
     <tr><td>Legal y documentos</td><td>Documentos legales</td><td>Textos que la app pide aceptar (global o por sucursal).</td></tr>
     <tr><td>Legal y documentos</td><td>Aceptaciones legales</td><td>Evidencia de firmas digitales.</td></tr>
     <tr><td>Reportes</td><td>Resumen ejecutivo</td><td>Tarjetas KPI del periodo; CSV. Financiero solo coord/admin.</td></tr>
-    <tr><td>Reportes</td><td>Ventas y ganancias</td><td>Ingresos, gráficas, top productos, utilidad y proyección. Solo coord/admin.</td></tr>
-    <tr><td>Reportes</td><td>Uso y asistencia</td><td>Pestañas: uso del club, clases y equipos; gráficas y CSV.</td></tr>
+    <tr><td>Reportes</td><td>Ventas y ganancias</td><td>Ingresos, egresos, balance, métodos de pago, top productos. Solo coord/admin.</td></tr>
+    <tr><td>Reportes</td><td>Uso y asistencia</td><td>Pestañas: uso del club, clases, equipos, personal y puertas; gráficas y CSV.</td></tr>
     <tr><td>Comunicación</td><td>Campañas push</td><td>Mensajes masivos o individuales al teléfono.</td></tr>
     <tr><td>Comunicación</td><td>Notificaciones en app</td><td>Bandeja interna; eliminar mensajes.</td></tr>
     <tr><td>Comunicación</td><td>Imágenes de notificaciones</td><td>Clave del servicio myimageen para fotos en push.</td></tr>
