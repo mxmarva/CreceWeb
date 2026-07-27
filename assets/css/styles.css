@@ -881,8 +881,7 @@ table.schedule th {
   width: 100%;
   max-width: 1200px;
   margin: 2rem auto 0;
-  padding: 1.25rem 1.25rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0 1.25rem;
   box-sizing: border-box;
   text-align: center;
 }
@@ -918,11 +917,14 @@ table.schedule th {
 }
 
 .footer-bar {
-  margin: 1rem 0 0;
-  padding: 0;
+  width: 100%;
+  margin: 1.25rem 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   font-size: 0.85rem;
   color: var(--muted);
   text-align: center;
+  box-sizing: border-box;
 }
 
 .page-hero {
