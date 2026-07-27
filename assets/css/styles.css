@@ -873,21 +873,31 @@ table.schedule th {
   background: var(--purple);
 }
 
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding: 1.25rem 1.25rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  text-align: center;
+}
+
 .app-store-badges {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
   gap: 0.75rem;
-  width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2rem;
-  padding: 1.25rem 1.25rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  text-align: center;
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: auto;
 }
 
 .app-store-badges a {
@@ -908,9 +918,8 @@ table.schedule th {
 }
 
 .footer-bar {
-  max-width: 1200px;
-  margin: 1rem auto 0;
-  padding: 0 1.25rem;
+  margin: 1rem 0 0;
+  padding: 0;
   font-size: 0.85rem;
   color: var(--muted);
   text-align: center;
