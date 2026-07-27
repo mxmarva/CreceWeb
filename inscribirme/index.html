@@ -8,7 +8,7 @@
       name="description"
       content="Pre-registro web de Crece Sport Club: completa tus datos para crear tu cuenta y número de socio."
     />
-    <link rel="stylesheet" href="../assets/css/styles.css?v=inscribirme1" />
+    <link rel="stylesheet" href="../assets/css/styles.css?v=inscribirme2" />
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -48,9 +48,11 @@
         <div class="wrap wrap--form">
           <div class="form-embed">
             <iframe
+              id="nuevo-ingreso-frame"
               src="https://manage.crecesportclub.com/nuevo-ingreso"
               title="Formulario de nuevo ingreso — Crece Sport Club"
               loading="lazy"
+              scrolling="no"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
@@ -124,6 +126,24 @@
     </footer>
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+    <script>
+      (function () {
+        var frame = document.getElementById("nuevo-ingreso-frame");
+        if (!frame) return;
+
+        var allowedOrigins = {
+          "https://manage.crecesportclub.com": true,
+        };
+
+        window.addEventListener("message", function (event) {
+          if (!allowedOrigins[event.origin]) return;
+          var data = event.data;
+          if (!data || data.type !== "crece-nuevo-ingreso-height") return;
+          if (typeof data.height !== "number" || !isFinite(data.height)) return;
+          frame.style.height = Math.max(800, Math.ceil(data.height)) + "px";
+        });
+      })();
     </script>
     <script src="../assets/js/main.js" defer></script>
   </body>
