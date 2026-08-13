@@ -470,7 +470,7 @@
   <li><strong>Número de socio</strong> — Visible solo al editar. Formato oficial CRC-######. Solo administradores pueden modificarlo.</li>
   <li><strong>Estado</strong> — Activa o suspende al socio en operaciones del club.</li>
   <li><strong>Fecha de alta</strong> — Editable.</li>
-  <li><strong>Onboarding completado</strong> — Texto informativo (fecha o «Pendiente»). Se actualiza automáticamente cuando el socio cumple requisitos: datos de salud, documentos legales aceptados e identificación oficial (anverso y reverso) en la app. Socios legacy que ya tenían onboarding cerrado antes de exigir ID no se fuerzan de nuevo.</li>
+  <li><strong>Onboarding completado</strong> — Texto informativo (fecha o «Pendiente»). Se considera completo solo cuando el socio tiene datos de salud, documentos legales aceptados e identificación oficial (anverso y reverso) en la app. Si ya había cerrado onboarding antes y aún no tiene ID, el panel y la app lo marcan pendiente hasta que la capture.</li>
   <li><strong>Canal de inscripción o registro</strong> — Indica <em>dónde se originó</em> la ficha (no dónde pagó ni formalizó la membresía): <strong>Web</strong> (formulario público /nuevo-ingreso), <strong>App</strong> (registro u onboarding del socio en CreceApp) o <strong>Sucursal</strong> (ficha creada por personal con <strong>Crear</strong> en Recepción → Socios). Quien se pre-registró por web sigue siendo <strong>Web</strong> aunque cobres en POS; quien se registró en la app sigue siendo <strong>App</strong> aunque pague en mostrador. Socios antiguos sin ese dato pueden mostrar «No disponible».</li>
   <li><strong>Foto de recepción / ficha</strong> — Indica si ya hay foto («Capturada · visible en la app del socio») o si falta («Pendiente · usa «Capt foto» en el listado»). También puede subirla o reemplazarla el socio desde CreceApp → Perfil. No se sube desde esta pestaña; usa la acción del listado o la app.</li>
   <li><strong>Versión formulario salud</strong> — Normalmente V2; indica qué formato de nuevo ingreso aplica.</li>
@@ -1429,7 +1429,7 @@
 <p>Sí, si la cuenta tiene ambos roles (recepcion + escaneo_accesos). Inicia sesión en /admin para mostrador y en /acceso para la tablet de entrada.</p>
 
 <h3>¿Qué significa «Onboarding completado» en Socios?</h3>
-<p>Indica que el socio cumplió los requisitos mínimos: cuenta activa, formulario de salud / nuevo ingreso con datos obligatorios, documentos legales aceptados en la app e <strong>identificación oficial</strong> (anverso y reverso) capturada en CreceApp. Hasta entonces puede aparecer como pendiente aunque ya haya pagado membresía. Consulta la ID con la acción <strong>Ver ID</strong>.</p>
+<p>Indica que el socio cumplió los requisitos mínimos: cuenta activa, formulario de salud / nuevo ingreso con datos obligatorios, documentos legales aceptados en la app e <strong>identificación oficial</strong> (anverso y reverso) capturada en CreceApp. Hasta entonces puede aparecer como pendiente aunque ya haya pagado membresía o aunque hubiera cerrado onboarding antes de exigir la ID. Consulta la ID con la acción <strong>Ver ID</strong>.</p>
 
 <h3>¿Dónde veo la identificación oficial del socio?</h3>
 <p>En <strong>Recepción → Socios → Ver ID</strong> o en <strong>Legal y documentos → Aceptaciones legales → Ver ID</strong>. El socio la captura solo desde la app (paso Identificación del onboarding); el personal no la sube desde el panel. También aparece en el PDF de cada aceptación cuando ya está cargada.</p>
