@@ -185,7 +185,8 @@
   <tbody>
     <tr><td>Ver listado de socios</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td></tr>
     <tr><td>Crear y editar socios</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
-    <tr><td>Capturar foto de recepción</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Capturar foto de recepción / ficha</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Ver identificación oficial (Ver ID)</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Emitir credencial PDF</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Formulario de nuevo ingreso (salud)</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Solo lectura parcial</td><td>No</td></tr>
     <tr><td>Editar número de socio CRC</td><td>No</td><td>No</td><td>Sí</td><td>No</td><td>No</td></tr>
@@ -305,9 +306,10 @@
 <ol class="steps">
   <li>Cuenta creada (Usuarios o importación) con rol socio.</li>
   <li>Ficha de socio vinculada con número CRC asignado.</li>
-  <li>Foto de recepción capturada en mostrador (visible en la app y en la credencial impresa).</li>
-  <li>Formulario de nuevo ingreso completo en recepción (o datos equivalentes).</li>
+  <li>Foto de ficha capturada en mostrador o subida por el socio desde la app (visible en perfil, inicio y credencial).</li>
+  <li>Formulario de nuevo ingreso / salud completo (recepción o app).</li>
   <li>Documentos legales publicados y aceptados en la app.</li>
+  <li>Identificación oficial (anverso y reverso) capturada en el onboarding de la app.</li>
   <li>Membresía o paquete de visitas activo.</li>
   <li>App instalada, sesión iniciada y permisos de notificación concedidos (opcional pero recomendado).</li>
 </ol>
@@ -315,11 +317,11 @@
 
 <h3>Qué configura el panel y consume la app</h3>
 <ul>
-  <li><strong>Socios y cuentas</strong> — Alta, estado activo/inactivo, onboarding completado, foto de recepción, datos de salud del nuevo ingreso y credencial impresa.</li>
+  <li><strong>Socios y cuentas</strong> — Alta, estado activo/inactivo, onboarding completado, foto de ficha, datos de salud, identificación oficial (consulta con <strong>Ver ID</strong>) y credencial impresa.</li>
   <li><strong>Reservas</strong> — Horarios de clases publicados, cupos, reservas confirmadas o en lista de espera; reservas de equipos con sus turnos y códigos QR.</li>
-  <li><strong>Documentos legales</strong> — Reglamento, aviso de privacidad, liberación de responsabilidades. La app obliga al socio a leer y aceptar la versión publicada antes de usar ciertas funciones.</li>
+  <li><strong>Documentos legales</strong> — Reglamento, aviso de privacidad, liberación de responsabilidades. La app obliga al socio a leer y aceptar la versión publicada; el PDF de cada aceptación puede incluir la ID oficial capturada en onboarding.</li>
   <li><strong>Notificaciones push</strong> — Campañas con título, resumen, mensaje completo e imagen opcional. Llegan a la bandeja del teléfono y quedan en la bandeja interna de la app.</li>
-  <li><strong>Rutinas de entrenamiento</strong> — Estructura de días, ejercicios, videos de apoyo. Las asignaciones vinculan una rutina a un socio concreto.</li>
+  <li><strong>Rutinas de entrenamiento</strong> — Estructura de días, ejercicios, videos de apoyo. El entrenador puede crearlas y asignarlas desde el panel o desde CreceApp (mismo detalle). Las asignaciones vinculan una rutina a un socio concreto.</li>
   <li><strong>Contenido multimedia</strong> — Biblioteca interna de videos o material que la app puede mostrar (según permisos de publicación).</li>
   <li><strong>Pase QR de acceso</strong> — Cada socio activo obtiene un código en la app (<strong>Mi acceso al club</strong>). Al escanearlo en recepción o en el kiosco, el sistema registra entrada o salida del club.</li>
   <li><strong>QR de reserva de clase o equipo</strong> — Otro código en la app, pero <strong>no obliga a escanear dos QR</strong>: el primer escaneo del QR de reserva registra la clase o el equipo y, si el socio aún no había entrado, también abre su sesión de acceso al club.</li>
@@ -384,7 +386,12 @@
     <tr>
       <td><strong>Capt foto</strong></td>
       <td>Quien tenga escritura de socios</td>
-      <td>Abre modal para tomar o subir la foto de recepción (ver siguiente apartado).</td>
+      <td>Abre modal para tomar o subir la foto de ficha (ver siguiente apartado). El socio también puede subirla desde CreceApp → Perfil.</td>
+    </tr>
+    <tr>
+      <td><strong>Ver ID</strong></td>
+      <td>Quien tenga lectura de socios</td>
+      <td>Abre un modal con anverso y reverso de la identificación oficial que el socio capturó en el onboarding de la app. Si aún no la subió, el modal indica que está pendiente.</td>
     </tr>
     <tr>
       <td><strong>Emit. Crede</strong></td>
@@ -409,13 +416,21 @@
 <ul>
   <li><strong>Cámara</strong> — Vista en vivo con recorte vertical (misma proporción que la credencial). El marco de vista previa es fijo; alinea el rostro del socio dentro del recuadro.</li>
   <li><strong>Tomar foto</strong> — Captura el encuadre actual y muestra la vista previa antes de enviar.</li>
-  <li><strong>Guardar foto</strong> — Confirma y guarda la imagen. Queda disponible en la app del socio (inicio y perfil) y en la credencial PDF. El socio también puede subir o reemplazar esta misma foto desde su app (Perfil).</li>
+  <li><strong>Guardar foto</strong> — Confirma y guarda la imagen. Queda disponible en la app del socio (inicio y perfil) y en la credencial PDF. El socio también puede subir o reemplazar esta misma foto desde su app (Perfil → toca la foto → cámara o galería).</li>
   <li><strong>Subir archivo (alternativa)</strong> — Si la cámara no está disponible, sube JPEG, PNG o WebP (máx. 8 MB).</li>
 </ul>
 
 <div class="note">
-  <strong>Requisitos de cámara:</strong> El navegador debe tener permiso de cámara y el panel debe abrirse por <strong>HTTPS</strong>. En HTTP o sin permisos, usa la subida de archivo.
+  <strong>Requisitos de cámara:</strong> El navegador debe tener permiso de cámara y el panel debe abrirse por <strong>HTTPS</strong>. En HTTP o sin permisos, usa la subida de archivo. La foto de ficha y la identificación oficial son cosas distintas: la foto es el rostro para credencial/app; la ID se captura solo en el onboarding de CreceApp y se consulta con <strong>Ver ID</strong>.
 </div>
+
+<h4>Ver identificación oficial</h4>
+<p>Desde <strong>Ver ID</strong> en el listado de Socios (también disponible en <strong>Legal y documentos → Aceptaciones legales</strong>) se abre el modal <strong>Identificación oficial</strong>:</p>
+<ul>
+  <li>Si el socio ya completó el paso de identificación en la app, verás <strong>anverso</strong> y <strong>reverso</strong> en tamaño amplio (solo consulta; no se edita desde el panel).</li>
+  <li>Si aún no la capturó, el modal indica que está pendiente: indícale que abra CreceApp → Completar registro → paso <strong>Identificación</strong>.</li>
+  <li>La ID también se incrusta en el PDF de cada aceptación legal cuando el socio ya la subió.</li>
+</ul>
 
 <h4>Emitir credencial PDF</h4>
 <p><strong>Emit. Crede</strong> genera un PDF de <strong>dos caras</strong> con el tamaño de una credencial física:</p>
@@ -433,7 +448,7 @@
 <ul>
   <li><strong>Verificación Turnstile</strong> — Si está activa en el servidor, el envío exige completar la verificación antirrobots (igual que en el login del panel).</li>
   <li><strong>Correo de bienvenida</strong> — Llega al correo del prospecto con su número de socio y un código para establecer contraseña (mismo flujo que «Olvidé mi contraseña» en la app).</li>
-  <li><strong>Onboarding incompleto</strong> — No sustituye el formulario completo de salud ni las firmas legales; el socio debe descargar la app y completar lo pendiente.</li>
+  <li><strong>Onboarding incompleto</strong> — No sustituye el formulario completo de salud, las firmas legales ni la captura de identificación oficial; el socio debe descargar la app y completar los tres pasos (Salud → Legales → Identificación).</li>
   <li><strong>Formalización en recepción</strong> — El formulario aclara que debe acudir a una sucursal a pagar su plan para activar la membresía. Eso es cobro/operación en mostrador; <em>no</em> cambia el canal de inscripción.</li>
   <li><strong>Canal registrado</strong> — La ficha queda con canal <strong>Web</strong> desde el envío del formulario y se mantiene así aunque el socio pague después en recepción (ver abajo).</li>
 </ul>
@@ -455,9 +470,9 @@
   <li><strong>Número de socio</strong> — Visible solo al editar. Formato oficial CRC-######. Solo administradores pueden modificarlo.</li>
   <li><strong>Estado</strong> — Activa o suspende al socio en operaciones del club.</li>
   <li><strong>Fecha de alta</strong> — Editable.</li>
-  <li><strong>Onboarding completado</strong> — Texto informativo (fecha o «Pendiente»). Se actualiza automáticamente cuando el socio cumple requisitos (documentos legales, datos de salud, etc.).</li>
+  <li><strong>Onboarding completado</strong> — Texto informativo (fecha o «Pendiente»). Se actualiza automáticamente cuando el socio cumple requisitos: datos de salud, documentos legales aceptados e identificación oficial (anverso y reverso) en la app. Socios legacy que ya tenían onboarding cerrado antes de exigir ID no se fuerzan de nuevo.</li>
   <li><strong>Canal de inscripción o registro</strong> — Indica <em>dónde se originó</em> la ficha (no dónde pagó ni formalizó la membresía): <strong>Web</strong> (formulario público /nuevo-ingreso), <strong>App</strong> (registro u onboarding del socio en CreceApp) o <strong>Sucursal</strong> (ficha creada por personal con <strong>Crear</strong> en Recepción → Socios). Quien se pre-registró por web sigue siendo <strong>Web</strong> aunque cobres en POS; quien se registró en la app sigue siendo <strong>App</strong> aunque pague en mostrador. Socios antiguos sin ese dato pueden mostrar «No disponible».</li>
-  <li><strong>Foto de recepción</strong> — Indica si ya hay foto capturada («Capturada · visible en la app del socio») o si falta («Pendiente · usa «Capt foto» en el listado»). No se sube desde aquí; usa la acción del listado.</li>
+  <li><strong>Foto de recepción / ficha</strong> — Indica si ya hay foto («Capturada · visible en la app del socio») o si falta («Pendiente · usa «Capt foto» en el listado»). También puede subirla o reemplazarla el socio desde CreceApp → Perfil. No se sube desde esta pestaña; usa la acción del listado o la app.</li>
   <li><strong>Versión formulario salud</strong> — Normalmente V2; indica qué formato de nuevo ingreso aplica.</li>
 </ul>
 
@@ -1048,7 +1063,7 @@
   <li>Fecha de inicio / Fecha de fin</li>
   <li>Notas para el socio</li>
 </ul>
-<p>La app muestra la rutina asignada al socio en su sección de entrenamiento.</p>
+<p>La app muestra la rutina asignada al socio en su sección de entrenamiento. El rol <strong>entrenador</strong> también puede crear, editar, eliminar y asignar rutinas desde CreceApp (Mis rutinas / Asignar a socio), con el mismo nivel de detalle de bloques, ejercicios y material de apoyo.</p>
 
 <h3>Registros de avance</h3>
 <p>Ruta: <strong>Entrenamiento → Registros de avance</strong> — Solo lectura para recepción y coordinación. Columnas: Socio, Rutina, Quién registró, Avance %, Completados/Total, Fecha. Los entrenadores registran avance desde la app o panel según permiso.</p>
@@ -1081,7 +1096,12 @@
 
 <h3>Aceptaciones legales</h3>
 <p>Ruta: <strong>Legal y documentos → Aceptaciones legales</strong></p>
-<p>Registro legal de quién firmó qué versión: Documento, Versión, Usuario, Fecha, IP. Acción <strong>Descargar PDF</strong> por fila (incluye texto firmado, firma digital y, si el socio ya capturó su identificación oficial en el onboarding de la app, anverso y reverso en la última página, junto con la referencia al aviso de privacidad). Estos registros no se eliminan.</p>
+<p>El listado muestra <strong>una fila por socio</strong> que ya tiene al menos una aceptación: número CRC, nombre, una columna por tipo de documento (reglamento, privacidad, liberación) y fecha de última aceptación.</p>
+<ul>
+  <li>En cada columna de documento: si está pendiente aparece «Pendiente»; si ya firmó, un enlace <strong>PDF vN</strong> abre en pestaña nueva el comprobante (texto firmado, firma digital y, si el socio ya capturó su identificación oficial en el onboarding de la app, anverso y reverso en la última página, con referencia al <a href="https://www.crecesportclub.com/privacidad/">aviso de privacidad</a>).</li>
+  <li>Acción <strong>Ver ID</strong> — Mismo modal de anverso/reverso que en Recepción → Socios (útil al revisar evidencia legal sin salir del módulo).</li>
+</ul>
+<p>Estos registros no se eliminan.</p>
 
 <h2 id="comunicacion">Comunicación</h2>
 
@@ -1274,7 +1294,7 @@
   <li>Edita el socio y completa la pestaña <strong>Nuevo ingreso</strong> (datos personales, emergencia, salud, objetivos, declaraciones).</li>
   <li>En el <strong>Punto de venta</strong>, busca al socio, activa «Agregar inscripción automática» si aplica, agrega membresía o paquete y pulsa <strong>Cobrar</strong>.</li>
   <li>O en <strong>Contratos y vigencias → Registrar pago / activar vigencia</strong> si el cobro fue fuera del POS.</li>
-  <li>Indica al socio que descargue la app, inicie sesión con su correo y complete aceptación de documentos legales si aún aparecen pendientes.</li>
+  <li>Indica al socio que descargue la app, inicie sesión con su correo y complete el registro: salud, documentos legales e identificación oficial si aún aparecen pendientes.</li>
 </ol>
 
 <h3>Pre-registro web → cobro en recepción</h3>
@@ -1284,7 +1304,7 @@
   <li>Indícale que descargue CreceApp, use <strong>Olvidé mi contraseña</strong> con su correo y el código del correo de bienvenida.</li>
   <li>En <strong>Recepción → Socios</strong>, búscalo por correo o CRC (no uses <strong>Crear</strong> si ya existe ficha). Confirma que el canal sigue siendo <strong>Web</strong> en <strong>Ver info</strong>, la pestaña General o la ficha PDF.</li>
   <li>Cobra membresía o paquete en <strong>Punto de venta</strong> (o activa vigencia según el caso). El canal permanece <strong>Web</strong>.</li>
-  <li>Revisa onboarding pendiente: el socio puede necesitar completar salud y documentos legales en la app.</li>
+  <li>Revisa onboarding pendiente: el socio puede necesitar completar salud, documentos legales e identificación oficial (anverso/reverso) en la app. Usa <strong>Ver ID</strong> para confirmar si ya subió la identificación.</li>
 </ol>
 
 <h3>Vender una membresía en mostrador</h3>
@@ -1409,7 +1429,13 @@
 <p>Sí, si la cuenta tiene ambos roles (recepcion + escaneo_accesos). Inicia sesión en /admin para mostrador y en /acceso para la tablet de entrada.</p>
 
 <h3>¿Qué significa «Onboarding completado» en Socios?</h3>
-<p>Indica que el socio cumplió los requisitos mínimos: cuenta activa, documentos legales aceptados en la app (si aplica) y formulario de nuevo ingreso con datos obligatorios. Hasta entonces puede aparecer como pendiente aunque ya haya pagado membresía.</p>
+<p>Indica que el socio cumplió los requisitos mínimos: cuenta activa, formulario de salud / nuevo ingreso con datos obligatorios, documentos legales aceptados en la app e <strong>identificación oficial</strong> (anverso y reverso) capturada en CreceApp. Hasta entonces puede aparecer como pendiente aunque ya haya pagado membresía. Consulta la ID con la acción <strong>Ver ID</strong>.</p>
+
+<h3>¿Dónde veo la identificación oficial del socio?</h3>
+<p>En <strong>Recepción → Socios → Ver ID</strong> o en <strong>Legal y documentos → Aceptaciones legales → Ver ID</strong>. El socio la captura solo desde la app (paso Identificación del onboarding); el personal no la sube desde el panel. También aparece en el PDF de cada aceptación cuando ya está cargada.</p>
+
+<h3>¿El socio puede cambiar su foto de ficha sin pasar por recepción?</h3>
+<p>Sí. Desde CreceApp → Perfil toca la foto y elige cámara o galería. Es la misma imagen que captura recepción con <strong>Capt foto</strong> y la que usa la credencial PDF; quien la actualice por último es la que queda.</p>
 
 <h3>¿Qué es «Canal de inscripción o registro»?</h3>
 <p>Indica <strong>dónde se creó la ficha</strong>, no dónde pagó la membresía: <strong>Web</strong> (formulario público /nuevo-ingreso), <strong>App</strong> (registro u onboarding en CreceApp) o <strong>Sucursal</strong> (personal dio de alta la ficha con <strong>Crear</strong> en Recepción → Socios). Un socio pre-registrado por web sigue siendo canal <strong>Web</strong> aunque cobres en mostrador; uno registrado en la app sigue siendo <strong>App</strong> aunque pague en recepción. Solo es <strong>Sucursal</strong> si recepción creó la ficha desde el panel. Aparece en la pestaña General, <strong>Ver info</strong> y la ficha PDF.</p>
@@ -1547,7 +1573,8 @@
 <ol class="steps">
   <li>En Socios, verifica columna Onboarding (ícono de reloj = pendiente).</li>
   <li>Abre la ficha → pestaña Nuevo ingreso: ¿faltan campos obligatorios?</li>
-  <li>En Aceptaciones legales, busca al usuario: ¿aceptó la versión publicada de reglamento, privacidad y liberación?</li>
+  <li>En Aceptaciones legales, busca al socio: ¿aceptó la versión publicada de reglamento, privacidad y liberación? Descarga el PDF si necesitas evidencia.</li>
+  <li>Usa <strong>Ver ID</strong>: ¿ya hay anverso y reverso? Si no, indícale Completar registro → Identificación en la app (y marcar el consentimiento del aviso de privacidad).</li>
   <li>En Contratos y vigencias o Paquetes de visitas: ¿tiene derecho de acceso activo?</li>
   <li>Si todo está completo y sigue pendiente, guarda de nuevo la ficha del socio para forzar recálculo del onboarding.</li>
 </ol>

@@ -95,7 +95,7 @@
   <li>Recibes un correo de bienvenida con tu número y un <strong>código para establecer contraseña</strong>.</li>
   <li>Descarga CreceApp, elige <strong>Olvidé mi contraseña</strong>, ingresa tu correo y usa ese código para crear tu contraseña.</li>
   <li>Debes acudir a una sucursal a <strong>pagar tu plan en recepción</strong> para activar la membresía (el cobro en mostrador no cambia tu canal de registro).</li>
-  <li>Completa en la app lo que falte: formulario de salud completo, documentos legales y demás datos de onboarding.</li>
+  <li>Completa en la app lo que falte: formulario de salud, documentos legales e identificación oficial (anverso y reverso) en Completar registro.</li>
 </ul>
 
 <div class="note">
@@ -125,7 +125,7 @@
 
 <h3>Después de iniciar sesión</h3>
 
-<p>La app registra tu dispositivo para recibir notificaciones push (avisos del club). Si eres socio y aún no completaste el registro de salud y documentos legales, serás guiado automáticamente a <strong>Completar registro</strong> antes de usar reservas. Si ya estás al día, llegarás a tu pantalla de inicio según tu perfil.</p>
+<p>La app registra tu dispositivo para recibir notificaciones push (avisos del club). Si eres socio y aún no completaste el registro (salud, documentos legales e identificación oficial), serás guiado automáticamente a <strong>Completar registro</strong> antes de usar reservas. Si ya estás al día, llegarás a tu pantalla de inicio según tu perfil.</p>
 
 <h2 id="perfiles">Perfiles en la app</h2>
 
@@ -191,7 +191,7 @@
     </tr>
     <tr>
       <td><strong>Perfil</strong></td>
-      <td>Tu foto de recepción (si existe) o inicial, nombre, correo, membresía, accesos a ajustes, QR, reservas, cerrar sesión.</td>
+      <td>Tu foto de ficha (si existe) o inicial, nombre, correo, membresía, accesos a ajustes, QR, reservas, cerrar sesión.</td>
     </tr>
   </tbody>
 </table>
@@ -566,9 +566,16 @@
 
 <p><strong>Paso Legales</strong> — Lista de documentos requeridos (reglamento interno, liberación de responsabilidades, aviso de privacidad). Cada fila muestra <em>Firmado</em> o <em>Pendiente de firma</em>. Toca un documento pendiente para firmarlo.</p>
 
-<p><strong>Paso Identificación</strong> — Cuando ya firmaste todos los documentos, captura con la cámara el <strong>anverso</strong> y el <strong>reverso</strong> de tu identificación oficial. Las imágenes se guardan una sola vez y se agregan al PDF de cada documento firmado. El texto indica que los datos se tratan conforme al <a href="https://www.crecesportclub.com/privacidad/">aviso de privacidad</a> del club; puedes abrirlo desde el enlace en pantalla.</p>
+<p><strong>Paso Identificación</strong> — Cuando ya firmaste todos los documentos, aparece este paso final:</p>
+<ol class="steps">
+  <li>Toca <strong>Anverso</strong> y toma una foto clara del frente de tu identificación oficial (INE, pasaporte u otra ID válida).</li>
+  <li>Toca <strong>Reverso</strong> y captura el dorso.</li>
+  <li>Marca la casilla de autorización: el tratamiento de tu ID se rige por el <a href="https://www.crecesportclub.com/privacidad/">aviso de privacidad</a> del club (puedes abrir el enlace desde el mismo texto).</li>
+  <li>Confirma el envío. Verás «Identificación guardada correctamente.» Las imágenes se agregan al PDF de cada documento que firmaste.</li>
+</ol>
+<p>Si falta un lado o no marcas el consentimiento, la app te pedirá completarlos antes de continuar.</p>
 
-<p>Cuando todo está completo aparece el botón <strong>Registro completo — Continuar</strong>, que te lleva a Mi día.</p>
+<p>Cuando salud, legales e identificación están listos aparece el botón <strong>Registro completo — Continuar</strong>, que te lleva a Mi día.</p>
 
 <div class="warning">
   <strong>Hasta completar el registro</strong> no podrás reservar clases. El club puede configurar excepciones, pero lo normal es exigir salud, firmas legales e identificación oficial.
@@ -837,15 +844,18 @@
 
 <h3>Crear o editar rutina (entrenador)</h3>
 
-<p>Formulario <strong>Nueva rutina</strong> o <strong>Editar rutina</strong>:</p>
+<p>Solo el rol <strong>entrenador</strong> gestiona rutinas desde la app (crear, editar, eliminar y asignar). El formulario <strong>Nueva rutina</strong> / <strong>Editar rutina</strong> alinea con el portal web:</p>
 <ul>
   <li><strong>Nombre</strong> — Obligatorio.</li>
-  <li><strong>Descripción</strong> — Texto libre.</li>
-  <li><strong>Tipo</strong> — General o Personalizada.</li>
+  <li><strong>Descripción / objetivo</strong> — Texto libre.</li>
+  <li><strong>Tipo</strong> — General o Personalizada. Si es personalizada, elige el <strong>socio objetivo</strong> con el buscador.</li>
   <li>Interruptor <strong>Rutina activa</strong> — Desactiva sin borrar.</li>
+  <li><strong>Bloques / días</strong> — Agrega uno o más bloques. En cada uno: título, enfoque, duración estimada, calentamiento, lista de <strong>ejercicios</strong> (nombre, series, repeticiones, descanso, equipo, notas, etc.) y enfriamiento.</li>
+  <li><strong>Material de apoyo</strong> — Botón <strong>Contenido</strong> para videos, enlaces o notas vinculados a la rutina (se guardan al crear o actualizar).</li>
   <li><strong>Crear rutina</strong> / <strong>Guardar cambios</strong>.</li>
   <li>En edición: icono <strong>Eliminar</strong> (papelera) arriba — Diálogo «¿Eliminar esta rutina?» con Cancelar/Eliminar.</li>
 </ul>
+<p>Tras guardar, asigna la rutina desde <strong>Asignar a socio</strong> (rutina, socio, fechas opcionales y notas).</p>
 
 <h3>Entrenadores (lista y perfil)</h3>
 
@@ -1172,9 +1182,14 @@
       <td>Recepción → Socios; formulario público /nuevo-ingreso; importación masiva. El panel muestra el <strong>canal de inscripción</strong> (Web, App o Sucursal).</td>
     </tr>
     <tr>
-      <td><span class="badge badge-app">App</span> Foto en inicio y perfil (recepción)</td>
-      <td><span class="badge badge-web">Web</span> Captura en mostrador</td>
-      <td>Recepción → Socios → acción <strong>Capt foto</strong></td>
+      <td><span class="badge badge-app">App</span> Foto en inicio y perfil</td>
+      <td><span class="badge badge-web">Web</span> Captura en mostrador o desde la app del socio</td>
+      <td>Recepción → Socios → <strong>Capt foto</strong>; o CreceApp → Perfil (tocar foto)</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-app">App</span> Identificación oficial (onboarding)</td>
+      <td><span class="badge badge-web">Web</span> Solo consulta</td>
+      <td>Recepción → Socios → <strong>Ver ID</strong>; Aceptaciones legales → <strong>Ver ID</strong> y PDF de firmas</td>
     </tr>
     <tr>
       <td><span class="badge badge-app">App</span> Membresía y vigencia</td>
@@ -1208,8 +1223,8 @@
     </tr>
     <tr>
       <td><span class="badge badge-app">App</span> Rutinas y asignaciones</td>
-      <td><span class="badge badge-web">Web</span> Módulo entrenamiento</td>
-      <td>Entrenamiento → Rutinas; app móvil para asignar al instante</td>
+      <td><span class="badge badge-web">Web</span> Panel o app del entrenador</td>
+      <td>Entrenamiento → Rutinas / Asignaciones; CreceApp (rol entrenador): Mis rutinas y Asignar a socio con el mismo detalle</td>
     </tr>
     <tr>
       <td><span class="badge badge-app">App</span> Biblioteca de videos</td>
@@ -1269,7 +1284,7 @@
 <p>Sí. Puedes iniciar sesión en más de un dispositivo. Cierra sesión en aparatos que ya no uses.</p>
 
 <h3>¿Por qué no me deja reservar una clase?</h3>
-<p>Causas comunes: registro incompleto (salud o legales), membresía vencida, horario lleno, fuera del plazo de reserva anticipada, o ya tienes otra reserva que se traslapa. Lee el mensaje que muestra la app.</p>
+<p>Causas comunes: registro incompleto (salud, legales o identificación oficial), membresía vencida, horario lleno, fuera del plazo de reserva anticipada, o ya tienes otra reserva que se traslapa. Lee el mensaje que muestra la app. Si ves Completar registro, termina los tres pasos.</p>
 
 <h3>¿Qué es la lista de espera?</h3>
 <p>Si la clase está llena, puedes unirte a la fila. Si alguien cancela, el sistema puede confirmarte automáticamente según reglas del club.</p>
@@ -1324,6 +1339,12 @@
 
 <h3>¿Por qué coordinador ve lo mismo que administrador en la app?</h3>
 <p>En el teléfono, coordinador y recepción comparten la experiencia de «Administración» con métricas y consultas. Las diferencias de permisos se aplican sobre todo en el panel web (por ejemplo, coordinación puede tener más módulos de edición allí).</p>
+
+<h3>¿Puedo cambiar mi foto de perfil / ficha?</h3>
+<p>Sí, si eres socio: en <strong>Perfil</strong> toca tu foto (o la inicial) y elige cámara o galería. Es la misma foto que usa recepción para la credencial. El personal también puede actualizarla desde el panel web.</p>
+
+<h3>¿Para qué piden mi identificación oficial?</h3>
+<p>Es el último paso del registro en la app (después de salud y documentos legales). Capturas anverso y reverso; se adjuntan a tus firmas legales y el club puede consultarlas en el panel. Debes autorizar el tratamiento conforme al <a href="https://www.crecesportclub.com/privacidad/">aviso de privacidad</a>. Sin este paso, el registro suele quedar incompleto y no podrás reservar.</p>
 
 <h3>¿Puedo ver el detalle de una rutina asignada con videos incluidos?</h3>
 <p>Sí. Al abrir una rutina en Mis rutinas, el detalle puede listar ejercicios y enlaces a videos de la biblioteca. Si el entrenador vinculó contenido multimedia, ábrelo desde ahí; también puedes ir a la pestaña Videos.</p>
