@@ -231,6 +231,20 @@ main {
   }
 }
 
+.hero-promo {
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #f2f2f2;
+}
+
+.hero-promo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .hero-branches {
   display: grid;
   gap: 1.25rem;
