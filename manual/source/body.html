@@ -243,6 +243,7 @@
     <tr><td>Ver planes y precios</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Editar planes y precios</td><td>Sí</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Registrar pago / activar vigencia de membresía</td><td>Solo ver contratos</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
+    <tr><td>Editar vigencia (extender o acortar fechas)</td><td>No</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
     <tr><td>Emitir paquete de visitas</td><td>Solo ver</td><td>Sí</td><td>Sí</td><td>No</td><td>No</td></tr>
   </tbody>
 </table>
@@ -559,7 +560,7 @@
   <li><strong>Inicio / Fin de vigencia</strong> (fin opcional)</li>
   <li><strong>Referencia de pago</strong> y <strong>Notas de cobro</strong></li>
 </ul>
-<p>Antes de duplicar un contrato, revisa Ventas y Pagos del mismo día.</p>
+<p>Coordinador, administrador y superadministrador técnico pueden <strong>editar</strong> una vigencia ya creada (por ejemplo para extender el fin de la membresía). Recepción consulta el listado, pero no modifica fechas. Si la vigencia estaba vencida y la nueva fecha de fin queda en el futuro, el sistema la deja otra vez activa. Antes de duplicar un contrato, revisa Ventas y Pagos del mismo día.</p>
 
 <h3 id="chat-soporte">Chat con socios</h3>
 <p>Ruta: <strong>Recepción → Chat</strong> (<code>/admin/support-chat</code>)</p>
@@ -832,16 +833,21 @@
 
 <h3>Horarios de clase</h3>
 <p>Ruta: <strong>Reservaciones → Horarios de clase</strong></p>
-<p>Campos:</p>
+<p>Hay dos modos al crear un horario:</p>
+<ul>
+  <li><strong>Sesión con fecha de inicio y fin</strong> — una clase en un momento concreto (o un periodo determinado), como hasta ahora.</li>
+  <li><strong>Clase recurrente</strong> — se repite uno o varios días (por ejemplo todos los martes). Por defecto no tiene fecha de fin; si quieres que deje de programarse, indica una última fecha.</li>
+</ul>
+<p>Campos comunes:</p>
 <ul>
   <li><strong>Sucursal</strong> (Padierna, Huipulco, etc.) — primero elige sucursal</li>
   <li><strong>Clase</strong> — solo aparecen clases creadas para esa sucursal</li>
   <li>Entrenador (opcional)</li>
-  <li>Inicio y Fin (fecha y hora)</li>
   <li>Cupo (número máximo de personas)</li>
   <li>Estado (programada, cancelada, etc.)</li>
 </ul>
-<p>Al guardar un horario futuro con estado programada, aparece automáticamente en la app para que socios reserven hasta llenar el cupo. Si cancelas un horario, las reservas existentes deben gestionarse (avisar socios; cancelar reservas desde Reservas de clases si procede). Mantén coherencia entre sede física del horario y la ubicación real de la clase para evitar confusiones en recepción.</p>
+<p>En modo recurrente, además: días de la semana, hora de inicio y de fin, primera fecha de la serie y (opcional) última fecha. El sistema genera sesiones individuales a futuro; la app las muestra y reserva igual que cualquier otro horario, sin un modo especial.</p>
+<p>Al guardar un horario futuro con estado programada, aparece automáticamente en la app para que socios reserven hasta llenar el cupo. Si cancelas un horario, las reservas existentes deben gestionarse (avisar socios; cancelar reservas desde Reservas de clases si procede). En una serie recurrente puedes editar solo esa sesión o aplicar días/horario a las sesiones futuras que aún no tengan reservas. Mantén coherencia entre sede física del horario y la ubicación real de la clase para evitar confusiones en recepción.</p>
 
 <h3>Clases</h3>
 <p>Ruta: <strong>Reservaciones → Clases</strong></p>
@@ -1475,7 +1481,7 @@
     <tr><td>Caja y ventas</td><td>Sesiones de caja</td><td>Aperturas, cierres, retiros autorizados.</td></tr>
     <tr><td>Caja y ventas</td><td>Documentos fiscales</td><td>Historial CFDI; conectar Facturiva, timbrar, PDF y cancelaciones.</td></tr>
     <tr><td>Reservaciones</td><td>Clases</td><td>Tipos de clase por sucursal (Spinning, Funcional, etc.).</td></tr>
-    <tr><td>Reservaciones</td><td>Horarios de clase</td><td>Calendario de sesiones con cupo.</td></tr>
+    <tr><td>Reservaciones</td><td>Horarios de clase</td><td>Sesiones con fecha definida o clases recurrentes (p. ej. todos los martes); cupo.</td></tr>
     <tr><td>Reservaciones</td><td>Reservas de clases</td><td>Reservas confirmadas; reservar o cancelar.</td></tr>
     <tr><td>Reservaciones</td><td>Lista de espera</td><td>Cola cuando una clase está llena.</td></tr>
     <tr><td>Reservaciones</td><td>Equipos reservables</td><td>Configuración de equipos con turnos para la app.</td></tr>
