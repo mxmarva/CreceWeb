@@ -678,8 +678,9 @@ main {
 table.schedule {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
   font-size: 0.75rem;
-  min-width: 520px;
+  min-width: 820px;
 }
 
 table.schedule th,
@@ -687,6 +688,7 @@ table.schedule td {
   border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 0.45rem 0.35rem;
   text-align: center;
+  vertical-align: middle;
 }
 
 table.schedule th {
@@ -694,6 +696,51 @@ table.schedule th {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+}
+
+table.schedule tbody th {
+  white-space: nowrap;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+table.schedule th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  width: 8.5rem;
+}
+
+table.schedule thead th:first-child {
+  z-index: 2;
+}
+
+table.schedule tr.schedule-period > th,
+table.schedule tr.schedule-period > td {
+  background: #f9b154;
+  color: #1a1a1a;
+  text-align: left;
+  font-weight: 700;
+}
+
+.schedule-who,
+.schedule-verify {
+  display: block;
+  margin-top: 0.15rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.schedule-verify {
+  font-size: 0.92em;
+}
+
+.schedule-note {
+  margin: 0.85rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
 }
 
 .cell-yoga {
@@ -714,6 +761,17 @@ table.schedule th {
 
 .cell-dance {
   background: rgba(0, 114, 206, 0.25);
+}
+
+.cell-pink {
+  background: #f3a0be;
+  color: #4a1230;
+  font-weight: 700;
+}
+
+.img-alberca {
+  object-fit: cover;
+  object-position: center 30%;
 }
 
 .contact-grid {
